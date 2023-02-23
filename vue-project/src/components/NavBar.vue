@@ -2,7 +2,7 @@
 import { RouterLink, RouterView } from "vue-router";
 </script>
 <template>
-  <nav class="navbar bg-body-tertiary">
+  <nav class="navbar">
     <div class="container">
       <RouterLink to="/" class="navbar-brand">
         <img :src="logo" alt="logo" height="60">
@@ -51,10 +51,8 @@ a.nav-link:hover {
   color: darkgrey;
 }
 
-.nav {
-  background-color: rgba(81, 61, 61, 0.4);
-  border-radius: 10px;
-  z-index: 999;
+.navbar {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 </style>
