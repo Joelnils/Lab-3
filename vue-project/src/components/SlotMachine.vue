@@ -2,12 +2,17 @@
   <div class="slot-machine">
     <div class="rows">
       <div class="row" v-for="(row, index) in rows" :key="index">
-        <div class="symbol" v-for="(symbol, index) in row" :key="index">
+        <div
+          class="symbol"
+          :class="spinClass"
+          v-for="(symbol, index) in row"
+          :key="index"
+        >
           {{ symbol }}
         </div>
       </div>
     </div>
-    <button class="spin-button" @click="spin">Snurra</button>
+    <button class="spin-button" :disabled="spinning" @click="spin">Snurra</button>
     <div class="result">{{ gameResult }}</div>
   </div>
 </template>
@@ -23,34 +28,41 @@ export default {
         ["🍋", "🍎", "🍏"],
       ],
       gameResult: "",
+      spinning: false,
+      spinClass: "",
+      spinTimeouts: [],
     };
   },
   methods: {
     spin() {
-      this.shuffle(this.symbols);
-      this.rows.forEach((row) => {
-        row.length = 0;
-        row.push(this.symbols[Math.floor(Math.random() * this.symbols.length)]);
-        row.push(this.symbols[Math.floor(Math.random() * this.symbols.length)]);
-        row.push(this.symbols[Math.floor(Math.random() * this.symbols.length)]);
-      });
-      if (this.checkWin()) {
-        this.gameResult = "Du vann!";
-      } else {
-        this.gameResult = "Du förlorade";
+      this.spinning = true;
+      this.spinClass = "spin";
+      this.spinTimeouts = [];
+      for (let i = 0; i < 3; i++) {
+        this.spinTimeouts.push(
+          setTimeout(() => {
+            this.rows[i].length = 0;
+            this.rows[i].push(
+              this.symbols[Math.floor(Math.random() * this.symbols.length)]
+            );
+            this.rows[i].push(
+              this.symbols[Math.floor(Math.random() * this.symbols.length)]
+            );
+            this.rows[i].push(
+              this.symbols[Math.floor(Math.random() * this.symbols.length)]
+            );
+          }, i * 500)
+        );
       }
-    },
-    shuffle(array) {
-      let currentIndex = array.length;
-      let temporaryValue, randomIndex;
-      while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-      }
-      return array;
+      setTimeout(() => {
+        clearTimeouts(this.spinTimeouts);
+        this.spinning = false;
+        if (this.checkWin()) {
+          this.gameResult = "Du vann 10kr! (Företaget tar 50% så du vann egentligen 5kr)";
+        } else {
+          this.gameResult = "Du förlorade hela din livsbesparning";
+        }
+      }, 2000);
     },
     checkWin() {
       for (let i = 0; i < this.rows.length; i++) {
@@ -65,6 +77,12 @@ export default {
     },
   },
 };
+
+function clearTimeouts(timeouts) {
+  for (let i = 0; i < timeouts.length; i++) {
+    clearTimeout(timeouts[i]);
+  }
+}
 </script>
 
 <style scoped>
@@ -95,21 +113,19 @@ export default {
   margin: 1rem;
 }
 
-.spin-button {
-  margin-top: 2rem;
-  padding: 1rem 2rem;
-  font-size: 1.5rem;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+.spin {
+  animation-name: spin;
+  animation-duration: 1.5s;
+  animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  animation-fill-mode: forwards;
 }
 
-.result {
-  margin-top: 2rem;
-  font-size: 3rem;
-  font-weight: bold;
-  text-align: center;
+@keyframes spin {
+  from {
+    transform: translateY(-50%) rotateX(0deg);
+  }
+  to {
+    transform: translateY(-50%) rotateX(720deg);
+  }
 }
 </style>
