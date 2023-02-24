@@ -54,7 +54,7 @@ export default {
       loggedInUser: null,
       showLoggedInUser: false,
       guestName: null,
-      gold: 0, /* Nytt från 23/2 */
+      gold: 0 /* Nytt från 23/2 */,
     };
   },
   methods: {

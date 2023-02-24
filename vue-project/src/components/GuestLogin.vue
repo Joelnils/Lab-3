@@ -2,7 +2,8 @@
 <template>
   <div class="account-page">
     <div class="guest-account-page">
-      <h1 class="totalCash">Total cash: ${{ $route.query.gold }}</h1> <!-- Hämtar
+      <h1 class="totalCash">Total cash: ${{ $route.query.gold }}</h1>
+      <!-- Hämtar
       värdet från LoginPage.vue -->
     </div>
     <div class="blue-side">
@@ -12,7 +13,8 @@
       <h1 class="guestName">{{ guestName }}</h1>
     </div>
   </div>
-</template> /* HEJ */
+</template>
+/* HEJ */
 <script>
 export default {
   computed: {
@@ -39,10 +41,10 @@ export default {
   max-width: 600px;
 }
 .guestName {
-    position: absolute;
-    font-size: 20px;
-    bottom: 70px;
-    left: 80px;
+  position: absolute;
+  font-size: 20px;
+  bottom: 70px;
+  left: 80px;
 }
 
 .totalCash {
@@ -50,7 +52,6 @@ export default {
   font-size: 32px;
   margin-bottom: 20px;
   top: 25px;
-
 }
 
 p {
@@ -68,11 +69,11 @@ router-link {
   bottom: 28px;
   left: 70px;
   transition: color 0.15s ease-in-out 0.15s;
-  font-family: 'Lato';
+  font-family: "Lato";
   font-style: italic;
   font-weight: 700;
   font-size: 18px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .logout-button:hover {
   color: rgba(152, 80, 13, 0.6);

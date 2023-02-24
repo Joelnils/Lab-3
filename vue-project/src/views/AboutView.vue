@@ -1,5 +1,7 @@
-<template>
-  <h2>About</h2>
-</template>
+<script setup>
+import AboutSida from "../components/AboutSida.vue";
+</script>
 
-<style></style>
+<template>
+  <AboutSida />
+</template>
