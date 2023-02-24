@@ -1,9 +1,11 @@
 <template>
   <div class="login-container">
-    <form class="login-form" @submit.prevent> <!-- Skippar refresh av sidan med
+    <form class="login-form" @submit.prevent>
+      <!-- Skippar refresh av sidan med
     submit.prevent -->
 
       <h1>Login</h1>
+
       <div class="form-group">
         <label for="username">Username:</label>
         <input type="text" id="username" v-model="username" />
@@ -24,12 +26,11 @@
       <button
         v-if="showStartButton"
         class="start-playing-button"
-        @click="showLoggedInUser = true"
+        @click="guestInfo"
       >
         Start playing
       </button>
       <!-- Knappen gör att showLoggedInUser visas -->
-
 
       <div v-if="showLoggedInUser && loggedInUser" class="inloggaswho">
         <h3>Logged in as: {{ loggedInUser }}</h3>
@@ -39,7 +40,6 @@
     </form>
   </div>
 </template>
-
 
 <script>
 export default {
@@ -53,27 +53,51 @@ export default {
       showLoginForm: false,
       loggedInUser: null,
       showLoggedInUser: false,
+      guestName: null,
+      gold: 0, /* Nytt från 23/2 */
     };
   },
   methods: {
     Login() {
       if (!this.username || !this.password) {
-
         this.errorMessage = "Please enter your username and password";
         return;
       }
-
     },
     LoginGuest() {
-      const guestName = `Guest${Math.floor(Math.random() * 1338)}`;
-      this.username = guestName;
+      if (!this.guestName) {
+        this.guestName = `Guest${Math.floor(Math.random() * 1338)}`;
+      }
+      this.username = this.guestName;
       this.showPassword = false;
       this.showStartButton = true;
       this.errorMessage = "";
-      this.loggedInUser = guestName;
+      this.loggedInUser = this.guestName;
+      this.gold = Math.floor(Math.random() * 1000);
       /* Ger ett random "Guest namn" med math.floor + random mellan 0 till 1337
       username blir guestName
       Password delen försvinner och lägger till en showStartButton knapp */
+      /* Från 23/2 har gold lagts till som ska vara sidans valuta */
+    },
+
+    guestInfo() {
+      /* 21/2 - Gjort en metod som gör showLoggedInUser till true
+        och pushar till en ny sida när man klickar på knappen
+        Har även lagt till setTimeout här med 2 sekunders delay som gör att det tar två sekunder att komma till nästa sida
+
+        */
+      this.showLoggedInUser = true;
+      if (!this.guestName) {
+        this.guestName = `Guest${Math.floor(Math.random() * 1338)}`;
+      }
+      setTimeout(() => {
+        this.$router.push({
+          name: "GuestLogin",
+          query: { guestName: this.guestName, gold: this.gold },
+          /* Ligger som en query (så länge), funderar på att göra om till en props
+          vid ett senare tillfälle */
+        });
+      }, 2000);
     },
   },
 };
@@ -116,7 +140,6 @@ h1 {
   background-color: #f2f2f2;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
-
 
 .login-form {
   display: flex;
@@ -162,6 +185,7 @@ input {
   border-radius: 5px;
   cursor: pointer;
   font-size: 18px;
+  transition: background-color 0.15s ease-in-out 0.15s;
 }
 .guest-login-button {
   padding: 15px;
@@ -172,6 +196,7 @@ input {
   border-radius: 5px;
   cursor: pointer;
   font-size: 18px;
+  transition: background-color 0.15s ease-in-out 0.15s;
   /* animation: pulse 1s infinite;  */
 }
 /*@keyframes pulse {
@@ -199,6 +224,7 @@ input {
   border-radius: 5px;
   cursor: pointer;
   font-size: 20px;
+  transition: background-color 0.15s ease-in-out 0.15s;
 }
 .start-playing-button:hover {
   background: rgba(152, 80, 13, 0.6);
