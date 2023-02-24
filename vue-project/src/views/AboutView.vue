@@ -1,5 +1,5 @@
+<script setup>
+</script>
 <template>
-  <h2>About</h2>
+  <main></main>
 </template>
-
-<style></style>
