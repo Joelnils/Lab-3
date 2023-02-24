@@ -18,10 +18,17 @@ const router = createRouter({
       component: () => import("../views/AboutView.vue"),
     },
     {
-        path: "/login",
-        name: "login",
-        component: () => import("../components/LoginPage.vue"),
-    } // Lagt till en login - Robin
+      path: "/login",
+      name: "login",
+      component: () => import("../components/LoginPage.vue"),
+    }, // Lagt till en login - Robin
+    {
+      path: "/login/guest",
+      name: "GuestLogin",
+      component: () => import("../components/GuestLogin.vue"),
+    },
+
+    {},
   ],
 });
 

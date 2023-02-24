@@ -7,7 +7,9 @@ import { RouterLink, RouterView } from "vue-router";
   <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
       <RouterLink to="/" class="navbar-brand">
+
         <img :src="logo" alt="logo" id="logo" height="60">
+
       </RouterLink>
       <ul class="nav">
         <li class="nav-item">
@@ -36,18 +38,18 @@ import { RouterLink, RouterView } from "vue-router";
 export default {
   data() {
     return {
-      logo: 'src/assets/img/logo.png'
-    }
-  }
-}
+      logo: "src/assets/img/logo.png",
+    };
+  },
+};
 </script>
 
 <style>
 
 a.nav-link {
   color: white;
-  margin: .5rem;
-  font-family: 'Times New Roman', Times, serif;
+  margin: 0.5rem;
+  font-family: "Times New Roman", Times, serif;
   font-size: 1.3rem;
 }
 
@@ -61,6 +63,7 @@ a.nav-link:hover {
   justify-content: end;
   background-color: rgba(26, 23, 23, 0.7);
 }
+
 
 /* responsive for mobile devices */
 @media screen and (max-width: 768px) {
@@ -89,4 +92,5 @@ a.nav-link:hover {
     margin-right: 0;
   }
 }
+
 </style>
