@@ -5,7 +5,7 @@ import { RouterLink, RouterView } from "vue-router";
   <nav class="navbar bg-body-tertiary">
     <div class="container">
       <RouterLink to="/" class="navbar-brand">
-        <img :src="logo" alt="logo" height="60">
+        <img :src="logo" alt="logo" height="60" />
       </RouterLink>
       <ul class="nav">
         <li class="nav-item">
@@ -21,7 +21,7 @@ import { RouterLink, RouterView } from "vue-router";
           <RouterLink class="nav-link" to="/">Contact</RouterLink>
         </li>
         <li class="nav-item">
-          <RouterLink class="nav-link" to="/">Account</RouterLink>
+          <RouterLink class="nav-link" to="/login">Account</RouterLink>
         </li>
       </ul>
     </div>
@@ -33,17 +33,17 @@ import { RouterLink, RouterView } from "vue-router";
 export default {
   data() {
     return {
-      logo: 'src/assets/img/logo.png'
-    }
-  }
-}
+      logo: "src/assets/img/logo.png",
+    };
+  },
+};
 </script>
 
 <style>
 a.nav-link {
   color: white;
-  margin: .5rem;
-  font-family: 'Times New Roman', Times, serif;
+  margin: 0.5rem;
+  font-family: "Times New Roman", Times, serif;
   font-size: 1.3rem;
 }
 
@@ -56,5 +56,4 @@ a.nav-link:hover {
   border-radius: 10px;
   z-index: 999;
 }
-
 </style>
