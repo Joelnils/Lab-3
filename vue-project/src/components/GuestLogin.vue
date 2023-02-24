@@ -12,7 +12,7 @@
       <h1 class="guestName">{{ guestName }}</h1>
     </div>
   </div>
-</template>
+</template> /* HEJ */
 <script>
 export default {
   computed: {
