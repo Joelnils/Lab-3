@@ -4,7 +4,9 @@ import { RouterLink, RouterView } from "vue-router";
 
 <!-- Navbar -->
 <template>
+
   <nav class="navbar navbar-expand-lg fixed-top">
+
     <div class="container">
       <RouterLink to="/" class="navbar-brand">
 
@@ -91,6 +93,7 @@ a.nav-link:hover {
   .container .navbar-brand {
     margin-right: 0;
   }
+
 }
 
 </style>
