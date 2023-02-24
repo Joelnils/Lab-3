@@ -1,23 +1,26 @@
 <script setup>
 import NavBar from "./components/NavBar.vue";
-import foot from "./components/FootEr.vue"
+import foot from "./components/FootEr.vue";
 </script>
 
 <template>
   <div class="main">
-  <NavBar />
-  <div class="footer"><foot/></div>
-</div>
+    <NavBar />
+    
+    <div class="footer"><foot /></div>
+  </div>
 </template>
 
 <style scoped>
-.main{
+.main {
   min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
-.footer{
-  margin-top: auto;
+.footer {
+  margin-top: 1000px;
 }
+
+
 
 </style>

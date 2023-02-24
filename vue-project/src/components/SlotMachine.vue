@@ -12,7 +12,9 @@
         </div>
       </div>
     </div>
-    <button class="spin-button" :disabled="spinning" @click="spin">Snurra</button>
+    <button class="spin-button" :disabled="spinning" @click="spin">
+      Snurra
+    </button>
     <div class="result">{{ gameResult }}</div>
   </div>
 </template>
@@ -58,7 +60,8 @@ export default {
         clearTimeouts(this.spinTimeouts);
         this.spinning = false;
         if (this.checkWin()) {
-          this.gameResult = "Du vann 10kr! (Företaget tar 50% så du vann egentligen 5kr)";
+          this.gameResult =
+            "Du vann 10kr! (Företaget tar 50% så du vann egentligen 5kr)";
         } else {
           this.gameResult = "Du förlorade hela din livsbesparning";
         }

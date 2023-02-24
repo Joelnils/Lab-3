@@ -1,8 +1,14 @@
-<script scoped></script>
+<script scoped>
+</script>
 <template>
+
   <div class="account-page">
+
     <div class="guest-account-page">
-      <h1 class="totalCash">Total cash: ${{ $route.query.gold }}</h1> <!-- Hämtar
+        <div class="gamePart">
+        <SlotMachine/></div>
+      <h1 class="totalCash">Total cash: ${{ $route.query.gold }}</h1>
+      <!-- Hämtar
       värdet från LoginPage.vue -->
     </div>
     <div class="blue-side">
@@ -12,13 +18,19 @@
       <h1 class="guestName">{{ guestName }}</h1>
     </div>
   </div>
-</template> /* HEJ */
+</template>
 <script>
+import SlotMachine from './SlotMachine.vue';
+
+
 export default {
   computed: {
     guestName() {
       return this.$route.query.guestName;
     },
+  },
+  components: {
+    SlotMachine
   },
 };
 </script>
@@ -33,16 +45,25 @@ export default {
   background: rgba(73, 73, 73, 0.9);
   border-radius: 40px;
 }
+.gamePart {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  left: 30%;
+  top: 17%;
+  background: rgba(217, 199, 199, 0.9);
+  border-radius: 40px;
+}
 
 .guest-account-page {
   margin: 0 auto;
-  max-width: 600px;
+  max-width: 60px; /* Ändrar denna så kommer Total cash flyttas */
 }
 .guestName {
-    position: absolute;
-    font-size: 20px;
-    bottom: 70px;
-    left: 80px;
+  position: absolute;
+  font-size: 20px;
+  bottom: 70px;
+  left: 80px;
 }
 
 .totalCash {
@@ -50,7 +71,6 @@ export default {
   font-size: 32px;
   margin-bottom: 20px;
   top: 25px;
-
 }
 
 p {
@@ -68,11 +88,11 @@ router-link {
   bottom: 28px;
   left: 70px;
   transition: color 0.15s ease-in-out 0.15s;
-  font-family: 'Lato';
+  font-family: "Lato";
   font-style: italic;
   font-weight: 700;
   font-size: 18px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .logout-button:hover {
   color: rgba(152, 80, 13, 0.6);
@@ -82,7 +102,6 @@ router-link {
   width: 240px;
   height: 600px;
   top: 0px;
-
   background: #011b34;
   border-radius: 40px 0px 0px 40px;
 }

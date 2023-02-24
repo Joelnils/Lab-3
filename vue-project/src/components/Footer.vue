@@ -1,9 +1,7 @@
 <script setup>
 import { RouterLink } from "vue-router";
 
-const onClick = () => window.scrollTo(0, 0)
-
-
+const onClick = () => window.scrollTo(0, 0);
 </script>
 
 <template>
@@ -11,10 +9,8 @@ const onClick = () => window.scrollTo(0, 0)
     <div class="left">
       <div class="one">
         <img class="img" src="../assets/img/logo.png" alt="" />
-       
       </div>
       <div class="two">
-        
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
       </div>
     </div>
@@ -26,31 +22,30 @@ const onClick = () => window.scrollTo(0, 0)
       </div>
       <div class="four">
         <ul>
-            <li class="nav-item">
-          <RouterLink class="nav-text" to="/">Games</RouterLink>
-        </li>
-        <li class="nav-item">
-          <RouterLink class="nav-text" to="/">Odds</RouterLink>
-        </li>
-        <li class="nav-item">
-          <RouterLink class="nav-text" to="/about">About</RouterLink>
-        </li>
-        <li class="nav-item">
-          <RouterLink class="nav-text" to="/">Contact</RouterLink>
-        </li>
-        <li class="nav-item">
-          <RouterLink class="nav-text" to="/">Account</RouterLink>
-        </li>
+          <li class="nav-item">
+            <RouterLink class="nav-text" to="/">Games</RouterLink>
+          </li>
+          <li class="nav-item">
+            <RouterLink class="nav-text" to="/">Odds</RouterLink>
+          </li>
+          <li class="nav-item">
+            <RouterLink class="nav-text" to="/about">About</RouterLink>
+          </li>
+          <li class="nav-item">
+            <RouterLink class="nav-text" to="/">Contact</RouterLink>
+          </li>
+          <li class="nav-item">
+            <RouterLink class="nav-text" to="/">Account</RouterLink>
+          </li>
         </ul>
       </div>
     </div>
   </div>
-  
 </template>
 
 <style scoped>
-*{
-    color: white;
+* {
+  color: white;
 }
 .f-container {
   height: auto;
@@ -65,10 +60,10 @@ const onClick = () => window.scrollTo(0, 0)
 .left {
   display: flex;
   flex-direction: column;
- justify-content: center;
- align-items: center;
- padding-bottom: 30px;
-gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 30px;
+  gap: 20px;
 }
 .right {
   display: flex;
@@ -84,33 +79,33 @@ gap: 20px;
   text-decoration: none;
   color: white;
 }
-.four ul{
-    text-align: right;
+.four ul {
+  text-align: right;
 }
-.two{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-.nav-text{
-    list-style: none;
-    text-decoration: none;
-}
-@media only screen and (min-width: 991px){
-    .f-container {
-  height: 30vh;
-  background-color: rgba(0, 0, 0, 0.68);
-  width: 100%;
-  padding: 20px;
+.two {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
-.right {
-border: 0;
+.nav-text {
+  list-style: none;
+  text-decoration: none;
 }
-.mid {
+@media only screen and (min-width: 991px) {
+  .f-container {
+    height: 30vh;
+    background-color: rgba(0, 0, 0, 0.68);
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+  }
+  .right {
+    border: 0;
+  }
+  .mid {
     border: 1px solid white;
-}
+  }
 }
 </style>
