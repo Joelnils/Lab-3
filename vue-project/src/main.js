@@ -3,13 +3,15 @@ import App from "./App.vue";
 import router from "./router";
 
 // Import bootstraps css and js
-import 'bootstrap/dist/css/bootstrap.css'
-import bootstrap from 'bootstrap/dist/js/bootstrap.bundle.js'
+import "bootstrap/dist/css/bootstrap.css";
+import bootstrap from "bootstrap/dist/js/bootstrap.bundle.js";
+import "bootstrap-icons/font/bootstrap-icons.css"; /* import av bootstrap icons
+// Robin */
 
 import "./assets/main.css";
 
 const app = createApp(App);
 
 app.use(router);
-app.use(bootstrap)
+app.use(bootstrap);
 app.mount("#app");
