@@ -130,7 +130,6 @@ h1 {
   justify-content: center;
   align-items: center;
   height: 100vh;
-
 }
 
 .login-form {

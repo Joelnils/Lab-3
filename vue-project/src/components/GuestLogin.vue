@@ -1,16 +1,17 @@
-<script scoped>
-</script>
+<script scoped></script>
 <template>
-
   <div class="account-page">
-
     <div class="guest-account-page">
-        <div class="gamePart">
-        <SlotMachine/></div>
-      <h1 class="totalCash">Total cash: ${{ $route.query.gold }}</h1>
+      <div class="gamePart">
+        <SlotMachine />
+      </div>
+
+
+      <h1 class="totalCash">Total cash: ${{ $route.query.gold }}</h1>  <!-- Denna ändras inte -->
       <!-- Hämtar
       värdet från LoginPage.vue -->
     </div>
+
     <div class="blue-side">
       <i class="bi bi-box-arrow-right"></i>
       <i class="bi bi-person-circle"></i>
@@ -20,17 +21,19 @@
   </div>
 </template>
 <script>
-import SlotMachine from './SlotMachine.vue';
-
+import SlotMachine from "./SlotMachine.vue";
 
 export default {
+  components: {
+    SlotMachine,
+  },
   computed: {
     guestName() {
       return this.$route.query.guestName;
     },
   },
   components: {
-    SlotMachine
+    SlotMachine,
   },
 };
 </script>
@@ -57,7 +60,7 @@ export default {
 
 .guest-account-page {
   margin: 0 auto;
-  max-width: 60px; /* Ändrar denna så kommer Total cash flyttas */
+  max-width: 60px; /* Tillagd kod */
 }
 .guestName {
   position: absolute;
