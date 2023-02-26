@@ -11,22 +11,21 @@
         >
           {{ symbol }}
         </div>
+      </div>
+      <div class="spinAndResult">
+        <button class="spin-button" @click="spin" :disabled="spinning">
+          Spin
+        </button>
+        <div class="result">{{ gameResult }}</div>
+        <p style="color: white">Bet amount: ${{ goldBet }}</p>
+        <p style="color: white">Total cash: ${{ totalGold }}</p>
+        <!-- Tillagd kod -->
 
+        <div class="bet-buttons">
+          <button @click="decreaseBet">-</button>
+          <button @click="increaseBet">+</button>
+          <!-- Tillagd kod -->
         </div>
-        <div class="spinAndResult">
-          <button class="spin-button" @click="spin" :disabled="spinning">
-            Spin
-          </button>
-          <div class="result">{{ gameResult }}</div>
-          <p style="color: white">Bet amount: ${{ goldBet }}</p>
-          <p style="color: white">Total cash: ${{ totalGold }}</p> <!-- Tillagd kod -->
-
-          <div class="bet-buttons">
-      <button @click="decreaseBet">-</button>
-      <button @click="increaseBet">+</button> <!-- Tillagd kod -->
-
-    </div>
-
       </div>
     </div>
   </div>
@@ -34,7 +33,6 @@
 
 <script>
 export default {
-
   data() {
     return {
       symbols: ["🍒", "🍇", "🍓", "🍉", "🍊", "🍋", "🍍", "🍎", "🍏"],
@@ -47,20 +45,22 @@ export default {
       spinning: false,
       spinClass: "",
       spinTimeouts: [],
-      goldBet: 5, /* Tillagd kod */
-      totalGold: this.$route.query.gold, /* Tillagd kod */
+      goldBet: 5 /* Tillagd kod */,
+      totalGold: this.$route.query.gold /* Tillagd kod */,
       win: 5000,
     };
   },
   methods: {
     decreaseBet() {
-      this.goldBet = Math.max(this.goldBet - 5, 0); /* Gör att minsta belopp är 0 */
+      this.goldBet = Math.max(
+        this.goldBet - 5,
+        0
+      ); /* Gör att minsta belopp är 0 */
     },
     increaseBet() {
       this.goldBet = this.goldBet + 5;
     },
     /* Tillagd kod */
-
 
     spin() {
       this.spinning = true;
@@ -83,23 +83,23 @@ export default {
         );
       }
       setTimeout(() => {
-  clearTimeouts(this.spinTimeouts);
-  this.spinning = false;
+        clearTimeouts(this.spinTimeouts);
+        this.spinning = false;
 
-
-
-  this.spinClass = "";
-  if (this.checkWin()) {
-    this.totalGold += this.goldBet; /* Ny */
-    this.gameResult = `Du vann $${this.win}! (Företaget tar 50% så du vann egentligen $${this.win / 2})`;
-    /* Ändrad kod */
-   /* this.gameResult =
+        this.spinClass = "";
+        if (this.checkWin()) {
+          this.totalGold += this.goldBet; /* Ny */
+          this.gameResult = `Du vann $${
+            this.win
+          }! (Företaget tar 50% så du vann egentligen $${this.win / 2})`;
+          /* Ändrad kod */
+          /* this.gameResult =
       "Du vann 10kr! (Företaget tar 50% så du vann egentligen 5kr)"; /*  */
-  } else {
-    this.totalGold -= this.goldBet
-    this.gameResult = "Du förlorade hela din livsbesparning";
-  }
-}, 5000);
+        } else {
+          this.totalGold -= this.goldBet;
+          this.gameResult = "Du förlorade hela din livsbesparning";
+        }
+      }, 5000);
     },
     checkWin() {
       for (let i = 0; i < this.rows.length; i++) {
@@ -110,24 +110,26 @@ export default {
           return true;
         }
       }
-      for (let j = 0; j < this.rows[0].length; j++) { /* Denna kollar column också */
-    if (
-      this.rows[0][j] === this.rows[1][j] &&
-      this.rows[1][j] === this.rows[2][j]
-    ) {
-      return true;
-    }
-  }
+      for (let j = 0; j < this.rows[0].length; j++) {
+        /* Denna kollar column också */
+        if (
+          this.rows[0][j] === this.rows[1][j] &&
+          this.rows[1][j] === this.rows[2][j]
+        ) {
+          return true;
+        }
+      }
       return false;
     },
-    changeBet(amount) { /* Denna kod är ny men fungerar, gör att total cash ändringen
+    changeBet(amount) {
+      /* Denna kod är ny men fungerar, gör att total cash ändringen
         fungerar */
-    const newBet = this.bet + amount;
-    if (newBet < 5 || newBet > this.totalCash) {
-      return;
-    }
-    this.bet = newBet;
-  }
+      const newBet = this.bet + amount;
+      if (newBet < 5 || newBet > this.totalCash) {
+        return;
+      }
+      this.bet = newBet;
+    },
   },
 };
 
@@ -175,7 +177,6 @@ function clearTimeouts(timeouts) {
   animation-duration: 1.5s;
   animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
   animation-fill-mode: forwards;
-
 }
 
 .grid-container {
@@ -195,18 +196,16 @@ function clearTimeouts(timeouts) {
   border-radius: 5px;
   cursor: pointer;
   font-size: 20px;
-
 }
-  .spin-button:hover {
-    background: rgba(152, 80, 13, 0.6);
-
+.spin-button:hover {
+  background: rgba(152, 80, 13, 0.6);
 }
 .spinAndResult {
-    position: absolute;
-    left: 500px;
+  position: absolute;
+  left: 500px;
 }
 .result {
-    color: white;
+  color: white;
 }
 
 .symbol.spin {
@@ -227,5 +226,4 @@ function clearTimeouts(timeouts) {
     color: white;
   }
 }
-
 </style>
