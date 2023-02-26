@@ -6,8 +6,8 @@
         <SlotMachine />
       </div>
 
-
-      <h1 class="totalCash">Total cash: ${{ $route.query.gold }}</h1>  <!-- Denna ändras inte -->
+      <h1 class="totalCash">Total cash: ${{ $route.query.gold }}</h1>
+      <!-- Denna ändras inte -->
       <!-- Hämtar
       värdet från LoginPage.vue -->
     </div>
