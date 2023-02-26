@@ -27,6 +27,11 @@ const router = createRouter({
       name: "GuestLogin",
       component: () => import("../components/GuestLogin.vue"),
     },
+    {
+      path: "/contact",
+      name: "contact",
+      component: () => import("../views/ContactPage.vue"),
+    },
 
     {},
   ],
