@@ -30,6 +30,14 @@ export default {
 </template>
 
 <style scoped>
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: url("https://images.unsplash.com/photo-1596838132731-3301c3fd4317?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80c")
+    no-repeat center fixed;
+  background-size: cover;
+}
 h1 {
   color: #ffffff;
   font-size: 50px;
@@ -46,14 +54,10 @@ div p {
 h1 {
   color: #ffffff;
   margin: auto;
-  width: 50%;
-  margin-top: 12vh;
+  margin-top: 15vh;
 }
 .card {
   background-color: rgba(0, 0, 0, 0.68);
-  /*border: 1px solid #000000;
-  opacity: 0.7; */
-  border-radius: 0.25rem;
   box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.38);
   display: flex;
   overflow: hidden;
