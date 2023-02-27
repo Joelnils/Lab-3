@@ -46,7 +46,7 @@ export default {
   justify-content: center;
   align-items: center;
   margin-top: -10%;
-  height: 51.8vh;
+  height: 51vh;
   width: 60%;
   position: absolute;
   top: 40%;
@@ -95,7 +95,7 @@ export default {
     color: white;
     justify-content: center;
     text-align: center;
-    z-index: 1;
+
     padding-top: 30px;
   }
   .title {
@@ -104,7 +104,6 @@ export default {
     position: absolute;
     justify-content: center;
     text-align: center;
-    z-index: 2;
   }
   .content-box {
     z-index: 0;
