@@ -32,7 +32,7 @@ export default {
 <style scoped>
 h1 {
   color: #ffffff;
-  font-size: 40px;
+  font-size: 50px;
 }
 
 h2 {
@@ -47,18 +47,18 @@ h1 {
   color: #ffffff;
   margin: auto;
   width: 50%;
-  margin-top: 15vh;
+  margin-top: 12vh;
 }
 .card {
-  background-color: #000000;
-  border: 1px solid #000000;
-  opacity: 0.70;
+  background-color: rgba(0, 0, 0, 0.68);
+  /*border: 1px solid #000000;
+  opacity: 0.7; */
   border-radius: 0.25rem;
   box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.38);
   display: flex;
   overflow: hidden;
-  margin-top: 30vh;
-  margin-bottom: 10vh;
+  margin-top: 20vh;
+  margin-bottom: 1px;
 }
 .card__content {
   display: flex;
