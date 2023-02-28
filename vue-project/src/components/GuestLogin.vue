@@ -2,7 +2,6 @@
 <template>
   <div class="account-page">
     <div class="guest-account-page">
-
       <!-- Hämtar
       värdet från LoginPage.vue -->
     </div>
