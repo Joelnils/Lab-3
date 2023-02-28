@@ -3,8 +3,7 @@ import { RouterLink, RouterView } from "vue-router";
 </script>
 
 <!-- Navbar -->
-<template>
-
+<template >
   <nav class="navbar navbar-expand-lg fixed-top">
 
     <div class="container">
@@ -18,7 +17,7 @@ import { RouterLink, RouterView } from "vue-router";
           <RouterLink class="nav-link" to="/">Games</RouterLink>
         </li>
         <li class="nav-item">
-          <RouterLink class="nav-link" to="/">Odds</RouterLink>
+          <RouterLink class="nav-link" to="/">Rules</RouterLink>
         </li>
         <li class="nav-item">
           <RouterLink class="nav-link" to="/about">About</RouterLink>
@@ -46,8 +45,7 @@ export default {
 };
 </script>
 
-<style>
-
+<style scoped>
 a.nav-link {
   color: white;
   margin: 0.5rem;
@@ -95,5 +93,4 @@ a.nav-link:hover {
   }
 
 }
-
 </style>
