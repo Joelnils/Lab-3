@@ -1,4 +1,9 @@
-<script setup></script>
+<script setup>
+import AboutSida from "../components/AboutSida.vue";
+</script>
+
 <template>
-  <main></main>
-</template>
+  <AboutSida />
+
+<template>
+
