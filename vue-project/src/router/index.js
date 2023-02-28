@@ -27,6 +27,21 @@ const router = createRouter({
       name: "login",
       component: () => import("../components/LoginPage.vue"),
     }, // Lagt till en login - Robin
+    /*{
+      path: "/game",
+      name: "game",
+      component: () => import(""),
+    },
+    {
+      path: "/game/blackjack",
+      name: "blackjack",
+      component: () => import("../components/BlackJack.vue"),
+    },
+    {
+      path: "/game/slot",
+      name: "slot",
+      component: () => import("../components/SlotMachine.vue"),
+    },*/
     {
       path: "/login/guest",
       name: "GuestLogin",

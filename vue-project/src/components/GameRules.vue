@@ -20,9 +20,13 @@ export default {
       <div>
         <h2>{{ headlineBJ }}</h2>
       </div>
+      <hr class="solid" />
       <p class="card__text" v-for="game in games" :key="game">
         <!-- Gets strings from rules.json in Swedish & English -->
         {{ game.blackjack_swe }}
+      </p>
+      <hr class="solid" />
+      <p class="card__text" v-for="game in games" :key="game">
         {{ game.blackjack_eng }}
       </p>
     </div>
@@ -46,6 +50,9 @@ h1 {
 h2 {
   color: #ffffff;
 }
+hr.solid {
+  border-top: 3px solid #ffffff;
+}
 
 div p {
   color: #ffffff;
@@ -54,25 +61,27 @@ div p {
 h1 {
   color: #ffffff;
   margin: auto;
-  margin-top: 15vh;
+  margin-top: 10vh;
 }
 .card {
   background-color: rgba(0, 0, 0, 0.68);
   box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.38);
   display: flex;
   overflow: hidden;
-  margin-top: 20vh;
-  margin-bottom: 1px;
+  margin-top: 25vh;
+  margin-bottom: 30vh;
 }
 .card__content {
   display: flex;
   flex-direction: column;
-  padding: 4rem;
+  padding: 2rem;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 .card__text {
   color: #ffffff;
   font-size: 0.975rem;
   line-height: 1.5;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.15rem;
 }
 </style>
