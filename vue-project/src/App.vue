@@ -6,6 +6,7 @@ import foot from "./components/FootEr.vue";
 <template>
   <div class="main">
     <NavBar />
+
     <div class="footer"><foot /></div>
   </div>
 </template>
@@ -17,6 +18,8 @@ import foot from "./components/FootEr.vue";
   flex-direction: column;
 }
 .footer {
+
   margin-top: auto;
+
 }
 </style>

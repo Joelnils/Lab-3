@@ -2,10 +2,11 @@
 <template>
   <div class="account-page">
     <div class="guest-account-page">
-      <h1 class="totalCash">Total cash: ${{ $route.query.gold }}</h1>
+
       <!-- Hämtar
       värdet från LoginPage.vue -->
     </div>
+
     <div class="blue-side">
       <i class="bi bi-box-arrow-right"></i>
       <i class="bi bi-person-circle"></i>
@@ -14,13 +15,20 @@
     </div>
   </div>
 </template>
-/* HEJ */
 <script>
+import SlotMachine from "./SlotMachine.vue";
+
 export default {
+  components: {
+    SlotMachine,
+  },
   computed: {
     guestName() {
       return this.$route.query.guestName;
     },
+  },
+  components: {
+    SlotMachine,
   },
 };
 </script>
@@ -35,10 +43,19 @@ export default {
   background: rgba(73, 73, 73, 0.9);
   border-radius: 40px;
 }
+.gamePart {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  left: 30%;
+  top: 17%;
+  background: rgba(217, 199, 199, 0.9);
+  border-radius: 40px;
+}
 
 .guest-account-page {
   margin: 0 auto;
-  max-width: 600px;
+  max-width: 60px; /* Tillagd kod */
 }
 .guestName {
   position: absolute;
@@ -83,7 +100,6 @@ router-link {
   width: 240px;
   height: 600px;
   top: 0px;
-
   background: #011b34;
   border-radius: 40px 0px 0px 40px;
 }

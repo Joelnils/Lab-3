@@ -4,4 +4,6 @@ import AboutSida from "../components/AboutSida.vue";
 
 <template>
   <AboutSida />
-</template>
+
+<template>
+

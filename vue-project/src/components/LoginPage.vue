@@ -97,7 +97,7 @@ export default {
           /* Ligger som en query (så länge), funderar på att göra om till en props
           vid ett senare tillfälle */
         });
-      }, 2000);
+      }, 1500);
     },
   },
 };
@@ -130,7 +130,6 @@ h1 {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  margin-top: -10%;
 }
 
 .login-form {
