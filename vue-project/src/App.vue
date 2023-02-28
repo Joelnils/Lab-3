@@ -18,8 +18,6 @@ import foot from "./components/FootEr.vue";
   flex-direction: column;
 }
 .footer {
-
   margin-top: auto;
-
 }
 </style>
