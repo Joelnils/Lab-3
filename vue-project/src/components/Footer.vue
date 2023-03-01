@@ -23,10 +23,10 @@ const onClick = () => window.scrollTo(0, 0);
       <div class="four">
         <ul>
           <li class="nav-item">
-            <RouterLink class="nav-text" to="/">Games</RouterLink>
+            <RouterLink class="nav-text" to="/games">Games</RouterLink>
           </li>
           <li class="nav-item">
-            <RouterLink class="nav-text" to="/">Odds</RouterLink>
+            <RouterLink class="nav-text" to="/rules">Rules</RouterLink>
           </li>
           <li class="nav-item">
             <RouterLink class="nav-text" to="/about">About</RouterLink>
