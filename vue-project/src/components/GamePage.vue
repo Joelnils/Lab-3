@@ -2,7 +2,7 @@
 export default {
   data() {
     return {
-      headline: "Our Different Games",
+      headline: "Our Games",
     };
   },
 
