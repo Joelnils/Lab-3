@@ -17,6 +17,38 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import("../views/AboutView.vue"),
     },
+    {
+      path: "/rules",
+      name: "rules",
+      component: () => import("../components/GameRules.vue"),
+    },
+    {
+      path: "/login",
+      name: "login",
+      component: () => import("../components/LoginPage.vue"),
+    }, // Lagt till en login - Robin
+    {
+      path: "/games",
+      name: "games",
+      component: () => import("../components/GamePage.vue"),
+    },
+    {
+      path: "/games/blackjack",
+      name: "blackjack",
+      component: () => import("../components/BlackJack.vue"),
+    },
+    {
+      path: "/games/slot",
+      name: "slot",
+      component: () => import("../components/SlotMachine.vue"),
+    },
+    {
+      path: "/login/guest",
+      name: "GuestLogin",
+      component: () => import("../components/GuestLogin.vue"),
+    },
+
+    {},
   ],
 });
 
