@@ -61,40 +61,35 @@ export default {
       this.goldBet = this.goldBet + 5;
     },
     /* Tillagd kod */
-
     spin() {
       this.spinning = true;
       this.spinClass = "spin";
       this.spinTimeouts = [];
+
       for (let i = 0; i < 3; i++) {
+        let j = 0;
         this.spinTimeouts.push(
-          setTimeout(() => {
-            this.rows[i].length = 0;
-            this.rows[i].push(
-              this.symbols[Math.floor(Math.random() * this.symbols.length)]
-            );
-            this.rows[i].push(
-              this.symbols[Math.floor(Math.random() * this.symbols.length)]
-            );
-            this.rows[i].push(
-              this.symbols[Math.floor(Math.random() * this.symbols.length)]
-            );
-          }, i * 400)
+          setInterval(() => {
+            this.rows[i][j] =
+              this.symbols[Math.floor(Math.random() * this.symbols.length)];
+            j++;
+            if (j >= 3) {
+              clearInterval(this.spinTimeouts[i]);
+            }
+          }, 100)
         );
       }
+
       setTimeout(() => {
         clearTimeouts(this.spinTimeouts);
         this.spinning = false;
-
         this.spinClass = "";
+
         if (this.checkWin()) {
-          this.totalGold += this.goldBet; /* Ny */
+          this.totalGold += this.goldBet;
           this.gameResult = `Du vann $${
             this.win
           }! (Företaget tar 50% så du vann egentligen $${this.win / 2})`;
-          /* Ändrad kod */
-          /* this.gameResult =
-      "Du vann 10kr! (Företaget tar 50% så du vann egentligen 5kr)"; /*  */
         } else {
           this.totalGold -= this.goldBet;
           this.gameResult = "Du förlorade hela din livsbesparning";
@@ -132,7 +127,6 @@ export default {
     },
   },
 };
-
 function clearTimeouts(timeouts) {
   for (let i = 0; i < timeouts.length; i++) {
     clearTimeout(timeouts[i]);
@@ -152,24 +146,21 @@ function clearTimeouts(timeouts) {
 
 .rows {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  height: 100%; /* set the height of the rows to match the container */
 }
 
 .row {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  align-self: stretch; /* make the rows fill the height of the rows container */
 }
 
 .symbol {
-  display: inline-block;
-  font-size: 4rem;
-  margin: 1rem;
-  border-radius: 2px;
-  height: 5rem;
-  transition: transform 1.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transform-origin: center;
+  font-size: 40px;
+  margin-left: 25px;
 }
 
 .spin {
@@ -184,9 +175,18 @@ function clearTimeouts(timeouts) {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   gap: 0.5rem;
-  justify-items: center;
   margin-top: -15px;
+  -moz-box-shadow: 0 0 20px black;
+  -webkit-box-shadow: 0 0 20px black;
+  padding: 20px;
+  background: white;
+  border: 1px solid #ccc;
+  height: 210px;
+  position: relative;
+  width: 400px;
+  margin-top: 400px;
 }
+
 .spin-button {
   padding: 15px;
   background: rgba(242, 127, 21, 0.6);
@@ -197,13 +197,16 @@ function clearTimeouts(timeouts) {
   cursor: pointer;
   font-size: 20px;
 }
+
 .spin-button:hover {
   background: rgba(152, 80, 13, 0.6);
 }
+
 .spinAndResult {
   position: absolute;
   left: 500px;
 }
+
 .result {
   color: white;
 }
@@ -213,17 +216,21 @@ function clearTimeouts(timeouts) {
   animation-duration: 4s;
   animation-timing-function: cubic-bezier(0.25, 0.1, 0.5);
   animation-fill-mode: forwards;
+  animation: somersault 4s infinite;
 }
 
-@keyframes spin {
+@keyframes somersault {
   0% {
-    transform: rotate(0deg);
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(1320deg);
   }
   100% {
-    transform: rotate(10000deg);
+    transform: rotateX(0deg);
   }
-  p {
-    color: white;
-  }
+}
+p {
+  color: white;
 }
 </style>
