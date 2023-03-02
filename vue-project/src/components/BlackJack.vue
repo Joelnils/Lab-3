@@ -17,8 +17,9 @@
             v-for="(card, index) in dealerCards"
             :key="card.code"
             class="card"
-            v-bind:class="{ hidden: index === 0 && !isGameOver }"
+            :class="{ hidden: index === 0 && !isGameOver }"
           >
+            <!-- Försöka göra ett dealerns första dolda kort är en baksida av ett kort men API:t verkar inte hitta det längre -->
             <img
               :src="
                 index === 0 && !isGameOver
@@ -102,7 +103,7 @@ export default {
       } else if (dealerValue < playerValue) {
         this.gameResult = "You win. Get out of my casino.";
       } else {
-        this.gameResult = "It's a tie!";
+        this.gameResult = "It's a tie! What are the odds??";
       }
     },
     getHandValue(hand) {
