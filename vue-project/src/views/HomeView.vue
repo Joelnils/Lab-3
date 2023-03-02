@@ -1,11 +1,13 @@
 <script setup>
+import MainPage from "../components/MainPage.vue"
 </script>
 
 <template>
+  <MainPage />
   <!-- <div
-    class="hero-image"
-    :style="{ 'background-image': 'url(' + imageUrl + ')' }"
-  ></div> -->
+      class="hero-image"
+      :style="{ 'background-image': 'url(' + imageUrl + ')' }"
+    ></div> -->
 </template>
 
 <script>
