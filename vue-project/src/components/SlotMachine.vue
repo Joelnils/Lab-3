@@ -184,6 +184,7 @@ function clearTimeouts(timeouts) {
   height: 210px;
   position: relative;
   width: 400px;
+  margin-top: 400px;
 }
 
 .spin-button {
