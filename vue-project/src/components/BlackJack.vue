@@ -107,10 +107,10 @@ export default {
     },
     getHandValue(hand) {
       let value = 0;
-      let hasAce = false;
+      let numAces = 0;
       for (const card of hand) {
         if (card === "ACE") {
-          hasAce = true;
+          numAces++;
           value += 11;
         } else if (card === "KING" || card === "QUEEN" || card === "JACK") {
           value += 10;
@@ -118,8 +118,10 @@ export default {
           value += parseInt(card);
         }
       }
-      if (hasAce && value > 21) {
+      // Justera Essets value
+      while (numAces > 0 && value > 21) {
         value -= 10;
+        numAces--;
       }
       return value;
     },
