@@ -3,21 +3,18 @@ import { RouterLink, RouterView } from "vue-router";
 </script>
 
 <!-- Navbar -->
-<template >
+<template>
   <nav class="navbar navbar-expand-lg fixed-top">
-
     <div class="container">
       <RouterLink to="/" class="navbar-brand">
-
-        <img :src="logo" alt="logo" id="logo" height="60">
-
+        <img :src="logo" alt="logo" id="logo" height="60" />
       </RouterLink>
       <ul class="nav">
         <li class="nav-item">
-          <RouterLink class="nav-link" to="/">Games</RouterLink>
+          <RouterLink class="nav-link" to="/games">Games</RouterLink>
         </li>
         <li class="nav-item">
-          <RouterLink class="nav-link" to="/">Rules</RouterLink>
+          <RouterLink class="nav-link" to="/rules">Rules</RouterLink>
         </li>
         <li class="nav-item">
           <RouterLink class="nav-link" to="/about">About</RouterLink>
@@ -64,10 +61,8 @@ a.nav-link:hover {
   background-color: rgba(26, 23, 23, 0.7);
 }
 
-
 /* responsive for mobile devices */
 @media screen and (max-width: 768px) {
-
   .container {
     display: flex;
     flex-direction: column;
@@ -91,6 +86,5 @@ a.nav-link:hover {
   .container .navbar-brand {
     margin-right: 0;
   }
-
 }
 </style>

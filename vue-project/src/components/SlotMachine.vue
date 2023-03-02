@@ -1,6 +1,7 @@
 <template>
   <div class="slot-machine">
-    <div class="rows">
+    <div class="SpinS"></div>
+    <div class="grid-container">
       <div class="row" v-for="(row, index) in rows" :key="index">
         <div
           class="symbol"
@@ -11,9 +12,22 @@
           {{ symbol }}
         </div>
       </div>
+      <div class="spinAndResult">
+        <button class="spin-button" @click="spin" :disabled="spinning">
+          Spin
+        </button>
+        <div class="result">{{ gameResult }}</div>
+        <p style="color: white">Bet amount: ${{ goldBet }}</p>
+        <p style="color: white">Total cash: ${{ totalGold }}</p>
+        <!-- Tillagd kod -->
+
+        <div class="bet-buttons">
+          <button @click="decreaseBet">-</button>
+          <button @click="increaseBet">+</button>
+          <!-- Tillagd kod -->
+        </div>
+      </div>
     </div>
-    <button class="spin-button" :disabled="spinning" @click="spin">Snurra</button>
-    <div class="result">{{ gameResult }}</div>
   </div>
 </template>
 
@@ -31,38 +45,56 @@ export default {
       spinning: false,
       spinClass: "",
       spinTimeouts: [],
+      goldBet: 5 /* Tillagd kod */,
+      totalGold: this.$route.query.gold /* Tillagd kod */,
+      win: 5000,
     };
   },
   methods: {
+    decreaseBet() {
+      this.goldBet = Math.max(
+        this.goldBet - 5,
+        0
+      ); /* Gör att minsta belopp är 0 */
+    },
+    increaseBet() {
+      this.goldBet = this.goldBet + 5;
+    },
+    /* Tillagd kod */
     spin() {
       this.spinning = true;
       this.spinClass = "spin";
       this.spinTimeouts = [];
+
       for (let i = 0; i < 3; i++) {
+        let j = 0;
         this.spinTimeouts.push(
-          setTimeout(() => {
-            this.rows[i].length = 0;
-            this.rows[i].push(
-              this.symbols[Math.floor(Math.random() * this.symbols.length)]
-            );
-            this.rows[i].push(
-              this.symbols[Math.floor(Math.random() * this.symbols.length)]
-            );
-            this.rows[i].push(
-              this.symbols[Math.floor(Math.random() * this.symbols.length)]
-            );
-          }, i * 500)
+          setInterval(() => {
+            this.rows[i][j] =
+              this.symbols[Math.floor(Math.random() * this.symbols.length)];
+            j++;
+            if (j >= 3) {
+              clearInterval(this.spinTimeouts[i]);
+            }
+          }, 100)
         );
       }
+
       setTimeout(() => {
         clearTimeouts(this.spinTimeouts);
         this.spinning = false;
+        this.spinClass = "";
+
         if (this.checkWin()) {
-          this.gameResult = "Du vann 10kr! (Företaget tar 50% så du vann egentligen 5kr)";
+          this.totalGold += this.goldBet;
+          this.gameResult = `Du vann $${
+            this.win
+          }! (Företaget tar 50% så du vann egentligen $${this.win / 2})`;
         } else {
+          this.totalGold -= this.goldBet;
           this.gameResult = "Du förlorade hela din livsbesparning";
         }
-      }, 2000);
+      }, 5000);
     },
     checkWin() {
       for (let i = 0; i < this.rows.length; i++) {
@@ -73,11 +105,28 @@ export default {
           return true;
         }
       }
+      for (let j = 0; j < this.rows[0].length; j++) {
+        /* Denna kollar column också */
+        if (
+          this.rows[0][j] === this.rows[1][j] &&
+          this.rows[1][j] === this.rows[2][j]
+        ) {
+          return true;
+        }
+      }
       return false;
+    },
+    changeBet(amount) {
+      /* Denna kod är ny men fungerar, gör att total cash ändringen
+        fungerar */
+      const newBet = this.bet + amount;
+      if (newBet < 5 || newBet > this.totalCash) {
+        return;
+      }
+      this.bet = newBet;
     },
   },
 };
-
 function clearTimeouts(timeouts) {
   for (let i = 0; i < timeouts.length; i++) {
     clearTimeout(timeouts[i]);
@@ -91,26 +140,27 @@ function clearTimeouts(timeouts) {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  margin-left: 30px;
+  margin-top: 30px;
 }
 
 .rows {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  height: 100%; /* set the height of the rows to match the container */
 }
 
 .row {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  align-self: stretch; /* make the rows fill the height of the rows container */
 }
 
 .symbol {
-  display: inline-block;
-  font-size: 5rem;
-  margin: 1rem;
+  transform-origin: center;
+  font-size: 40px;
+  margin-left: 25px;
 }
 
 .spin {
@@ -120,12 +170,67 @@ function clearTimeouts(timeouts) {
   animation-fill-mode: forwards;
 }
 
-@keyframes spin {
-  from {
-    transform: translateY(-50%) rotateX(0deg);
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-top: -15px;
+  -moz-box-shadow: 0 0 20px black;
+  -webkit-box-shadow: 0 0 20px black;
+  padding: 20px;
+  background: white;
+  border: 1px solid #ccc;
+  height: 210px;
+  position: relative;
+  width: 400px;
+  margin-top: 400px;
+}
+
+.spin-button {
+  padding: 15px;
+  background: rgba(242, 127, 21, 0.6);
+  color: rgb(0, 0, 0);
+  border: none;
+  font-weight: solid;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.spin-button:hover {
+  background: rgba(152, 80, 13, 0.6);
+}
+
+.spinAndResult {
+  position: absolute;
+  left: 500px;
+}
+
+.result {
+  color: white;
+}
+
+.symbol.spin {
+  animation-name: spin;
+  animation-duration: 4s;
+  animation-timing-function: cubic-bezier(0.25, 0.1, 0.5);
+  animation-fill-mode: forwards;
+  animation: somersault 4s infinite;
+}
+
+@keyframes somersault {
+  0% {
+    transform: rotateX(0deg);
   }
-  to {
-    transform: translateY(-50%) rotateX(720deg);
+  50% {
+    transform: rotateX(1320deg);
   }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+p {
+  color: white;
 }
 </style>
