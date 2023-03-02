@@ -53,7 +53,7 @@ div p {
 h1 {
   color: #ffffff;
   margin: auto;
-  margin-top: 10vh;
+  margin-top: 13vh;
 }
 .card {
   background-color: rgba(0, 0, 0, 0.68);
@@ -67,8 +67,8 @@ h1 {
   display: flex;
   flex-direction: column;
   padding: 2rem;
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-left: 14%;
+  margin-right: 14%;
 }
 .card__text {
   color: #ffffff;

@@ -67,6 +67,76 @@ export default {
             </div>
           </div>
         </li>
+        <li class="cards__item">
+          <div class="card">
+            <div class="card__image card__image--3"></div>
+            <div class="card__content">
+              <div class="card__title">American Roulette</div>
+              <p class="card__text">
+                The object of American Roulette is to guess on which number on
+                the wheel the ball will come to rest. Every number has the same
+                chance as any other of coming up on each spin i.e. the winning
+                number on any spin has no effect on the outcome of the next
+                spin.
+              </p>
+              <button @click="linkToOtherWindow('#')" class="red" type="button">
+                <i class="icon ion-md-lock"></i>Go To Game
+              </button>
+            </div>
+          </div>
+        </li>
+        <li class="cards__item">
+          <div class="card">
+            <div class="card__image card__image--4"></div>
+            <div class="card__content">
+              <div class="card__title">Punto Banco</div>
+              <p class="card__text">
+                Punto banco is a game where, instead of playing each other,
+                players play against the bank (similar to blackjack). The aim is
+                to obtain nine points or get as close to nine as possible.
+                What's most fun about this setup is the sense of collaboration
+                between players.
+              </p>
+              <button @click="linkToOtherWindow('#')" class="red" type="button">
+                <i class="icon ion-md-lock"></i>Go To Game
+              </button>
+            </div>
+          </div>
+        </li>
+        <li class="cards__item">
+          <div class="card">
+            <div class="card__image card__image--5"></div>
+            <div class="card__content">
+              <div class="card__title">Three Card Poker</div>
+              <p class="card__text">
+                Three Card Poker (TCP) is a three card poker game that utilizes
+                a player-dealer position. As in other games featuring a
+                player-dealer, the players play against another player who will
+                collect all winnings and pay all losing wagers to the extent
+                that their wagers covers.
+              </p>
+              <button @click="linkToOtherWindow('#')" class="red" type="button">
+                <i class="icon ion-md-lock"></i>Go To Game
+              </button>
+            </div>
+          </div>
+        </li>
+        <li class="cards__item">
+          <div class="card">
+            <div class="card__image card__image--6"></div>
+            <div class="card__content">
+              <div class="card__title">Lucky Wheel</div>
+              <p class="card__text">
+                In money wheel the viewer first spins the wheel. Players then
+                place their bets on the symbols that they think will come out
+                during the spin.
+              </p>
+              <button @click="linkToOtherWindow('#')" class="red" type="button">
+                <i class="icon ion-md-lock"></i>Go To Game
+              </button>
+            </div>
+          </div>
+        </li>
       </ul>
     </div>
   </div>
@@ -76,12 +146,11 @@ export default {
   position: sticky;
   display: flex;
   justify-content: center;
-  margin-top: 15vh;
 }
 .container,
 h1 {
   font-size: 70px;
-  margin-top: 10vh;
+  margin-top: 13vh;
 }
 
 #wrapper-hero img {
@@ -93,7 +162,7 @@ h1 {
 .centered {
   display: flex;
   justify-content: center;
-  margin-top: 22vh;
+  margin-top: 10vh;
   margin-bottom: 30vh;
 }
 
@@ -126,7 +195,7 @@ img {
 }
 @media (min-width: 56rem) {
   .cards__item {
-    width: 40%;
+    width: 35%;
   }
 }
 
