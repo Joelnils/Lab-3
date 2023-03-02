@@ -1,130 +1,152 @@
 <template>
-  <div>
-    <h2>Blackjack</h2>
-    <p>Dealer's cards: {{ dealerCards }}</p>
-    <p>Your cards: {{ playerCards }}</p>
-    <p v-if="gameOver">{{ outcome }}</p>
-    <button v-if="!gameOver" @click="hit">Hit</button>
-    <button v-if="!gameOver" @click="stand">Stand</button>
-    <button v-if="gameOver" @click="reset">New Game</button>
+  <div class="BlackuJacku">
+    <div v-if="!isGameStarted">
+      <button @click="startGame">Start Game</button>
+    </div>
+    <div v-if="isGameStarted">
+      <div>
+        <p>Player Hand</p>
+        <div>
+          <div v-for="card in playerCards" :key="card.code" class="card">
+            <img :src="card.image" :alt="card.code" />
+          </div>
+        </div>
+        <p>Dealer Hand</p>
+        <div>
+          <div
+            v-for="(card, index) in dealerCards"
+            :key="card.code"
+            class="card"
+            :class="{ hidden: index === 0 && !isGameOver }"
+          >
+            <!-- Försöka göra ett dealerns första dolda kort är en baksida av ett kort men API:t verkar inte hitta det längre -->
+            <img
+              :src="
+                index === 0 && !isGameOver
+                  ? 'https://deckofcardsapi.com/static/img/card-back.png'
+                  : card.image
+              "
+              :alt="card.code"
+            />
+          </div>
+        </div>
+        <p v-if="isGameOver">{{ gameResult }}</p>
+      </div>
+      <button @click="hit" :disabled="isGameOver">Hit</button>
+      <button @click="stand" :disabled="isGameOver">Stand</button>
+    </div>
   </div>
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
-      deck: [],
-      dealerCards: [],
+      deckId: "",
+      playerHand: [],
+      dealerHand: [],
       playerCards: [],
-      gameOver: false,
-      outcome: "",
+      dealerCards: [],
+      isGameStarted: false,
+      isGameOver: false,
+      gameResult: "",
     };
   },
-  created() {
-    this.reset();
-  },
   methods: {
-    reset() {
-      this.deck = this.generateDeck();
-      this.dealerCards = [this.drawCard(), this.drawCard()];
-      this.playerCards = [this.drawCard(), this.drawCard()];
-      this.gameOver = false;
-      this.outcome = "";
+    async startGame() {
+      const response = await axios.get(
+        "https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1"
+      );
+      this.deckId = response.data.deck_id;
+      const playerDrawResponse = await axios.get(
+        `https://deckofcardsapi.com/api/deck/${this.deckId}/draw/?count=2`
+      );
+      this.playerHand = playerDrawResponse.data.cards.map((card) => card.value);
+      this.playerCards = playerDrawResponse.data.cards;
+      const dealerDrawResponse = await axios.get(
+        `https://deckofcardsapi.com/api/deck/${this.deckId}/draw/?count=2`
+      );
+      this.dealerHand = dealerDrawResponse.data.cards.map((card) => card.value);
+      this.dealerCards = dealerDrawResponse.data.cards;
+      this.isGameStarted = true;
     },
-    generateDeck() {
-      const ranks = [
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "J",
-        "Q",
-        "K",
-        "A",
-      ];
-      const suits = ["♠", "♥", "♦", "♣"];
-      const deck = [];
-      for (let rank of ranks) {
-        for (let suit of suits) {
-          deck.push({ rank, suit });
-        }
+    async hit() {
+      const response = await axios.get(
+        `https://deckofcardsapi.com/api/deck/${this.deckId}/draw/?count=1`
+      );
+      const newCard = response.data.cards[0];
+      this.playerHand.push(newCard.value);
+      this.playerCards.push(newCard);
+      if (this.getHandValue(this.playerHand) > 21) {
+        this.isGameOver = true;
+        this.gameResult = "You bust! Dealer wins.";
       }
-      return deck;
     },
-    drawCard() {
-      const cardIndex = Math.floor(Math.random() * this.deck.length);
-      const card = this.deck.splice(cardIndex, 1)[0];
-      return card;
-    },
-    getCardValue(card) {
-      const rank = card.rank;
-      if (["J", "Q", "K"].includes(rank)) {
-        return 10;
-      } else if (rank === "A") {
-        return 11;
+    async stand() {
+      this.isGameOver = true;
+      while (this.getHandValue(this.dealerHand) < 17) {
+        const response = await axios.get(
+          `https://deckofcardsapi.com/api/deck/${this.deckId}/draw/?count=1`
+        );
+        const newCard = response.data.cards[0];
+        this.dealerHand.push(newCard.value);
+        this.dealerCards.push(newCard);
+      }
+      const playerValue = this.getHandValue(this.playerHand);
+      const dealerValue = this.getHandValue(this.dealerHand);
+      if (dealerValue > 21) {
+        this.gameResult = "Dealer busts! You win. Now get out of here";
+      } else if (dealerValue > playerValue) {
+        this.gameResult = "Dealer wins.";
+      } else if (dealerValue < playerValue) {
+        this.gameResult = "You win. Get out of my casino.";
       } else {
-        return parseInt(rank);
+        this.gameResult = "It's a tie! What are the odds??";
       }
     },
     getHandValue(hand) {
       let value = 0;
       let numAces = 0;
-      for (let card of hand) {
-        const cardValue = this.getCardValue(card);
-        if (cardValue === 11) {
+      for (const card of hand) {
+        if (card === "ACE") {
           numAces++;
+          value += 11;
+        } else if (card === "KING" || card === "QUEEN" || card === "JACK") {
+          value += 10;
+        } else {
+          value += parseInt(card);
         }
-        value += cardValue;
       }
-      while (value > 21 && numAces > 0) {
+      // Justera Essets value
+      while (numAces > 0 && value > 21) {
         value -= 10;
         numAces--;
       }
       return value;
-    },
-    hit() {
-      this.playerCards.push(this.drawCard());
-      const playerValue = this.getHandValue(this.playerCards);
-      if (playerValue > 21) {
-        this.outcome = "Du torska som fan";
-        this.gameOver = true;
-      }
-    },
-    stand() {
-      let dealerValue = this.getHandValue(this.dealerCards);
-      while (dealerValue < 17) {
-        this.dealerCards.push(this.drawCard());
-        dealerValue = this.getHandValue(this.dealerCards);
-      }
-      const playerValue = this.getHandValue(this.playerCards);
-      if (dealerValue > 21) {
-        this.outcome = "Du vann";
-      } else if (dealerValue > playerValue) {
-        this.outcome = "Huset vann";
-      } else if (dealerValue < playerValue) {
-        this.outcome;
-        this.outcome = "Du vann";
-      } else {
-        this.outcome = "Lika";
-      }
-      this.gameOver = true;
     },
   },
 };
 </script>
 
 <style>
-h2 {
-  font-size: 1.5em;
-  margin-bottom: 0.5em;
+.BlackuJacku {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
-button {
-  margin-right: 0.5em;
+
+.blackjack {
+  text-align: center;
+}
+.card {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.hidden img {
+  visibility: hidden;
 }
 </style>
