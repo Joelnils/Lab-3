@@ -42,7 +42,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 a.nav-link {
   color: white;
   margin: 0.5rem;
