@@ -1,7 +1,6 @@
-<template>
-  <div>
-  </div>
-</template>
-
-<script>
+<script setup>
 </script>
+
+<template>
+  <main></main>
+</template>
