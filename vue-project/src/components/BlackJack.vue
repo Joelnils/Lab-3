@@ -1,7 +1,7 @@
 <template>
   <div class="BlackuJacku">
     <div v-if="!isGameStarted">
-      <button @click="startGame">Start Game</button>
+      <button @click="startGame" class="red">Start Game</button>
     </div>
     <div v-if="isGameStarted">
       <div>
@@ -32,8 +32,8 @@
         </div>
         <p v-if="isGameOver">{{ gameResult }}</p>
       </div>
-      <button @click="hit" :disabled="isGameOver">Hit</button>
-      <button @click="stand" :disabled="isGameOver">Stand</button>
+      <button @click="hit" :disabled="isGameOver" class="red">Hit</button>
+      <button @click="stand" :disabled="isGameOver" class="red">Stand</button>
     </div>
   </div>
 </template>
@@ -136,6 +136,10 @@ export default {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  margin-top: 25vh;
+  margin-bottom: 20vh;
+  color: #fff;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .blackjack {
@@ -148,5 +152,27 @@ export default {
 
 .hidden img {
   visibility: hidden;
+}
+button,
+input {
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 300;
+  margin-bottom: 5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 0;
+  outline: 0;
+  border: 1px solid #9c9c9c;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: rgba(242, 127, 21, 0.6);
+}
+
+.red {
+  display: inline-block;
+  width: 20vw;
+  margin-right: 4px;
+  color: #ffffff;
 }
 </style>
