@@ -13,7 +13,7 @@ import foot from "./components/FootEr.vue";
 
 <style scoped>
 .main {
-  min-height: 100vh;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
 }

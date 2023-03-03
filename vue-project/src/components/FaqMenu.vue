@@ -16,7 +16,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="main">
+  <div class="main-thing">
     <div class="faq">
       <h1>FAQ</h1>
     </div>
@@ -27,7 +27,7 @@ onMounted(() => {
   </div>
 </template>
 <style scoped>
-.main {
+.main-thing {
   background-color: rgba(0, 0, 0, 0.9);
   color: white;
   display: flex;

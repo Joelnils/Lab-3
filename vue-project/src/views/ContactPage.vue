@@ -12,7 +12,8 @@ const email = ref("");
 </script>
 
 <template>
-  <body class="body-container">
+  
+  <div class="body-container">
     <div class="hero">
       <div class="hero-text">
         <h1>Take a look at our FAQ</h1>
@@ -71,7 +72,7 @@ const email = ref("");
       </div>
     </div>
     <div class="map"><Map /></div>
-  </body>
+  </div>
 </template>
 
 <style scoped>
@@ -79,15 +80,14 @@ const email = ref("");
   margin: 0;
 }
 
-.body-container {
+/* .body-container {
   display: flex;
   flex-direction: column;
-  overflow-y: hidden;
-}
+} */
 .row {
   height: 100%;
 }
-.control {
+/* .control {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.9);
   display: flex;
@@ -96,7 +96,8 @@ const email = ref("");
   height: 60vh;
   flex-direction: column;
   padding: 40px;
-}
+  
+} */
 .form-container {
   max-width: 1200px;
   display: flex;
@@ -118,7 +119,6 @@ const email = ref("");
   height: 100vh;
   justify-content: center;
   align-items: center;
-
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
