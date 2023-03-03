@@ -7,7 +7,7 @@ import { RouterLink, RouterView } from "vue-router";
   <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
       <RouterLink to="/" class="navbar-brand">
-        <img :src="logo" alt="logo" id="logo" height="60" />
+        <img src="../assets/img/logo.png" alt="logo" id="logo" height="60" />
       </RouterLink>
       <ul class="nav">
         <li class="nav-item">
@@ -33,13 +33,6 @@ import { RouterLink, RouterView } from "vue-router";
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      logo: "src/assets/img/logo.png",
-    };
-  },
-};
 </script>
 
 <style scoped>
