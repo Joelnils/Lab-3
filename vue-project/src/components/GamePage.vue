@@ -89,13 +89,13 @@ export default {
           <div class="card">
             <div class="card__image card__image--4"></div>
             <div class="card__content">
-              <div class="card__title">Punto Banco</div>
+              <div class="card__title">Punto Banco (Baccarat)</div>
               <p class="card__text">
-                Punto banco is a game where, instead of playing each other,
-                players play against the bank (similar to blackjack). The aim is
-                to obtain nine points or get as close to nine as possible.
-                What's most fun about this setup is the sense of collaboration
-                between players.
+                Baccarat is a game where, instead of playing each other, players
+                play against the bank (similar to blackjack). The aim is to
+                obtain nine points or get as close to nine as possible. What's
+                most fun about this setup is the sense of collaboration between
+                players.
               </p>
               <button @click="linkToOtherWindow('#')" class="red" type="button">
                 <i class="icon ion-md-lock"></i>Go To Game
@@ -149,21 +149,17 @@ export default {
 }
 .container,
 h1 {
-  font-size: 70px;
-  margin-top: 13vh;
-}
-
-#wrapper-hero img {
-  margin: 0 auto;
-  height: auto;
-  overflow-x: hidden;
+  color: #fff;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 100px;
+  margin-top: 23vh;
 }
 
 .centered {
   display: flex;
   justify-content: center;
   margin-top: 10vh;
-  margin-bottom: 30vh;
+  margin-bottom: 20vh;
 }
 
 img {
@@ -172,8 +168,6 @@ img {
   vertical-align: middle;
 }
 .cards {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -200,16 +194,15 @@ img {
 }
 
 .card_bg {
-  background-color: rgba(0, 0, 0, 0.68);
+  background-color: #02070c;
   box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.38);
   display: flex;
   overflow: hidden;
-  margin-top: 20vh;
-  margin-bottom: 30vh;
+  margin-top: 35vh;
 }
 .card {
-  background-color: #000000;
-  border: 0px solid #000000;
+  background-color: #02070c;
+  border: 0px solid #02070c;
   border-radius: 1rem;
   box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.38);
   display: -webkit-box;
@@ -244,8 +237,8 @@ img {
   background-size: cover;
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
-  -webkit-filter: contrast(70%);
-  filter: contrast(65%);
+  -webkit-filter: contrast(85%);
+  filter: contrast(85%);
   overflow: hidden;
   position: relative;
   -webkit-transition: -webkit-filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
@@ -298,33 +291,6 @@ img {
   line-height: 1.5;
   margin-bottom: 1.25rem;
 }
-body,
-html {
-  background-color: #ebecf0;
-}
-
-body,
-p,
-input,
-select,
-textarea,
-button {
-  font-family: "Montserrat", sans-serif;
-  letter-spacing: -0.2px;
-  font-size: 16px;
-}
-
-div,
-p {
-  color: #ffffff;
-}
-
-form {
-  padding: 16px;
-  width: 520px;
-  margin: 0 auto;
-  margin-top: 200px;
-}
 
 .segment {
   padding: 32px 0;
@@ -339,78 +305,10 @@ input {
   letter-spacing: 2px;
   text-transform: uppercase;
   border: 0;
-
   outline: 0;
   border: 1px solid #9c9c9c;
   border-radius: 10px;
   padding: 16px;
   background-color: rgba(242, 127, 21, 0.6);
-}
-
-label {
-  display: block;
-  margin-bottom: 24px;
-  width: 100%;
-}
-
-input {
-  margin-right: 8px;
-  box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #fff;
-  width: 100%;
-  box-sizing: border-box;
-  transition: all 0.2s ease-in-out;
-  appearance: none;
-  -webkit-appearance: none;
-}
-
-input:focus {
-  box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
-}
-
-button {
-  color: #61677c;
-  font-weight: normal;
-  /*box-shadow: -5px -5px 20px rgba(242, 127, 21, 0.6), 5px 5px 20px rgba(242, 127, 21, 0.6);*/
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-  font-weight: 400;
-}
-button:hover {
-  /*box-shadow: -2px -2px 5px rgba(242, 127, 21, 0.6), 2px 2px 5px rgba(242, 127, 21, 0.6);*/
-}
-button:active {
-  box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
-}
-button .icon {
-  margin-right: 8px;
-}
-button.unit {
-  border-radius: 8px;
-  line-height: 0;
-  width: 48px;
-  height: 48px;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  margin: 8px 8px 8px 8px;
-  font-size: 19.2px;
-}
-button.unit .icon {
-  margin-right: 0;
-}
-button.red {
-  display: block;
-  width: 100%;
-  color: #ffffff;
-}
-
-.input-group {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-.input-group label {
-  margin: 0;
-  flex: 1;
 }
 </style>

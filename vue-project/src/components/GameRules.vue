@@ -51,17 +51,19 @@ div p {
 }
 .headline,
 h1 {
-  color: #ffffff;
+  color: #fff;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 100px;
   margin: auto;
-  margin-top: 13vh;
+  margin-top: 23vh;
 }
 .card {
-  background-color: rgba(0, 0, 0, 0.68);
+  background-color: #02070c;
   box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.38);
   display: flex;
   overflow: hidden;
-  margin-top: 21vh;
-  margin-bottom: 30vh;
+  margin-top: 35vh;
+  
 }
 .card__content {
   display: flex;
