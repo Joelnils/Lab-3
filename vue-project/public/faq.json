@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "title": "How do I play BlackJack?",
+    "info": "You can find rules for each one of our game in the -Rules section. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, mollitia quas quasi minus aspernatur porro ducimus quae dolorem facilis vel?",
+    "icon": ""
+  },
+  {
+    "id": "2",
+    "title": "I havent recieved my money, what do i do?",
+    "info": "Please use our contactform to contact us and we will help you out as soon as possible!. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, mollitia quas quasi minus aspernatur porro ducimus quae dolorem facilis vel?",
+    "icon": ""
+  },
+  {
+    "id": "3",
+    "title": "The game wont start!",
+    "info": "Have patience dear customer, sometimes you might have to refresh your browser. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, mollitia quas quasi minus aspernatur porro ducimus quae dolorem facilis vel?",
+    "icon": ""
+  },
+  {
+    "id": "4",
+    "title": "An other very good question",
+    "info": "Wow, best answer ever! LoLorem ipsum, dolor sit amet consectetur adipisicing elit. Error, mollitia quas quasi minus aspernatur porro ducimus quae dolorem facilis vel?rem4",
+    "icon": ""
+  }
+]
