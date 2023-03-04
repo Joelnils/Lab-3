@@ -5,29 +5,31 @@
     </div>
     <div v-if="isGameStarted">
       <div>
-        <p>Player Hand</p>
-        <div>
-          <div v-for="card in playerCards" :key="card.code" class="card">
-            <img :src="card.image" :alt="card.code" />
-          </div>
-        </div>
-        <p>Dealer Hand</p>
+        <p>Dealer Hand - Value: {{ this.getHandValue(dealerHand) }}</p>
+
         <div>
           <div
             v-for="(card, index) in dealerCards"
             :key="card.code"
             class="card"
-            :class="{ hidden: index === 0 && !isGameOver }"
           >
+            <!-- :class="{ hidden: index === 0 && !isGameOver }" -->
             <!-- Försöka göra ett dealerns första dolda kort är en baksida av ett kort men API:t verkar inte hitta det längre -->
             <img
               :src="
                 index === 0 && !isGameOver
-                  ? 'https://deckofcardsapi.com/static/img/card-back.png'
+                  ? 'https://cdn.discordapp.com/attachments/1081528132953190433/1081528321101279232/blue_back.png'
                   : card.image
               "
               :alt="card.code"
             />
+          </div>
+        </div>
+        <hr class="solid" />
+        <p>Player Hand - Value: {{ this.getHandValue(playerHand) }}</p>
+        <div>
+          <div v-for="card in playerCards" :key="card.code" class="card">
+            <img :src="card.image" :alt="card.code" />
           </div>
         </div>
         <p v-if="isGameOver">{{ gameResult }}</p>
@@ -66,12 +68,13 @@ export default {
       this.playerHand = playerDrawResponse.data.cards.map((card) => card.value);
       this.playerCards = playerDrawResponse.data.cards;
       const dealerDrawResponse = await axios.get(
-        `https://deckofcardsapi.com/api/deck/${this.deckId}/draw/?count=2`
+        `https://deckofcardsapi.com/api/deck/${this.deckId}/draw/?count=1`
       );
       this.dealerHand = dealerDrawResponse.data.cards.map((card) => card.value);
       this.dealerCards = dealerDrawResponse.data.cards;
       this.isGameStarted = true;
     },
+
     async hit() {
       const response = await axios.get(
         `https://deckofcardsapi.com/api/deck/${this.deckId}/draw/?count=1`
@@ -131,13 +134,25 @@ export default {
 </script>
 
 <style>
+body {
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.8) 100%
+    ),
+    url("https://images.unsplash.com/photo-1596838132731-3301c3fd4317?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80")
+      no-repeat center fixed;
+  background-size: cover;
+  height: 200vh;
+}
+
 .BlackuJacku {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin-top: 25vh;
-  margin-bottom: 20vh;
+  height: 120vh;
+  margin-top: 30vh;
+  margin-bottom: 50vh;
   color: #fff;
   font-family: "Times New Roman", Times, serif;
 }
@@ -148,11 +163,32 @@ export default {
 .card {
   display: inline-block;
   margin-right: 10px;
+  width: 180px;
+  height: 290px;
+  background: none;
+  border: none;
+}
+
+.card img {
+  width: inherit;
+  height: inherit;
+  object-fit: contain;
 }
 
 .hidden img {
   visibility: hidden;
 }
+
+p {
+  color: #fff;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 25px;
+}
+
+hr.solid {
+  border-top: 5px solid #ffffff;
+}
+
 button,
 input {
   color: #ffffff;
@@ -171,8 +207,8 @@ input {
 
 .red {
   display: inline-block;
-  width: 20vw;
-  margin-right: 4px;
+  width: 180px;
+  margin-right: 10px;
   color: #ffffff;
 }
 </style>
