@@ -152,7 +152,7 @@ h1 {
   color: #fff;
   font-family: "Times New Roman", Times, serif;
   font-size: 100px;
-  margin-top: 23vh;
+  margin-top: 22vh;
 }
 
 .centered {
@@ -198,7 +198,7 @@ img {
   box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.38);
   display: flex;
   overflow: hidden;
-  margin-top: 35vh;
+  margin-top: 38vh;
 }
 .card {
   background-color: #02070c;
