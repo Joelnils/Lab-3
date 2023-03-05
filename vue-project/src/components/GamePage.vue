@@ -57,11 +57,15 @@ export default {
                 21, you win. If your hand goes over 21, you "bust" and lose your
                 bet. If the dealer busts, you win.
               </p>
-              <router-link :to="{ path: '/games/blackjack' }" class="red">
-                <button class="red" type="button">
-                  <i class="icon ion-md-lock"></i>Go To Game
-                </button>
-              </router-link>
+              <!--<router-link :to="{ path: '/games/blackjack' }" class="red">-->
+              <button
+                @click="linkToOtherWindow('/games/blackjack')"
+                class="red"
+                type="button"
+              >
+                <i class="icon ion-md-lock"></i>Go To Game
+              </button>
+              <!--</router-link>-->
             </div>
           </div>
         </li>
