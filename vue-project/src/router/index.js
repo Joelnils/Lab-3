@@ -31,6 +31,13 @@ const router = createRouter({
       path: "/games",
       name: "games",
       component: () => import("../components/GamePage.vue"),
+      children: [
+        {
+          path: "/blackjack",
+          name: "blackjack",
+          component: () => import("../components/BlackJack.vue"),
+        },
+      ],
     },
     {
       path: "/games/blackjack",
