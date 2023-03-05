@@ -1,14 +1,9 @@
 <template>
   <div class="slot-machine">
     <div class="SpinS"></div>
-    <div class="grid-container">
+    <div class="grid-container" :class="moveClass">
       <div class="row" v-for="(row, index) in rows" :key="index">
-        <div
-          class="symbol"
-          :class="spinClass"
-          v-for="(symbol, index) in row"
-          :key="index"
-        >
+        <div class="symbol" v-for="(symbol, index) in row" :key="index">
           {{ symbol }}
         </div>
       </div>
@@ -21,9 +16,9 @@
         <p style="color: white">Total cash: ${{ totalGold }}</p>
         <!-- Tillagd kod -->
 
-        <div class="bet-buttons">
-          <button @click="decreaseBet">-</button>
-          <button @click="increaseBet">+</button>
+        <div class="bet">
+          <button class="bet-buttons" @click="decreaseBet">-</button>
+          <button class="bet-buttons" @click="increaseBet">+</button>
           <!-- Tillagd kod -->
         </div>
       </div>
@@ -35,6 +30,7 @@
 export default {
   data() {
     return {
+      moveClass: "",
       symbols: ["🍒", "🍇", "🍓", "🍉", "🍊", "🍋", "🍍", "🍎", "🍏"],
       rows: [
         ["🍍", "🍓", "🍊"],
@@ -45,93 +41,143 @@ export default {
       spinning: false,
       spinClass: "",
       spinTimeouts: [],
-      goldBet: 5 /* Tillagd kod */,
-      totalGold: this.$route.query.gold /* Tillagd kod */,
+      goldBet: 5,
+      totalGold: 0,
       win: 5000,
     };
   },
   methods: {
     decreaseBet() {
-      this.goldBet = Math.max(
-        this.goldBet - 5,
-        0
-      ); /* Gör att minsta belopp är 0 */
+      this.goldBet = Math.max(this.goldBet - 5, 0);
     },
     increaseBet() {
       this.goldBet = this.goldBet + 5;
     },
-    /* Tillagd kod */
     spin() {
+      if (this.spinning) return;
       this.spinning = true;
-      this.spinClass = "spin";
-      this.spinTimeouts = [];
+      this.gameResult = "";
+      this.moveClass = "move";
 
-      for (let i = 0; i < 3; i++) {
-        let j = 0;
-        this.spinTimeouts.push(
-          setInterval(() => {
-            this.rows[i][j] =
-              this.symbols[Math.floor(Math.random() * this.symbols.length)];
-            j++;
-            if (j >= 3) {
-              clearInterval(this.spinTimeouts[i]);
-            }
-          }, 100)
-        );
-      }
+      const minMomentum = 50;
+      const maxMomentum = 100;
+      const momentum =
+        Math.floor(Math.random() * (maxMomentum - minMomentum + 1)) +
+        minMomentum;
 
-      setTimeout(() => {
-        clearTimeouts(this.spinTimeouts);
+      this.animate(momentum, () => {
+        this.moveClass = "";
+        this.updateTileIndexes();
         this.spinning = false;
-        this.spinClass = "";
-
         if (this.checkWin()) {
           this.totalGold += this.goldBet;
-          this.gameResult = `Du vann $${
+          this.gameResult = `Congratulations! You won $${
             this.win
-          }! (Företaget tar 50% så du vann egentligen $${this.win / 2})`;
+          }! (Note: the company takes 50%, so you actually won $${
+            this.win / 2
+          })`;
         } else {
           this.totalGold -= this.goldBet;
-          this.gameResult = "Du förlorade hela din livsbesparning";
+          this.gameResult =
+            "You lost your entire life savings. Better luck next time!";
         }
-      }, 5000);
+      });
     },
+    updateTileIndexes() {
+      const updateSymbol = (symbol, rowIndex, symbolIndex) => {
+        let newIndex = symbolIndex - 1;
+        if (newIndex < 0) {
+          newIndex = this.rows[rowIndex].length - 1;
+        }
+        this.rows[rowIndex][newIndex] = symbol;
+      };
+
+      const animationDuration = 3000; // Change this value to adjust the animation speed
+      const startTime = Date.now();
+      const update = () => {
+        const elapsedTime = Date.now() - startTime;
+        const t = Math.min(1, elapsedTime / animationDuration);
+
+        this.rows.forEach((row, rowIndex) => {
+          row.forEach((symbol) => {
+            if (t === 1) {
+              updateSymbol(symbol, rowIndex);
+            }
+          });
+        });
+
+        if (t < 1) {
+          requestAnimationFrame(update);
+        }
+      };
+
+      requestAnimationFrame(update);
+    },
+
     checkWin() {
+      // Titta efter tre i rad
       for (let i = 0; i < this.rows.length; i++) {
-        if (
-          this.rows[i][0] === this.rows[i][1] &&
-          this.rows[i][1] === this.rows[i][2]
-        ) {
+        let row = this.rows[i];
+        if (row[0] === row[1] && row[1] === row[2]) {
           return true;
         }
       }
-      for (let j = 0; j < this.rows[0].length; j++) {
-        /* Denna kollar column också */
-        if (
-          this.rows[0][j] === this.rows[1][j] &&
-          this.rows[1][j] === this.rows[2][j]
-        ) {
-          return true;
-        }
+      // Leta efter matchningar från högst upp till vänster till längst ner till höger
+      if (
+        this.rows[0][0] === this.rows[1][1] &&
+        this.rows[1][1] === this.rows[2][2]
+      ) {
+        return true;
+      }
+      // Leta efter matchningar från längst ner till vänster till högst upp till höger
+      if (
+        this.rows[2][0] === this.rows[1][1] &&
+        this.rows[1][1] === this.rows[0][2]
+      ) {
+        return true;
       }
       return false;
     },
-    changeBet(amount) {
-      /* Denna kod är ny men fungerar, gör att total cash ändringen
-        fungerar */
-      const newBet = this.bet + amount;
-      if (newBet < 5 || newBet > this.totalCash) {
-        return;
+
+    animate(momentum, callback) {
+      // Ta bort tidigare timeouts
+      this.spinTimeouts.forEach((timeout) => clearTimeout(timeout));
+      this.spinTimeouts = [];
+
+      // Räkna ut hur länge och långt varje symbol ska röra sig
+      const duration = 2000 / momentum;
+      const distances = [];
+      for (let i = 0; i < this.rows.length; i++) {
+        let row = this.rows[i];
+        let rowDistances = [];
+        for (let j = 0; j < row.length; j++) {
+          rowDistances.push(j * (40 / row.length));
+        }
+        distances.push(rowDistances);
       }
-      this.bet = newBet;
+
+      // Animation på varje symbol
+      for (let i = 0; i < this.rows.length; i++) {
+        let row = this.rows[i];
+        for (let j = 0; j < row.length; j++) {
+          const tile = row[j];
+          const distance = distances[i][j];
+          const index = this.symbols.indexOf(tile);
+          const newTileIndex = (index + 1) % this.symbols.length;
+          const newTile = this.symbols[newTileIndex];
+          this.spinTimeouts.push(
+            setTimeout(() => {
+              this.rows[i][j] = newTile;
+              if (i === this.rows.length - 1 && j === row.length - 1) {
+                callback();
+              }
+            }, distance * duration)
+          );
+        }
+      }
     },
   },
 };
-function clearTimeouts(timeouts) {
-  for (let i = 0; i < timeouts.length; i++) {
-    clearTimeout(timeouts[i]);
-  }
-}
 </script>
 
 <style scoped>
@@ -161,13 +207,7 @@ function clearTimeouts(timeouts) {
   transform-origin: center;
   font-size: 40px;
   margin-left: 25px;
-}
-
-.spin {
-  animation-name: spin;
-  animation-duration: 1.5s;
-  animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
-  animation-fill-mode: forwards;
+  transition: transform 0.5s ease-out;
 }
 
 .grid-container {
@@ -184,7 +224,7 @@ function clearTimeouts(timeouts) {
   height: 210px;
   position: relative;
   width: 400px;
-  margin-top: 400px;
+  margin-top: 420px;
 }
 
 .spin-button {
@@ -196,10 +236,21 @@ function clearTimeouts(timeouts) {
   border-radius: 5px;
   cursor: pointer;
   font-size: 20px;
+  margin-right: 500px;
 }
 
 .spin-button:hover {
   background: rgba(152, 80, 13, 0.6);
+}
+.bet-buttons {
+  padding: 15px;
+  background: rgba(242, 127, 21, 0.6);
+  color: rgb(0, 0, 0);
+  border: none;
+  font-weight: solid;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 10px;
 }
 
 .spinAndResult {
@@ -211,25 +262,6 @@ function clearTimeouts(timeouts) {
   color: white;
 }
 
-.symbol.spin {
-  animation-name: spin;
-  animation-duration: 4s;
-  animation-timing-function: cubic-bezier(0.25, 0.1, 0.5);
-  animation-fill-mode: forwards;
-  animation: somersault 4s infinite;
-}
-
-@keyframes somersault {
-  0% {
-    transform: rotateX(0deg);
-  }
-  50% {
-    transform: rotateX(1320deg);
-  }
-  100% {
-    transform: rotateX(0deg);
-  }
-}
 p {
   color: white;
 }
