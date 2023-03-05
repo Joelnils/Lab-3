@@ -67,15 +67,20 @@ export default {
       // Vid start av spelet, rensa alla värden för att kunna "starta om"
       this.wipeGame();
 
+      // Använder 6 kortlekar
       const response = await axios.get(
         "https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=6"
       );
       this.deckId = response.data.deck_id;
+
+      // Drar två kort till spelare
       const playerDrawResponse = await axios.get(
         `https://deckofcardsapi.com/api/deck/${this.deckId}/draw/?count=2`
       );
       this.playerHand = playerDrawResponse.data.cards.map((card) => card.value);
       this.playerCards = playerDrawResponse.data.cards;
+
+      // Drar ett kort till dealer
       const dealerDrawResponse = await axios.get(
         `https://deckofcardsapi.com/api/deck/${this.deckId}/draw/?count=1`
       );
@@ -113,6 +118,7 @@ export default {
       }
       this.playerHand.push(newCard.value);
       this.playerCards.push(newCard);
+
       if (this.getHandValue(this.playerHand) > 21) {
         this.isGameOver = true;
         this.gameResult = "You bust! Dealer wins.";
@@ -137,10 +143,12 @@ export default {
         const newCard = response.data.cards[0];
         this.dealerHand.push(newCard.value);
         this.dealerCards.push(newCard);
+
         // Annars om dealern inte har 10 eller 11 och spelaren har blackjack så ska spelaren vinna
       } else if (this.hasBlackjack) {
-        this.gameResult = "You win. Get out of my casino.";
+        this.gameResult = "BLACK JACK!! You win. Get out of my casino.";
         return;
+
         // Annars får dealern dra kort tills värdet är över eller lika med 17
       } else {
         while (this.getHandValue(this.dealerHand) < 17) {
