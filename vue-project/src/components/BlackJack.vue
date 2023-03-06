@@ -23,10 +23,20 @@
             </div>
           </div>
         </div>
-        <button v-if="!isGameOver" @click="hit" :disabled="isGameOver" class="red">
+        <button
+          v-if="!isGameOver"
+          @click="hit"
+          :disabled="isGameOver"
+          class="red"
+        >
           Hit
         </button>
-        <button v-if="!isGameOver" @click="stand" :disabled="isGameOver" class="red">
+        <button
+          v-if="!isGameOver"
+          @click="stand"
+          :disabled="isGameOver"
+          class="red"
+        >
           Stand
         </button>
         <button v-if="isGameOver" @click="startGame" class="red">
@@ -190,21 +200,12 @@ export default {
 </script>
 
 <style scoped>
-/* body {
+.bg-blackjack {
   background: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0.2) 0%,
       rgba(0, 0, 0, 0.4) 100%
     ),
-    url("../assets/img/AdobeStock_420867335.jpeg") no-repeat center fixed;
-  background-size: cover;
-  height: 110vh;
-} */
-
-.bg-blackjack {
-  background: linear-gradient(to bottom,
-      rgba(0, 0, 0, 0.2) 0%,
-      rgba(0, 0, 0, 0.4) 100%),
     url("../assets/img/AdobeStock_420867335.jpeg") no-repeat center fixed;
   background-size: cover;
   height: 110vh;
@@ -214,9 +215,9 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 103vh;
+  height: 100vh;
   margin-bottom: 0vh;
-  margin-top: 50px;
+  margin-top: 60px;
   color: #fff;
   font-family: "Times New Roman", Times, serif;
 }
@@ -229,7 +230,7 @@ export default {
   display: inline-block;
   margin-right: 10px;
   margin-bottom: 10px;
-  height: 150px;
+  width: 108px;
   background: none;
   border: none;
 }
