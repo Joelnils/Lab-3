@@ -13,7 +13,7 @@
           </div>
           <p>Dealer Hand - Value: {{ this.getHandValue(dealerHand) }}</p>
           <hr class="solid" />
-          <h4 v-if="isGameOver">{{ gameResult }}</h4>
+          <h5 v-if="isGameOver">{{ gameResult }}</h5>
 
           <hr class="solid" />
           <p>Player Hand - Value: {{ this.getHandValue(playerHand) }}</p>
@@ -248,7 +248,7 @@ export default {
 p {
   color: #fff;
   font-family: "Times New Roman", Times, serif;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 hr.solid {

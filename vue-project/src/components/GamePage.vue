@@ -126,7 +126,7 @@ export default {
                 during the spin.
               </p>
               <button
-                @click="$router.push('/games/WheelOfFortune.vue')"
+                @click="$router.push('/games/wheel')"
                 class="red"
                 type="button"
               >
