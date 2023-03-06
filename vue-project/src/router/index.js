@@ -59,6 +59,11 @@ const router = createRouter({
       name: "contact",
       component: () => import("../views/ContactPage.vue"),
     },
+    {
+      path: "/wheel",
+      name: "wheel",
+      component: () => import("../views/WheelOfFortune.vue"),
+    },
 
     {},
   ],
