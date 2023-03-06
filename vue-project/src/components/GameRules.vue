@@ -55,15 +55,15 @@ h1 {
   font-family: "Times New Roman", Times, serif;
   font-size: 100px;
   margin: auto;
-  margin-top: 23vh;
+  margin-top: 22vh;
 }
 .card {
   background-color: #02070c;
   box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.38);
   display: flex;
   overflow: hidden;
-  margin-top: 35vh;
-  
+  margin-top: 40vh;
+
 }
 .card__content {
   display: flex;
