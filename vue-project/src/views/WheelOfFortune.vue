@@ -13,5 +13,6 @@
 .extra{
     height: 100vh;
     margin-top: 80px;
+    background-color: #02070c;
 }
 </style>
