@@ -131,7 +131,7 @@ export default {
                 place their bets on the symbols that they think will come out
                 during the spin.
               </p>
-              <button @click="linkToOtherWindow('#')" class="red" type="button">
+              <button @click="linkToOtherWindow('/games/wheel')" class="red" type="button">
                 <i class="icon ion-md-lock"></i>Go To Game
               </button>
             </div>

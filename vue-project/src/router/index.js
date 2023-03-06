@@ -53,9 +53,9 @@ const router = createRouter({
       component: () => import("../views/ContactPage.vue"),
     },
     {
-      path: "/wheel",
+      path: "/games/wheel",
       name: "wheel",
-      component: () => import("../views/WheelOfFortune.vue"),
+      component: () => import("../components/Wheel.vue"),
     },
 
     {},
