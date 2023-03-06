@@ -9,7 +9,7 @@
       </div>
       <div class="col-6">
         <img src="../assets/img/img4.jpg" class="img-fluid" alt="..." />
-        <div class="p-3">Blackjack</div>
+        <div class="p-3">Black Jack</div>
       </div>
       <div class="col-6">
         <img src="../assets/img/img3.jpg" class="img-fluid" alt="..." />
@@ -17,7 +17,7 @@
       </div>
       <div class="col-6">
         <img src="../assets/img/img1.jpg" class="img-fluid" alt="..." />
-        <div class="p-3">Punto Banco</div>
+        <div class="p-3">Punto Banco (Baccarat)</div>
       </div>
       <div class="col-6">
         <img src="../assets/img/img4.jpg" class="img-fluid" alt="..." />

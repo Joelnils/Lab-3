@@ -30,7 +30,7 @@ export default {
                 symbols fall on that “payline”.
               </p>
               <button
-                @click="$router.push('/games/slots')"
+                @click="$router.push('/games/slot')"
                 class="red"
                 type="button"
               >
@@ -126,7 +126,7 @@ export default {
                 during the spin.
               </p>
               <button
-                @click="$router.push('/games/WheelOfFortune.vue')"
+                @click="$router.push('/games/wheel')"
                 class="red"
                 type="button"
               >
