@@ -70,7 +70,7 @@ function handle(actualDeg) {
     <div class="no-winner" v-if="!winner"><h3>Let's see what Lady Fortune has in store for you..</h3></div>
     <div class="avancera" v-else-if="winner === 'Avancera Owl'"><h2>Ohh my, look at that. It's the {{ winner }}</h2><h4>This is the grand price! Printscreen this {{ winner }} and save it, beacuse next time you're stuck on Avancera, send the screenshot to Johan Rutberg and he will give you the answer!</h4></div>
     <div class="avancera" v-else-if="winner === 'Bag of Money'"><h2>Heey look, it's a {{ winner }}!</h2><h4>And this might look like a winner but unfortunately the bag is empty. Better luck next time!</h4></div>
-    <div class="avancera" v-else-if="winner === 'Black Cat'"><h2>The {{ winner }} emerges from the shadows!</h2><h4>And this might look like a winner but the {{ winner }} will porbably rob you blind if you get too close. Better luck next time!</h4></div>
+    <div class="avancera" v-else-if="winner === 'Black Cat'"><h2>The {{ winner }} emerges from the shadows!</h2><h4>The {{ winner }} is now giving you the chanse of a lifetime, you have won a dinner with team 8, you're buying!</h4></div>
     <div class="avancera" v-else-if="winner === 'Confused Cow'"><h2>And the winner is...! Not you.</h2><h4>The {{ winner }} has nothing to offer you, better luck next time!</h4></div>
     <div class="avancera" v-else-if="winner === 'Greedy Croc'"><h2>{{ winner }} pops out of the water to share his spoils with you! <h4>But since it's a {{ winner }}, it wont share, better luck next time!</h4></h2></div>
     <div class="avancera" v-else-if="winner === 'Lambi'"><h2>A wild {{ winner }} appears and decides to give you a price!</h2><h4>Go to the restroom and take as much toilettpaper as you want. Congrats!</h4></div>
