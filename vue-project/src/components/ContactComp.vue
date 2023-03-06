@@ -1,9 +1,9 @@
 <script setup>
-import FormBasic from "../components/FormBasic.vue";
+import FormBasic from "./FormBasic.vue";
 import { ref } from "vue";
-import Modal from "../components/Modal.vue";
-import Faq from "../components/FaqMenu.vue";
-import Map from "../components/Map.vue";
+import Modal from "./Modal.vue";
+import Faq from "./FaqMenu.vue";
+import Map from "./Map.vue";
 
 const firstName = ref("");
 let lastName = ref("");
