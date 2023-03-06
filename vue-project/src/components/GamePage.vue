@@ -30,7 +30,7 @@ export default {
                 symbols fall on that “payline”.
               </p>
               <button
-                @click="$router.push('/games/slots')"
+                @click="$router.push('/games/slot')"
                 class="red"
                 type="button"
               >
