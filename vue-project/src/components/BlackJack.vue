@@ -1,46 +1,38 @@
 <template>
-  <div class="BlackuJacku">
-    <div v-if="!isGameStarted">
-      <button @click="startGame" class="red_start">Start Game</button>
-    </div>
-    <div v-if="isGameStarted">
-      <div>
-        <div>
-          <div v-for="card in dealerCards" :key="card.code" class="card">
-            <img :src="card.image" :alt="card.code" />
-          </div>
-        </div>
-        <p>Dealer Hand - Value: {{ this.getHandValue(dealerHand) }}</p>
-        <hr class="solid" />
-        <h4 v-if="isGameOver">{{ gameResult }}</h4>
-
-        <hr class="solid" />
-        <p>Player Hand - Value: {{ this.getHandValue(playerHand) }}</p>
-        <div>
-          <div v-for="card in playerCards" :key="card.code" class="card">
-            <img :src="card.image" :alt="card.code" />
-          </div>
-        </div>
+  <div class="bg-blackjack">
+    <div class="BlackuJacku">
+      <div v-if="!isGameStarted">
+        <button @click="startGame" class="red_start">Start Game</button>
       </div>
-      <button
-        v-if="!isGameOver"
-        @click="hit"
-        :disabled="isGameOver"
-        class="red"
-      >
-        Hit
-      </button>
-      <button
-        v-if="!isGameOver"
-        @click="stand"
-        :disabled="isGameOver"
-        class="red"
-      >
-        Stand
-      </button>
-      <button v-if="isGameOver" @click="startGame" class="red">
-        Play again
-      </button>
+      <div v-if="isGameStarted">
+        <div>
+          <div>
+            <div v-for="card in dealerCards" :key="card.code" class="card">
+              <img :src="card.image" :alt="card.code" />
+            </div>
+          </div>
+          <p>Dealer Hand - Value: {{ this.getHandValue(dealerHand) }}</p>
+          <hr class="solid" />
+          <h4 v-if="isGameOver">{{ gameResult }}</h4>
+
+          <hr class="solid" />
+          <p>Player Hand - Value: {{ this.getHandValue(playerHand) }}</p>
+          <div>
+            <div v-for="card in playerCards" :key="card.code" class="card">
+              <img :src="card.image" :alt="card.code" />
+            </div>
+          </div>
+        </div>
+        <button v-if="!isGameOver" @click="hit" :disabled="isGameOver" class="red">
+          Hit
+        </button>
+        <button v-if="!isGameOver" @click="stand" :disabled="isGameOver" class="red">
+          Stand
+        </button>
+        <button v-if="isGameOver" @click="startGame" class="red">
+          Play again
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -197,13 +189,22 @@ export default {
 };
 </script>
 
-<style>
-body {
+<style scoped>
+/* body {
   background: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0.2) 0%,
       rgba(0, 0, 0, 0.4) 100%
     ),
+    url("../assets/img/AdobeStock_420867335.jpeg") no-repeat center fixed;
+  background-size: cover;
+  height: 110vh;
+} */
+
+.bg-blackjack {
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.4) 100%),
     url("../assets/img/AdobeStock_420867335.jpeg") no-repeat center fixed;
   background-size: cover;
   height: 110vh;
@@ -223,6 +224,7 @@ body {
 .blackjack {
   text-align: center;
 }
+
 .card {
   display: inline-block;
   margin-right: 10px;
