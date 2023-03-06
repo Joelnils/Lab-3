@@ -198,7 +198,17 @@ export default {
 </script>
 
 <style>
-body {
+
+
+.BlackuJacku {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  margin-bottom: 0vh;
+  margin-top: 50px;
+  color: #fff;
+  font-family: "Times New Roman", Times, serif;
   background: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0.2) 0%,
@@ -207,17 +217,6 @@ body {
     url("../assets/img/AdobeStock_420867335.jpeg") no-repeat center fixed;
   background-size: cover;
   height: 110vh;
-}
-
-.BlackuJacku {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 103vh;
-  margin-bottom: 0vh;
-  margin-top: 50px;
-  color: #fff;
-  font-family: "Times New Roman", Times, serif;
 }
 
 .blackjack {
