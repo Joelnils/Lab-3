@@ -88,9 +88,7 @@ function handleSubmit(){
 * {
   margin: 0;
 }
-.big-h1{
-  
-}
+
 .body-container {
   display: flex;
   flex-direction: column;
@@ -149,7 +147,7 @@ function handleSubmit(){
   text-align: center;
 }
 .hero-text {
-  border: 2px solid #dadada;
+  
   border-radius: 7px;
   padding: 40px;
 }
