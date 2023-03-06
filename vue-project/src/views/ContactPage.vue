@@ -6,9 +6,18 @@ import Faq from "../components/FaqMenu.vue";
 import Map from "../components/Map.vue";
 
 const firstName = ref("");
-const lastName = ref("");
-const textArea = ref("");
-const email = ref("");
+let lastName = ref("");
+let textArea = ref("");
+let email = ref("");
+let result= ""
+
+function handleSubmit(){
+  result=firstName.value
+  firstName.value=''
+  lastName.value=''
+  email.value=''
+  textArea.value=''
+}
 </script>
 
 <template>
@@ -24,7 +33,7 @@ const email = ref("");
 
     <div class="control">
       <div class="contact-header">
-        <h1>Contact us</h1>
+        <h1 class="big-h1">Contact us</h1>
       </div>
       <div class="form-header">
         <h2>
@@ -66,8 +75,8 @@ const email = ref("");
             class="form-control"
             rows="3"
           />
-          
-          <Modal />
+          <button @click="handleSubmit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">SUBMIT</button>
+          <Modal :firstName="result"/>
         </div>
       </div>
     </div>
@@ -79,17 +88,19 @@ const email = ref("");
 * {
   margin: 0;
 }
-
-/* .body-container {
+.big-h1{
+  
+}
+.body-container {
   display: flex;
   flex-direction: column;
-} */
+}
 .row {
   height: 100%;
 }
-/* .control {
+.control {
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: #02070c;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -97,7 +108,7 @@ const email = ref("");
   flex-direction: column;
   padding: 40px;
   
-} */
+}
 .form-container {
   max-width: 1200px;
   display: flex;
