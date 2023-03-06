@@ -27,7 +27,7 @@
           v-if="!isGameOver"
           @click="hit"
           :disabled="isGameOver"
-          class="red"
+          class="red_hit"
         >
           Hit
         </button>
@@ -35,7 +35,7 @@
           v-if="!isGameOver"
           @click="stand"
           :disabled="isGameOver"
-          class="red"
+          class="red_stand"
         >
           Stand
         </button>
@@ -230,7 +230,7 @@ export default {
   display: inline-block;
   margin-right: 10px;
   margin-bottom: 10px;
-  width: 108px;
+  width: 110px;
   background: none;
   border: none;
 }
@@ -257,27 +257,57 @@ hr.solid {
 
 button,
 input {
+  font-size: 0.7rem;
+  font-weight: 300;
+  margin-bottom: 0px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  outline: 0;
+  border: 2px solid #9c9c9c;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: rgba(242, 127, 21, 0.7);
+}
+
+.red {
+  display: inline-block;
+  width: 110px;
+  margin-right: 10px;
+  color: #ffffff;
+}
+
+.red_hit {
+  display: inline-block;
+  width: 108px;
+  margin-right: 10px;
   color: #ffffff;
   font-size: 0.7rem;
   font-weight: 300;
   margin-bottom: 0px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  border: 0;
   outline: 0;
-  border: 1px solid #9c9c9c;
+  border: 2px solid #9c9c9c;
   border-radius: 10px;
   padding: 10px;
-  background-color: rgba(242, 127, 21, 0.6);
+  background-color: rgba(33, 199, 0, 0.7);
 }
-
-.red {
+.red_stand {
   display: inline-block;
   width: 108px;
   margin-right: 10px;
   color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 300;
+  margin-bottom: 0px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  outline: 0;
+  border: 2px solid #9c9c9c;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: rgba(255, 0, 0, 0.7);
 }
-
 .red_start {
   display: inline-block;
   width: 150px;
