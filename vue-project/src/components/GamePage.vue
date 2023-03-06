@@ -5,12 +5,6 @@ export default {
       headline: "Our Games",
     };
   },
-
-  methods: {
-    linkToOtherWindow(url) {
-      window.open(url);
-    },
-  },
 };
 </script>
 
@@ -36,7 +30,7 @@ export default {
                 symbols fall on that “payline”.
               </p>
               <button
-                @click="linkToOtherWindow('/games/slot')"
+                @click="$router.push('/games/slots')"
                 class="red"
                 type="button"
               >
@@ -57,15 +51,13 @@ export default {
                 21, you win. If your hand goes over 21, you "bust" and lose your
                 bet. If the dealer busts, you win.
               </p>
-              <!--<router-link :to="{ path: '/games/blackjack' }" class="red">-->
               <button
-                @click="linkToOtherWindow('/games/blackjack')"
+                @click="$router.push('/games/blackjack')"
                 class="red"
                 type="button"
               >
                 <i class="icon ion-md-lock"></i>Go To Game
               </button>
-              <!--</router-link>-->
             </div>
           </div>
         </li>
@@ -81,7 +73,7 @@ export default {
                 number on any spin has no effect on the outcome of the next
                 spin.
               </p>
-              <button @click="linkToOtherWindow('#')" class="red" type="button">
+              <button @click="$router.push('#')" class="red" type="button">
                 <i class="icon ion-md-lock"></i>Go To Game
               </button>
             </div>
@@ -99,7 +91,7 @@ export default {
                 most fun about this setup is the sense of collaboration between
                 players.
               </p>
-              <button @click="linkToOtherWindow('#')" class="red" type="button">
+              <button @click="$router.push('#')" class="red" type="button">
                 <i class="icon ion-md-lock"></i>Go To Game
               </button>
             </div>
@@ -117,7 +109,7 @@ export default {
                 collect all winnings and pay all losing wagers to the extent
                 that their wagers covers.
               </p>
-              <button @click="linkToOtherWindow('#')" class="red" type="button">
+              <button @click="$router.push('#')" class="red" type="button">
                 <i class="icon ion-md-lock"></i>Go To Game
               </button>
             </div>
@@ -133,7 +125,11 @@ export default {
                 place their bets on the symbols that they think will come out
                 during the spin.
               </p>
-              <button @click="linkToOtherWindow('#')" class="red" type="button">
+              <button
+                @click="$router.push('/games/WheelOfFortune.vue')"
+                class="red"
+                type="button"
+              >
                 <i class="icon ion-md-lock"></i>Go To Game
               </button>
             </div>
