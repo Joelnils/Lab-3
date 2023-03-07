@@ -80,7 +80,7 @@ function handleSubmit(){
         </div>
       </div>
     </div>
-    <div class="map"><Map /></div>
+    <Map />
   </div>
 </template>
 
