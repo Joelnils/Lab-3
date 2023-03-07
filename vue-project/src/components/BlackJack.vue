@@ -150,10 +150,25 @@ export default {
       } else if (this.hasBlackjack) {
         this.gameResult = "BLACK JACK!! You win. Get out of my casino.";
         return;
+      }
 
-        // Annars får dealern dra kort tills värdet är över eller lika med 17
-      } else {
-        while (this.getHandValue(this.dealerHand) < 17) {
+      // Annars får dealern dra kort tills värdet är över eller lika med 17
+      // Delay på 1 sekund mellan varje drag
+      let interval = setInterval(async () => {
+        if (this.getHandValue(this.dealerHand) >= 17) {
+          clearInterval(interval);
+          const playerValue = this.getHandValue(this.playerHand);
+          const dealerValue = this.getHandValue(this.dealerHand);
+          if (dealerValue > 21) {
+            this.gameResult = "Dealer busts! You win. Now get out of here!";
+          } else if (dealerValue > playerValue) {
+            this.gameResult = "Dealer wins! Better luck next time!";
+          } else if (dealerValue < playerValue) {
+            this.gameResult = "You win! Get out of my casino!";
+          } else {
+            this.gameResult = "Stand off! It's a tie, what are the odds??";
+          }
+        } else {
           const response = await axios.get(
             `https://deckofcardsapi.com/api/deck/${this.deckId}/draw/?count=1`
           );
@@ -161,19 +176,7 @@ export default {
           this.dealerHand.push(newCard.value);
           this.dealerCards.push(newCard);
         }
-      }
-
-      const playerValue = this.getHandValue(this.playerHand);
-      const dealerValue = this.getHandValue(this.dealerHand);
-      if (dealerValue > 21) {
-        this.gameResult = "Dealer busts! You win. Now get out of here!";
-      } else if (dealerValue > playerValue) {
-        this.gameResult = "Dealer wins! Better luck next time!";
-      } else if (dealerValue < playerValue) {
-        this.gameResult = "You win! Get out of my casino!";
-      } else {
-        this.gameResult = "Stand off! It's a tie, what are the odds??";
-      }
+      }, 1000); // 1 sekund
     },
     getHandValue(hand) {
       let value = 0;
@@ -266,7 +269,7 @@ input {
   border: 2px solid #9c9c9c;
   border-radius: 10px;
   padding: 10px;
-  background-color: rgba(242, 127, 21, 0.7);
+  background-color: rgba(242, 127, 21, 0.6);
 }
 
 .red {
@@ -278,7 +281,7 @@ input {
 
 .red_hit {
   display: inline-block;
-  width: 108px;
+  width: 110px;
   margin-right: 10px;
   color: #ffffff;
   font-size: 0.7rem;
@@ -290,11 +293,11 @@ input {
   border: 2px solid #9c9c9c;
   border-radius: 10px;
   padding: 10px;
-  background-color: rgba(33, 199, 0, 0.7);
+  background-color: rgba(0, 20, 196, 0.6);
 }
 .red_stand {
   display: inline-block;
-  width: 108px;
+  width: 110px;
   margin-right: 10px;
   color: #ffffff;
   font-size: 0.7rem;
@@ -306,7 +309,7 @@ input {
   border: 2px solid #9c9c9c;
   border-radius: 10px;
   padding: 10px;
-  background-color: rgba(255, 0, 0, 0.7);
+  background-color: rgba(255, 0, 0, 0.6);
 }
 .red_start {
   display: inline-block;
