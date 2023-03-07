@@ -1,46 +1,48 @@
 <template>
-  <div class="BlackuJacku">
-    <div v-if="!isGameStarted">
-      <button @click="startGame" class="red_start">Start Game</button>
-    </div>
-    <div v-if="isGameStarted">
-      <div>
-        <div>
-          <div v-for="card in dealerCards" :key="card.code" class="card">
-            <img :src="card.image" :alt="card.code" />
-          </div>
-        </div>
-        <p>Dealer Hand - Value: {{ this.getHandValue(dealerHand) }}</p>
-        <hr class="solid" />
-        <h4 v-if="isGameOver">{{ gameResult }}</h4>
-
-        <hr class="solid" />
-        <p>Player Hand - Value: {{ this.getHandValue(playerHand) }}</p>
-        <div>
-          <div v-for="card in playerCards" :key="card.code" class="card">
-            <img :src="card.image" :alt="card.code" />
-          </div>
-        </div>
+  <div class="bg-blackjack">
+    <div class="BlackuJacku">
+      <div v-if="!isGameStarted">
+        <button @click="startGame" class="red_start">Start Game</button>
       </div>
-      <button
-        v-if="!isGameOver"
-        @click="hit"
-        :disabled="isGameOver"
-        class="red"
-      >
-        Hit
-      </button>
-      <button
-        v-if="!isGameOver"
-        @click="stand"
-        :disabled="isGameOver"
-        class="red"
-      >
-        Stand
-      </button>
-      <button v-if="isGameOver" @click="startGame" class="red">
-        Play again
-      </button>
+      <div v-if="isGameStarted">
+        <div>
+          <div>
+            <div v-for="card in dealerCards" :key="card.code" class="card">
+              <img :src="card.image" :alt="card.code" />
+            </div>
+          </div>
+          <p>Dealer Hand - Value: {{ this.getHandValue(dealerHand) }}</p>
+          <hr class="solid" />
+          <h5 v-if="isGameOver">{{ gameResult }}</h5>
+
+          <hr class="solid" />
+          <p>Player Hand - Value: {{ this.getHandValue(playerHand) }}</p>
+          <div>
+            <div v-for="card in playerCards" :key="card.code" class="card">
+              <img :src="card.image" :alt="card.code" />
+            </div>
+          </div>
+        </div>
+        <button
+          v-if="!isGameOver"
+          @click="hit"
+          :disabled="isGameOver"
+          class="red_hit"
+        >
+          Hit
+        </button>
+        <button
+          v-if="!isGameOver"
+          @click="stand"
+          :disabled="isGameOver"
+          class="red_stand"
+        >
+          Stand
+        </button>
+        <button v-if="isGameOver" @click="startGame" class="red">
+          Play again
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -197,8 +199,8 @@ export default {
 };
 </script>
 
-<style>
-body {
+<style scoped>
+.bg-blackjack {
   background: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0.2) 0%,
@@ -213,9 +215,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 103vh;
+  height: 100vh;
   margin-bottom: 0vh;
-  margin-top: 50px;
+  margin-top: 60px;
   color: #fff;
   font-family: "Times New Roman", Times, serif;
 }
@@ -223,11 +225,12 @@ body {
 .blackjack {
   text-align: center;
 }
+
 .card {
   display: inline-block;
   margin-right: 10px;
   margin-bottom: 10px;
-  height: 150px;
+  width: 110px;
   background: none;
   border: none;
 }
@@ -245,7 +248,7 @@ body {
 p {
   color: #fff;
   font-family: "Times New Roman", Times, serif;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 hr.solid {
@@ -254,27 +257,57 @@ hr.solid {
 
 button,
 input {
+  font-size: 0.7rem;
+  font-weight: 300;
+  margin-bottom: 0px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  outline: 0;
+  border: 2px solid #9c9c9c;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: rgba(242, 127, 21, 0.7);
+}
+
+.red {
+  display: inline-block;
+  width: 110px;
+  margin-right: 10px;
+  color: #ffffff;
+}
+
+.red_hit {
+  display: inline-block;
+  width: 108px;
+  margin-right: 10px;
   color: #ffffff;
   font-size: 0.7rem;
   font-weight: 300;
   margin-bottom: 0px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  border: 0;
   outline: 0;
-  border: 1px solid #9c9c9c;
+  border: 2px solid #9c9c9c;
   border-radius: 10px;
   padding: 10px;
-  background-color: rgba(242, 127, 21, 0.6);
+  background-color: rgba(33, 199, 0, 0.7);
 }
-
-.red {
+.red_stand {
   display: inline-block;
   width: 108px;
   margin-right: 10px;
   color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 300;
+  margin-bottom: 0px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  outline: 0;
+  border: 2px solid #9c9c9c;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: rgba(255, 0, 0, 0.7);
 }
-
 .red_start {
   display: inline-block;
   width: 150px;
