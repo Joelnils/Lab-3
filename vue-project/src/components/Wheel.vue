@@ -76,6 +76,7 @@ function handle(actualDeg) {
     <div class="avancera" v-else-if="winner === 'Confused Cow'"><h2>And the winner is...! Not you.</h2><h4>The {{ winner }} has nothing to offer you, better luck next time!</h4></div>
     <div class="avancera" v-else-if="winner === 'Greedy Croc'"><h2>{{ winner }} pops out of the water to share his spoils with you! <h4>But since it's a {{ winner }}, it wont share, better luck next time!</h4></h2></div>
     <div class="avancera" v-else-if="winner === 'Lambi'"><h2>A wild {{ winner }} appears and decides to give you a price!</h2><h4>Go to the restroom and take as much toilettpaper as you want. Congrats!</h4></div>
+
     <div class="avancera" v-else-if="winner === 'Black Jack'"><h2>Wow {{ winner }} winner!</h2><h4>That is if you go play BlackJack and win over there, otherwise.. Better luck next time!</h4></div>
     <div class="avancera" v-else-if="winner === 'Linux Pingu'"><h2>Yeah, you just got the {{ winner }}</h2><h4>And as we all know, nobody likes the {{ winner }}, so you get nothing. Better luck next time!</h4></div>
   
@@ -120,7 +121,7 @@ function handle(actualDeg) {
   position: relative;
 }
 .print-win{
-    
+
     max-width: 500px;
 }
 .btn{
@@ -130,6 +131,7 @@ function handle(actualDeg) {
     color: #fff;
     transform: rotate(7200deg);
 }
+
 .btn-pink {
     background: #ec008c;  
     background: -webkit-linear-gradient(to right, #fc6767, #ec008c);  
