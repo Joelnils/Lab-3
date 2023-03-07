@@ -76,8 +76,8 @@ function handle(actualDeg) {
     <div class="avancera" v-else-if="winner === 'Lambi'"><h2>A wild {{ winner }} appears and decides to give you a price!</h2><h4>Go to the restroom and take as much toilettpaper as you want. Congrats!</h4></div>
     <div class="avancera" v-else-if="winner === 'Black Jack'"><h2>Wow {{ winner }}Winner winner!</h2><h4>That is if you go play BlackJack and win over there, otherwise.. Better luck next time!</h4></div>
     <div class="avancera" v-else-if="winner === 'Linux Pingu'"><h2>Yeah, you just got the {{ winner }}</h2><h4>And as we all know, nobody likes the {{ winner }} so you get nothing, better luck next time!</h4></div>
-    
-    
+
+
     </div>
   </div>
 
@@ -117,7 +117,7 @@ function handle(actualDeg) {
   position: relative;
 }
 .print-win{
-    
+
     max-width: 500px;
 }
 .btn{
@@ -128,9 +128,9 @@ function handle(actualDeg) {
     transform: rotate(7200deg);
 }
 .btn-pink-moon {
-    background: #ec008c;  
-    background: -webkit-linear-gradient(to right, #fc6767, #ec008c);  
-    background: linear-gradient(to right, #fc6767, #ec008c); 
+    background: #ec008c;
+    background: -webkit-linear-gradient(to right, #fc6767, #ec008c);
+    background: linear-gradient(to right, #fc6767, #ec008c);
     color: #fff;
     border: 3px solid #eee;
     scale: 200%;
