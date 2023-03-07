@@ -31,13 +31,7 @@ const router = createRouter({
       path: "/games",
       name: "games",
       component: () => import("../components/GamePage.vue"),
-      /*children: [
-              {
-                path: "/blackjack",
-                name: "blackjack",
-                component: () => import("../components/BlackJack.vue"),
-              },
-            ],*/
+
     },
     {
       path: "/games/blackjack",
@@ -57,12 +51,12 @@ const router = createRouter({
     {
       path: "/contact",
       name: "contact",
-      component: () => import("../views/ContactPage.vue"),
+      component: () => import("../components/ContactComp.vue"),
     },
     {
-      path: "/wheel",
+      path: "/games/wheel",
       name: "wheel",
-      component: () => import("../views/WheelOfFortune.vue"),
+      component: () => import("../components/Wheel.vue"),
     },
 
     {},

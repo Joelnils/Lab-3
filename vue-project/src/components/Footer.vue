@@ -20,23 +20,23 @@ const onClick = () => window.scrollTo(0, 0);
         <h4>Copyright</h4>
         <p>© 2023 blabla</p>
       </div>
-      <div class="four">
+      <div class="links">
         <ul>
           <li class="nav-item">
-            <RouterLink class="nav-text" to="/games">Games</RouterLink>
-          </li>
-          <li class="nav-item">
-            <RouterLink class="nav-text" to="/rules">Rules</RouterLink>
-          </li>
-          <li class="nav-item">
-            <RouterLink class="nav-text" to="/about">About</RouterLink>
-          </li>
-          <li class="nav-item">
-            <RouterLink class="nav-text" to="/">Contact</RouterLink>
-          </li>
-          <li class="nav-item">
-            <RouterLink class="nav-text" to="/">Account</RouterLink>
-          </li>
+          <RouterLink class="nav-link" to="/games">Games</RouterLink>
+        </li>
+        <li class="nav-item">
+          <RouterLink class="nav-link" to="/rules">Rules</RouterLink>
+        </li>
+        <li class="nav-item">
+          <RouterLink class="nav-link" to="/about">About</RouterLink>
+        </li>
+        <li class="nav-item">
+          <RouterLink class="nav-link" to="/contact">Contact</RouterLink>
+        </li>
+        <li class="nav-item">
+          <RouterLink class="nav-link" to="/login">Account</RouterLink>
+        </li>
         </ul>
       </div>
     </div>
@@ -74,12 +74,12 @@ const onClick = () => window.scrollTo(0, 0);
   gap: 40px;
   padding-top: 30px;
 }
-.four ul li {
+.links ul li {
   list-style: none;
   text-decoration: none;
   color: white;
 }
-.four ul {
+.links ul {
   text-align: right;
 }
 .two {
