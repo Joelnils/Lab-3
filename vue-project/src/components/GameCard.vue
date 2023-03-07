@@ -12,7 +12,7 @@ import { RouterLink, RouterView } from "vue-router";
                 <div class="card-body">
                     <h4 class="card-title">{{ cardTitel }}</h4>
                     <RouterLink to="/rules" class="card-link">How to play</RouterLink>
-                    <input type="button" value="Play" class="card_button">
+                    <input @click="$router.push('/games/blackjack')" type="button" value="Play" class="card_button">
                 </div>
             </div>
         </div>

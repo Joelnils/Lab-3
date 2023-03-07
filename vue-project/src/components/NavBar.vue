@@ -25,7 +25,6 @@ import { RouterLink, RouterView } from "vue-router";
         <li class="nav-item">
           <RouterLink class="nav-link" to="/login">Account</RouterLink>
         </li>
-        
       </ul>
     </div>
   </nav>
