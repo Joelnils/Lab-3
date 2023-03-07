@@ -1,9 +1,9 @@
 <script setup>
-import FormBasic from "../components/FormBasic.vue";
+import FormBasic from "./FormBasic.vue";
 import { ref } from "vue";
-import Modal from "../components/Modal.vue";
-import Faq from "../components/FaqMenu.vue";
-import Map from "../components/Map.vue";
+import Modal from "./Modal.vue";
+import Faq from "./FaqMenu.vue";
+import Map from "./Map.vue";
 
 const firstName = ref("");
 let lastName = ref("");
@@ -79,8 +79,9 @@ function handleSubmit(){
           <Modal :firstName="result"/>
         </div>
       </div>
+      <Map />
     </div>
-    <div class="map"><Map /></div>
+    
   </div>
 </template>
 
@@ -88,9 +89,7 @@ function handleSubmit(){
 * {
   margin: 0;
 }
-.big-h1{
-  
-}
+
 .body-container {
   display: flex;
   flex-direction: column;
@@ -149,7 +148,7 @@ function handleSubmit(){
   text-align: center;
 }
 .hero-text {
-  border: 2px solid #dadada;
+  
   border-radius: 7px;
   padding: 40px;
 }

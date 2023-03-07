@@ -50,12 +50,12 @@ const router = createRouter({
     {
       path: "/contact",
       name: "contact",
-      component: () => import("../views/ContactPage.vue"),
+      component: () => import("../components/ContactComp.vue"),
     },
     {
       path: "/games/wheel",
       name: "wheel",
-      component: () => import("../views/WheelOfFortune.vue"),
+      component: () => import("../components/Wheel.vue"),
     },
 
     {},
