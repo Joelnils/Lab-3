@@ -40,7 +40,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .content-box {
   display: flex;
   justify-content: center;
