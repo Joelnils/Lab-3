@@ -56,7 +56,7 @@ export default {
 }
 
 .hero_content {
-  margin-top: 20rem;
+  margin-top: 18rem;
   display: flex;
   flex-direction: column;
   align-items: center;
