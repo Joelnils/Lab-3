@@ -31,7 +31,6 @@ const router = createRouter({
       path: "/games",
       name: "games",
       component: () => import("../components/GamePage.vue"),
-
     },
     {
       path: "/games/blackjack",
