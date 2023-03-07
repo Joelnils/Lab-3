@@ -41,6 +41,12 @@ export default {
 </script>
 
 <style scoped>
+.wrapp {
+  height: 100vh;
+  display: flex; /* add display flex */
+  align-items: center; /* center vertically */
+  justify-content: center; /* center horizontally */
+}
 .content-box {
   display: flex;
   justify-content: center;
