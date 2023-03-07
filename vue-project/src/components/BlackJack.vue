@@ -269,7 +269,7 @@ input {
   border: 2px solid #9c9c9c;
   border-radius: 10px;
   padding: 10px;
-  background-color: rgba(242, 127, 21, 0.7);
+  background-color: rgba(242, 127, 21, 0.6);
 }
 
 .red {
@@ -293,7 +293,7 @@ input {
   border: 2px solid #9c9c9c;
   border-radius: 10px;
   padding: 10px;
-  background-color: rgba(33, 199, 0, 0.7);
+  background-color: rgba(0, 20, 196, 0.6);
 }
 .red_stand {
   display: inline-block;
@@ -309,7 +309,7 @@ input {
   border: 2px solid #9c9c9c;
   border-radius: 10px;
   padding: 10px;
-  background-color: rgba(255, 0, 0, 0.7);
+  background-color: rgba(255, 0, 0, 0.6);
 }
 .red_start {
   display: inline-block;
