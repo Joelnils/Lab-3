@@ -18,25 +18,25 @@ const symbolSegments = {
   8: "Linux Pingu",
 };
 
-function spinWheel() {
-  disabled.value = true;
-  let degree = 0;
-  degree = Math.floor(5000 + Math.random() * 5000);
-  easeOutSpin.value = "all 5s ease-out";
+function spinWheel() { //denna funktion startar igång rotationen på hjulet
+  disabled.value = true; // här disablar vi knappen efter att hjulet börjat snurra
+  let degree = 0; // vi sätter gradantalet till 0
+  degree = Math.floor(5000 + Math.random() * 5000); //ger oss ett nytt random gradantal som används för att säga hur många grader den ska snurra(tal mellan 5k-10k)
+  easeOutSpin.value = "all 5s ease-out"; //snurra dessa grader under 5sekunder och en ease-out
 
-  spin.value = `rotate(${degree}deg)`;
-  const actualDeg = degree % 360;
-  setTimeout(function () {
-    disabled.value = false;
+  spin.value = `rotate(${degree}deg)`; //här tar vi emot det nya gradvärdet och roterar bilden(hjulet)
+  const actualDeg = degree % 360; //ny variabel som tar emot gradvärdet och delar det på 360(en cirkel) vilket ger oss vårat faktiska värde i bilden/cirkeln
+  setTimeout(function () { // en liten timeout funktion 5000ms(under tiden den snurrar)
+    disabled.value = false;//vi gör knappen klickbar igen
 
-    easeOutSpin.value = "all 0s";
-    spin.value = `rotate(${actualDeg}deg)`;
-    handle(actualDeg);
+    easeOutSpin.value = "all 0s"; //sätter transition till 0 så att användaren inte ser vad som händer nedan
+    spin.value = `rotate(${actualDeg}deg)`;//här tar vi det faktiska värdet som vi landat på(av en cirkel) och roterar den utan någon animation, så vi har ett värde mellan 0-360 istället för 5k-10k
+    handle(actualDeg); //här ropar vi på nedanstående funktion som tar hand om vinsten
   }, 5000);
 }
 function handle(actualDeg) {
-  const winSymNr = Math.ceil(actualDeg / zoneSize);
-  winner = symbolSegments[winSymNr];
+  const winSymNr = Math.ceil(actualDeg / zoneSize); //vi delar actualDegree värdet på zonesice och avrundar för att få fram det gradantal(och vilket segment) vi landat på
+  winner = symbolSegments[winSymNr]; // här kollar vi på viket av segmenten som vunnit och spara det i variabeln winner, det vinnande segmentets namn.
   // console.log(symbolSegments[winSymNr])
   console.log(actualDeg);
   console.log(winner);
