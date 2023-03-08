@@ -9,155 +9,151 @@ export default {
 </script>
 
 <template>
-  <div class="container">
+  <div class="container_top">
     <div>
       <h1>{{ headline }}</h1>
     </div>
   </div>
   <div class="card_bg">
-    <div class="centered">
-      <ul class="cards">
-        <li class="cards__item">
-          <div class="card">
-            <div class="card__image card__image--1"></div>
-            <div class="card__content">
-              <div class="card__title">Slots</div>
-              <p class="card__text">
-                What Are Slot Machines and How Do They Work? A slot machine is a
-                gambling game with spinning reels. Those reels have symbols on
-                them, which land randomly after you place a bet and spin the
-                reels. If these symbols line up, you win prizes based on which
-                symbols fall on that “payline”.
-              </p>
-              <button
-                @click="$router.push('/games/slot')"
-                class="red"
-                type="button"
-              >
-                <i class="icon ion-md-lock"></i>Go To Game
-              </button>
-            </div>
+    <ul class="cards">
+      <li class="cards__item">
+        <div class="card">
+          <div class="card__image card__image--1"></div>
+          <div class="card__content">
+            <div class="card__title">Slots</div>
+            <p class="card__text">
+              What Are Slot Machines and How Do They Work? A slot machine is a
+              gambling game with spinning reels. Those reels have symbols on
+              them, which land randomly after you place a bet and spin the
+              reels. If these symbols line up, you win prizes based on which
+              symbols fall on that “payline”.
+            </p>
+            <button
+              @click="$router.push('/games/slot')"
+              class="red"
+              type="button"
+            >
+              <i class="icon ion-md-lock"></i>Go To Game
+            </button>
           </div>
-        </li>
-        <li class="cards__item">
-          <div class="card">
-            <div class="card__image card__image--2"></div>
-            <div class="card__content">
-              <div class="card__title">Black Jack</div>
-              <p class="card__text">
-                The objective is always to beat the dealer, which means getting
-                to—or as close as possible to—a total point score of 21. If your
-                cards total higher than the dealer's cards without going over
-                21, you win. If your hand goes over 21, you "bust" and lose your
-                bet. If the dealer busts, you win.
-              </p>
-              <button
-                @click="$router.push('/games/blackjack')"
-                class="red"
-                type="button"
-              >
-                <i class="icon ion-md-lock"></i>Go To Game
-              </button>
-            </div>
+        </div>
+      </li>
+      <li class="cards__item">
+        <div class="card">
+          <div class="card__image card__image--2"></div>
+          <div class="card__content">
+            <div class="card__title">Black Jack</div>
+            <p class="card__text">
+              The objective is always to beat the dealer, which means getting
+              to—or as close as possible to—a total point score of 21. If your
+              cards total higher than the dealer's cards without going over 21,
+              you win. If your hand goes over 21, you "bust" and lose your bet.
+              If the dealer busts, you win.
+            </p>
+            <button
+              @click="$router.push('/games/blackjack')"
+              class="red"
+              type="button"
+            >
+              <i class="icon ion-md-lock"></i>Go To Game
+            </button>
           </div>
-        </li>
-        <li class="cards__item">
-          <div class="card">
-            <div class="card__image card__image--3"></div>
-            <div class="card__content">
-              <div class="card__title">American Roulette</div>
-              <p class="card__text">
-                The object of American Roulette is to guess on which number on
-                the wheel the ball will come to rest. Every number has the same
-                chance as any other of coming up on each spin i.e. the winning
-                number on any spin has no effect on the outcome of the next
-                spin.
-              </p>
-              <button @click="$router.push('#')" class="red" type="button">
-                <i class="icon ion-md-lock"></i>Go To Game
-              </button>
-            </div>
+        </div>
+      </li>
+      <li class="cards__item">
+        <div class="card">
+          <div class="card__image card__image--3"></div>
+          <div class="card__content">
+            <div class="card__title">American Roulette</div>
+            <p class="card__text">
+              The object of American Roulette is to guess on which number on the
+              wheel the ball will come to rest. Every number has the same chance
+              as any other of coming up on each spin i.e. the winning number on
+              any spin has no effect on the outcome of the next spin.
+            </p>
+            <button @click="$router.push('#')" class="red" type="button">
+              <i class="icon ion-md-lock"></i>Go To Game
+            </button>
           </div>
-        </li>
-        <li class="cards__item">
-          <div class="card">
-            <div class="card__image card__image--4"></div>
-            <div class="card__content">
-              <div class="card__title">Punto Banco (Baccarat)</div>
-              <p class="card__text">
-                Baccarat is a game where, instead of playing each other, players
-                play against the bank (similar to blackjack). The aim is to
-                obtain nine points or get as close to nine as possible. What's
-                most fun about this setup is the sense of collaboration between
-                players.
-              </p>
-              <button @click="$router.push('#')" class="red" type="button">
-                <i class="icon ion-md-lock"></i>Go To Game
-              </button>
-            </div>
+        </div>
+      </li>
+      <li class="cards__item">
+        <div class="card">
+          <div class="card__image card__image--4"></div>
+          <div class="card__content">
+            <div class="card__title">Punto Banco (Baccarat)</div>
+            <p class="card__text">
+              Baccarat is a game where, instead of playing each other, players
+              play against the bank (similar to blackjack). The aim is to obtain
+              nine points or get as close to nine as possible. What's most fun
+              about this setup is the sense of collaboration between players.
+            </p>
+            <button @click="$router.push('#')" class="red" type="button">
+              <i class="icon ion-md-lock"></i>Go To Game
+            </button>
           </div>
-        </li>
-        <li class="cards__item">
-          <div class="card">
-            <div class="card__image card__image--5"></div>
-            <div class="card__content">
-              <div class="card__title">Three Card Poker</div>
-              <p class="card__text">
-                Three Card Poker (TCP) is a three card poker game that utilizes
-                a player-dealer position. As in other games featuring a
-                player-dealer, the players play against another player who will
-                collect all winnings and pay all losing wagers to the extent
-                that their wagers covers.
-              </p>
-              <button @click="$router.push('#')" class="red" type="button">
-                <i class="icon ion-md-lock"></i>Go To Game
-              </button>
-            </div>
+        </div>
+      </li>
+      <li class="cards__item">
+        <div class="card">
+          <div class="card__image card__image--5"></div>
+          <div class="card__content">
+            <div class="card__title">Three Card Poker</div>
+            <p class="card__text">
+              Three Card Poker (TCP) is a three card poker game that utilizes a
+              player-dealer position. As in other games featuring a
+              player-dealer, the players play against another player who will
+              collect all winnings and pay all losing wagers to the extent that
+              their wagers covers.
+            </p>
+            <button @click="$router.push('#')" class="red" type="button">
+              <i class="icon ion-md-lock"></i>Go To Game
+            </button>
           </div>
-        </li>
-        <li class="cards__item">
-          <div class="card">
-            <div class="card__image card__image--6"></div>
-            <div class="card__content">
-              <div class="card__title">Lucky Wheel</div>
-              <p class="card__text">
-                In money wheel the viewer first spins the wheel. Players then
-                place their bets on the symbols that they think will come out
-                during the spin.
-              </p>
-              <button
-                @click="$router.push('/games/wheel')"
-                class="red"
-                type="button"
-              >
-                <i class="icon ion-md-lock"></i>Go To Game
-              </button>
-            </div>
+        </div>
+      </li>
+      <li class="cards__item">
+        <div class="card">
+          <div class="card__image card__image--6"></div>
+          <div class="card__content">
+            <div class="card__title">Lucky Wheel</div>
+            <p class="card__text">
+              In money wheel the viewer first spins the wheel. Players then
+              place their bets on the symbols that they think will come out
+              during the spin.
+            </p>
+            <button
+              @click="$router.push('/games/wheel')"
+              class="red"
+              type="button"
+            >
+              <i class="icon ion-md-lock"></i>Go To Game
+            </button>
           </div>
-        </li>
-      </ul>
-    </div>
+        </div>
+      </li>
+    </ul>
   </div>
 </template>
 <style scoped>
-.container {
-  position: sticky;
+.container_top {
+  height: 100vh;
   display: flex;
+  align-items: center;
   justify-content: center;
-}
-.container,
-h1 {
-  color: #fff;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 100px;
-  margin-top: 21vh;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.8) 100%
+    ),
+    url("../assets/img/AdobeStock_448496796.jpeg") no-repeat center fixed;
+  background-size: cover;
 }
 
-.centered {
-  display: flex;
-  justify-content: center;
-  margin-top: 10vh;
-  margin-bottom: 20vh;
+.container_top h1 {
+  color: #fff;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 40px;
 }
 
 img {
@@ -196,7 +192,7 @@ img {
   box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.38);
   display: flex;
   overflow: hidden;
-  margin-top: 38vh;
+  margin-top: 8vh;
 }
 .card {
   background-color: #02070c;
@@ -312,7 +308,6 @@ input {
 .red {
   display: inline-block;
   width: 100%;
-  margin-right: 10px;
   color: #ffffff;
 }
 </style>
