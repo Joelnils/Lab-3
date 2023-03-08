@@ -103,7 +103,7 @@ function handleSubmit(){
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60vh;
+  height: 100%;
   flex-direction: column;
   padding: 40px;
   
