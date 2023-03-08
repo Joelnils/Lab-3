@@ -42,7 +42,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .wrapp {
   height: 100vh;
   display: flex;
