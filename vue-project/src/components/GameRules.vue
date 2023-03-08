@@ -55,7 +55,7 @@ h1 {
   font-family: "Times New Roman", Times, serif;
   font-size: 100px;
   margin: auto;
-  margin-top: 22vh;
+  margin-top: 21vh;
 }
 .card {
   background-color: #02070c;
@@ -63,7 +63,6 @@ h1 {
   display: flex;
   overflow: hidden;
   margin-top: 40vh;
-
 }
 .card__content {
   display: flex;

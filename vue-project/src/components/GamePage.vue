@@ -150,7 +150,7 @@ h1 {
   color: #fff;
   font-family: "Times New Roman", Times, serif;
   font-size: 100px;
-  margin-top: 22vh;
+  margin-top: 21vh;
 }
 
 .centered {
