@@ -94,16 +94,14 @@ function handleSubmit(){
   display: flex;
   flex-direction: column;
 }
-.row {
-  height: 100%;
-}
+
 .control {
   width: 100%;
   background-color: #02070c;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60vh;
+  height: 100%;
   flex-direction: column;
   padding: 40px;
   
