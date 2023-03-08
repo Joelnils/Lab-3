@@ -94,9 +94,7 @@ function handleSubmit(){
   display: flex;
   flex-direction: column;
 }
-.row {
-  height: 100%;
-}
+
 .control {
   width: 100%;
   background-color: #02070c;
