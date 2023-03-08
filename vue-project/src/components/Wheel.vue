@@ -18,7 +18,8 @@ const symbolSegments = {
   8: "Linux Pingu",
 };
 
-function spinWheel() { //denna funktion startar igång rotationen på hjulet
+function spinWheel() {
+  //denna funktion startar igång rotationen på hjulet
   disabled.value = true; // här disablar vi knappen efter att hjulet börjat snurra
   let degree = 0; // vi sätter gradantalet till 0
   degree = Math.floor(5000 + Math.random() * 5000); //ger oss ett nytt random gradantal som används för att säga hur många grader den ska snurra(tal mellan 5k-10k)
@@ -26,11 +27,12 @@ function spinWheel() { //denna funktion startar igång rotationen på hjulet
 
   spin.value = `rotate(${degree}deg)`; //här tar vi emot det nya gradvärdet och roterar bilden(hjulet)
   const actualDeg = degree % 360; //ny variabel som tar emot gradvärdet och delar det på 360(en cirkel) vilket ger oss vårat faktiska värde i bilden/cirkeln
-  setTimeout(function () { // en liten timeout funktion 5000ms(under tiden den snurrar)
-    disabled.value = false;//vi gör knappen klickbar igen
+  setTimeout(function () {
+    // en liten timeout funktion 5000ms(under tiden den snurrar)
+    disabled.value = false; //vi gör knappen klickbar igen
 
     easeOutSpin.value = "all 0s"; //sätter transition till 0 så att användaren inte ser vad som händer nedan
-    spin.value = `rotate(${actualDeg}deg)`;//här tar vi det faktiska värdet som vi landat på(av en cirkel) och roterar den utan någon animation, så vi har ett värde mellan 0-360 istället för 5k-10k
+    spin.value = `rotate(${actualDeg}deg)`; //här tar vi det faktiska värdet som vi landat på(av en cirkel) och roterar den utan någon animation, så vi har ett värde mellan 0-360 istället för 5k-10k
     handle(actualDeg); //här ropar vi på nedanstående funktion som tar hand om vinsten
   }, 5000);
 }
@@ -44,59 +46,104 @@ function handle(actualDeg) {
 </script>
 
 <template>
-    <div class="main-container">
-  <div id="game">
-    <div class="marker-container">
-      <img class="marker" :marker="marker" src="../assets/img/marker.png" />
+  <div class="main-container">
+    <div id="game">
+      <div class="marker-container">
+        <img class="marker" :marker="marker" src="../assets/img/marker.png" />
+      </div>
+      <div class="wheel-container">
+        <img
+          class="wheel"
+          :style="{ transition: easeOutSpin, transform: spin }"
+          src="../assets/img/wheel.png"
+        />
+      </div>
+      <div class="btn-container">
+        <button
+          class="btn-pink btn btn-primary"
+          @click="spinWheel()"
+          :disabled="disabled"
+        >
+          SPIN
+        </button>
+      </div>
     </div>
-    <div class="wheel-container">
-      <img
-        class="wheel"
-        :style="{ transition: easeOutSpin, transform: spin }"
-        src="../assets/img/wheel.png"
-      />
-    </div>
-    <div class="btn-container">
-      <button
-        class="btn-pink btn btn-primary"
-        @click="spinWheel()"
-        :disabled="disabled"
-      >
-        SPIN
-      </button>
+
+    <div class="print-win">
+      <div class="no-winner" v-if="!winner">
+        <h3>Let's see what Lady Fortune has in store for you..</h3>
+      </div>
+      <div class="avancera" v-else-if="winner === 'Avancera Owl'">
+        <h2>Ohh my, look at that. It's the {{ winner }}</h2>
+        <h4>
+          This is the grand price! Printscreen this {{ winner }} and save it,
+          beacuse next time you're stuck on Avancera, send the screenshot to
+          Johan Rutberg and he will give you the answer!
+        </h4>
+      </div>
+      <div class="avancera" v-else-if="winner === 'Bag of Money'">
+        <h2>Heey look, it's a {{ winner }}!</h2>
+        <h4>
+          And this might look like a winner but unfortunately the bag is empty.
+          Better luck next time!
+        </h4>
+      </div>
+      <div class="avancera" v-else-if="winner === 'Black Cat'">
+        <h2>The {{ winner }} emerges from the shadows!</h2>
+        <h4>
+          The {{ winner }} is now giving you the chanse of a lifetime, you have
+          won a dinner with team 8, you're buying!
+        </h4>
+      </div>
+      <div class="avancera" v-else-if="winner === 'Confused Cow'">
+        <h2>And the winner is...! Not you.</h2>
+        <h4>
+          The {{ winner }} has nothing to offer you, better luck next time!
+        </h4>
+      </div>
+      <div class="avancera" v-else-if="winner === 'Greedy Croc'">
+        <h2>
+          {{ winner }} pops out of the water to share his spoils with you!
+          <h4>
+            But since it's a {{ winner }}, it wont share, better luck next time!
+          </h4>
+        </h2>
+      </div>
+      <div class="avancera" v-else-if="winner === 'Lambi'">
+        <h2>A wild {{ winner }} appears and decides to give you a price!</h2>
+        <h4>
+          Go to the restroom and take as much toilettpaper as you want.
+          Congrats!
+        </h4>
+      </div>
+
+      <div class="avancera" v-else-if="winner === 'Black Jack'">
+        <h2>Wow {{ winner }}Winner winner!</h2>
+        <h4>
+          That is if you go play BlackJack and win over there, otherwise..
+          Better luck next time!
+        </h4>
+      </div>
+      <div class="avancera" v-else-if="winner === 'Linux Pingu'">
+        <h2>Yeah, you just got the {{ winner }}</h2>
+        <h4>
+          And as we all know, nobody likes the {{ winner }} so you get nothing,
+          better luck next time!
+        </h4>
+      </div>
     </div>
   </div>
-
-  <div class="print-win">
-
-    <div class="no-winner" v-if="!winner"><h3>Let's see what Lady Fortune has in store for you..</h3></div>
-    <div class="avancera" v-else-if="winner === 'Avancera Owl'"><h2>Ohh my, look at that. It's the {{ winner }}</h2><h4>This is the grand price! Printscreen this {{ winner }} and save it, beacuse next time you're stuck on Avancera, send the screenshot to Johan Rutberg and he will give you the answer!</h4></div>
-    <div class="avancera" v-else-if="winner === 'Bag of Money'"><h2>Heey look, it's a {{ winner }}!</h2><h4>And this might look like a winner but unfortunately the bag is empty. Better luck next time!</h4></div>
-    <div class="avancera" v-else-if="winner === 'Black Cat'"><h2>The {{ winner }} emerges from the shadows!</h2><h4>The {{ winner }} is now giving you the chanse of a lifetime, you have won a dinner with team 8, you're buying!</h4></div>
-    <div class="avancera" v-else-if="winner === 'Confused Cow'"><h2>And the winner is...! Not you.</h2><h4>The {{ winner }} has nothing to offer you, better luck next time!</h4></div>
-    <div class="avancera" v-else-if="winner === 'Greedy Croc'"><h2>{{ winner }} pops out of the water to share his spoils with you! <h4>But since it's a {{ winner }}, it wont share, better luck next time!</h4></h2></div>
-    <div class="avancera" v-else-if="winner === 'Lambi'"><h2>A wild {{ winner }} appears and decides to give you a price!</h2><h4>Go to the restroom and take as much toilettpaper as you want. Congrats!</h4></div>
-
-    <div class="avancera" v-else-if="winner === 'Black Jack'"><h2>Wow {{ winner }}Winner winner!</h2><h4>That is if you go play BlackJack and win over there, otherwise.. Better luck next time!</h4></div>
-    <div class="avancera" v-else-if="winner === 'Linux Pingu'"><h2>Yeah, you just got the {{ winner }}</h2><h4>And as we all know, nobody likes the {{ winner }} so you get nothing, better luck next time!</h4></div>
-
-
-    </div>
-
-  </div>
-
 </template>
 
 <style scoped>
-*{
-    color: white;
+* {
+  color: white;
 }
-.main-container{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-
+.main-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .marker-container {
   display: flex;
@@ -120,24 +167,22 @@ function handle(actualDeg) {
   z-index: 99;
   position: relative;
 }
-.print-win{
-
-    max-width: 500px;
+.print-win {
+  max-width: 500px;
 }
-.btn{
-    transition: all 5s
+.btn {
+  transition: all 5s;
 }
-.btn:hover{
-    color: #fff;
-    transform: rotate(7200deg);
+.btn:hover {
+  color: #fff;
+  transform: rotate(7200deg);
 }
 .btn-pink {
-    background: #ec008c;
-    background: -webkit-linear-gradient(to right, #fc6767, #ec008c);
-    background: linear-gradient(to right, #fc6767, #ec008c);
-    color: #fff;
-    border: 3px solid #eee;
-    scale: 200%;
+  background: #ec008c;
+  background: -webkit-linear-gradient(to right, #fc6767, #ec008c);
+  background: linear-gradient(to right, #fc6767, #ec008c);
+  color: #fff;
+  border: 3px solid #eee;
+  scale: 200%;
 }
-
 </style>
