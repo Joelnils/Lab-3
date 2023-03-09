@@ -63,7 +63,6 @@ h1 {
   display: flex;
   overflow: hidden;
   margin-top: 40vh;
-
 }
 .card__content {
   display: flex;

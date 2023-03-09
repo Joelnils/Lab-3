@@ -18,7 +18,12 @@
       <!-- Om errorMessage är en tom string kommer error meddelande skrivas ut -->
 
       <template v-if="!showStartButton">
-        <button class="login-button" @click.prevent="Login">Login</button>
+        <div>
+          <button class="login-button" @click.prevent="Login">Login</button>
+          <button class="registerButton" @click.prevent="Register">
+            Register
+          </button>
+        </div>
         <button class="guest-login-button" @click.prevent="LoginGuest">
           Guest
         </button>
@@ -54,7 +59,7 @@ export default {
       loggedInUser: null,
       showLoggedInUser: false,
       guestName: null,
-      gold: 0 /* Nytt från 23/2 */,
+      gold: 0,
     };
   },
   methods: {
@@ -98,6 +103,9 @@ export default {
           vid ett senare tillfälle */
         });
       }, 1500);
+    },
+    Register() {
+      this.$router.push("/register");
     },
   },
 };
@@ -184,6 +192,20 @@ input {
   cursor: pointer;
   font-size: 18px;
   transition: background-color 0.15s ease-in-out 0.15s;
+}
+.registerButton {
+  padding: 15px;
+  background: rgba(242, 127, 21, 0.6);
+  color: rgb(0, 0, 0);
+  border: none;
+  font-weight: solid;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.15s ease-in-out 0.15s;
+}
+.registerButton:hover {
+  background: rgba(152, 80, 13, 0.6);
 }
 .guest-login-button {
   padding: 15px;

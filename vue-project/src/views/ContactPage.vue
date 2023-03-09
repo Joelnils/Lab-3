@@ -12,7 +12,6 @@ const email = ref("");
 </script>
 
 <template>
-  
   <div class="body-container">
     <div class="hero">
       <div class="hero-text">
@@ -66,7 +65,7 @@ const email = ref("");
             class="form-control"
             rows="3"
           />
-          
+
           <Modal />
         </div>
       </div>

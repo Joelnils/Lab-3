@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
+//import express from 'express';
+//import path from 'path';
+//import authController from '../controllers/auth'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,9 +15,7 @@ const router = createRouter({
     {
       path: "/about",
       name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+
       component: () => import("../components/AboutSida.vue"),
     },
     {
@@ -25,8 +26,13 @@ const router = createRouter({
     {
       path: "/login",
       name: "login",
-      component: () => import("../components/LoginPage.vue"),
-    }, // Lagt till en login - Robin
+      component: () => import("../components/LoginPage3.vue"),
+    },
+    {
+        path: "/profile",
+        name: "profile",
+        component: () => import("../components/ProfilPage.vue"),
+      },
     {
       path: "/games",
       name: "games",
@@ -45,7 +51,7 @@ const router = createRouter({
       component: () => import("../components/BlackJack.vue"),
     },
     {
-      path: "/games/slot",
+      path: "/games/slot", //Denna path fungerar inte? 6/3
       name: "slot",
       component: () => import("../components/SlotMachine.vue"),
     },
@@ -59,9 +65,22 @@ const router = createRouter({
       name: "contact",
       component: () => import("../views/ContactPage.vue"),
     },
+    {
+      path: "/register",
+      name: "register",
+      component: () => import("../components/RegisterComp.vue"),
+    },
 
     {},
   ],
 });
+
+/*const routes = express.routes();
+
+routes.get('*', authController.isLoggedIn, (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'));
+  });
+
+  module.exports = router; */ // ------- 6/3 NY
 
 export default router;

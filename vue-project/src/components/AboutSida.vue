@@ -2,7 +2,7 @@
   <div>
     <div class="content-box">
       <!-- Text här i -->
-
+      <Slotmachine />
       <h1 class="title">About Us</h1>
 
       <p class="text">

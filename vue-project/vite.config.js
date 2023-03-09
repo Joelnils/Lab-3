@@ -1,5 +1,5 @@
 import { fileURLToPath, URL } from "node:url";
-
+//import { createVuePlugin } from 'vite-plugin-vue';
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 
@@ -12,3 +12,12 @@ export default defineConfig({
     },
   },
 });
+/*  module.exports = { /* Kan tas bort
+    plugins: [
+      createVuePlugin()
+    ],
+    build: {
+      outDir: './dist'
+    }
+  };
+  */
