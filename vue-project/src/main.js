@@ -11,8 +11,8 @@ import "./assets/main.css";
 const app = createApp(App);
 
 router.beforeEach((to, from, next) => {
-    window.scrollTo(0, 0);
-    next();
+  window.scrollTo(0, 0);
+  next();
 });
 
 app.use(router);
