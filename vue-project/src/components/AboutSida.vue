@@ -57,8 +57,8 @@ export default {
   align-items: center;
   flex-direction: column; /* add this line */
   padding: 20px;
-  height: 55%;
-  width: 55%;
+  height: 80%;
+  width: 60%;
   background-image: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0.5) 0%,
@@ -66,13 +66,13 @@ export default {
     ),
     url("https://images.unsplash.com/photo-1517232115160-ff93364542dd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1073&q=80");
   background-size: cover;
-  border-radius: 0.5%;
+  border-radius: 3%;
   z-index: 1;
   overflow: auto;
 }
 .text {
   font-family: "Times New Roman";
-  font-size: 14px;
+  font-size: 22px;
   line-height: 35px;
   color: white;
   justify-content: center;

@@ -12,8 +12,10 @@ export default {
 </script>
 
 <template>
-  <div class="headline">
-    <h1>{{ headline }}</h1>
+  <div class="container_top">
+    <div>
+      <h1>{{ headline }}</h1>
+    </div>
   </div>
   <div class="card">
     <div style="white-space: pre-line" class="card__content">
@@ -34,9 +36,23 @@ export default {
 </template>
 
 <style scoped>
-h1 {
-  color: #ffffff;
-  font-size: 70px;
+.container_top {
+    height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.8) 100%
+    ),
+    url("../assets/img/AdobeStock_300089803.jpeg") no-repeat center fixed;
+  background-size: cover;
+}
+.container_top h1 {
+  color: #fff;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 40px;
 }
 
 h2 {
@@ -48,14 +64,6 @@ hr.solid {
 
 div p {
   color: #ffffff;
-}
-.headline,
-h1 {
-  color: #fff;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 100px;
-  margin: auto;
-  margin-top: 21vh;
 }
 .card {
   background-color: #02070c;

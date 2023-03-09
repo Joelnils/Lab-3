@@ -4,9 +4,9 @@ import GameCard from "../components/GameCard.vue";
 </script>
 
 <template>
-  <div class="hero">
-    <div class="hero_content">
-      <h1 class="hero_title">{{ hero }}</h1>
+  <div class="container_top">
+    <div class="container_top_content">
+      <h1 class="container_top_title">{{ hero }}</h1>
       <input
         @click="$router.push('/games')"
         type="button"
@@ -34,7 +34,7 @@ import GameCard from "../components/GameCard.vue";
 export default {
   data() {
     return {
-      hero: "Main",
+      hero: "“The greatest risk is not taking one.”",
       listTitle: "Most popular games",
       cardTitle: "Game of the month",
     };
@@ -43,32 +43,32 @@ export default {
 </script>
 
 <style scoped>
-.hero {
-  background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.5) 0%,
-      rgba(0, 0, 0, 0.8) 100%
-    ),
-    url("https://images.unsplash.com/photo-1596838132731-3301c3fd4317?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80")
-      no-repeat center fixed;
-  background-size: cover;
+.container_top {
   height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container_top h1{
+  color: #fff;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 40px;
 }
 
-.hero_content {
-  margin-top: 18rem;
+.container_top_content {
+  margin-top: 1vh;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.hero_title {
+.container_top_title {
   color: #fff;
   font-family: "Times New Roman", Times, serif;
   font-size: 100px;
 }
 
-.hero_button {
+.container_top_button {
   margin-top: 1rem;
   width: 12rem;
   height: 3rem;
