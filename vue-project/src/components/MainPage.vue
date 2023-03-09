@@ -69,7 +69,6 @@ export default {
 }
 
 .container_bottom {
-
 }
 .container_bottom {
   padding-top: 5rem;

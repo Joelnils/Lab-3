@@ -36,7 +36,7 @@ function spinWheel() {
 }
 function handle(actualDeg) {
   const winSymNr = Math.ceil(actualDeg / zoneSize);
-  winner = symbolSegments[winSymNr];
+  winner.value = symbolSegments[winSymNr];
   // console.log(symbolSegments[winSymNr])
   console.log(actualDeg);
   console.log(winner);
@@ -44,59 +44,104 @@ function handle(actualDeg) {
 </script>
 
 <template>
-    <div class="main-container">
-  <div id="game">
-    <div class="marker-container">
-      <img class="marker" :marker="marker" src="../assets/img/marker.png" />
+  <div class="main-container">
+    <div id="game">
+      <div class="marker-container">
+        <img class="marker" :marker="marker" src="../assets/img/marker.png" />
+      </div>
+      <div class="wheel-container">
+        <img
+          class="wheel"
+          :style="{ transition: easeOutSpin, transform: spin }"
+          src="../assets/img/wheel.png"
+        />
+      </div>
+      <div class="btn-container">
+        <button
+          class="btn-pink btn btn-primary"
+          @click="spinWheel()"
+          :disabled="disabled"
+        >
+          SPIN
+        </button>
+      </div>
     </div>
-    <div class="wheel-container">
-      <img
-        class="wheel"
-        :style="{ transition: easeOutSpin, transform: spin }"
-        src="../assets/img/wheel.png"
-      />
-    </div>
-    <div class="btn-container">
-      <button
-        class="btn-pink btn btn-primary"
-        @click="spinWheel()"
-        :disabled="disabled"
-      >
-        SPIN
-      </button>
+
+    <div class="print-win">
+      <div class="no-winner" v-if="!winner">
+        <h3>Let's see what Lady Fortune has in store for you..</h3>
+      </div>
+      <div class="avancera" v-else-if="winner === 'Avancera Owl'">
+        <h2>Ohh my, look at that. It's the {{ winner }}</h2>
+        <h4>
+          This is the grand price! Printscreen this {{ winner }} and save it,
+          beacuse next time you're stuck on Avancera, send the screenshot to
+          Johan Rutberg and he will give you the answer!
+        </h4>
+      </div>
+      <div class="avancera" v-else-if="winner === 'Bag of Money'">
+        <h2>Heey look, it's a {{ winner }}!</h2>
+        <h4>
+          And this might look like a winner but unfortunately the bag is empty.
+          Better luck next time!
+        </h4>
+      </div>
+      <div class="avancera" v-else-if="winner === 'Black Cat'">
+        <h2>The {{ winner }} emerges from the shadows!</h2>
+        <h4>
+          The {{ winner }} is now giving you the chanse of a lifetime, you have
+          won a dinner with team 8, you're buying!
+        </h4>
+      </div>
+      <div class="avancera" v-else-if="winner === 'Confused Cow'">
+        <h2>And the winner is...! Not you.</h2>
+        <h4>
+          The {{ winner }} has nothing to offer you, better luck next time!
+        </h4>
+      </div>
+      <div class="avancera" v-else-if="winner === 'Greedy Croc'">
+        <h2>
+          {{ winner }} pops out of the water to share his spoils with you!
+          <h4>
+            But since it's a {{ winner }}, it wont share, better luck next time!
+          </h4>
+        </h2>
+      </div>
+      <div class="avancera" v-else-if="winner === 'Lambi'">
+        <h2>A wild {{ winner }} appears and decides to give you a price!</h2>
+        <h4>
+          Go to the restroom and take as much toilettpaper as you want.
+          Congrats!
+        </h4>
+      </div>
+
+      <div class="avancera" v-else-if="winner === 'Black Jack'">
+        <h2>Wow {{ winner }}Winner winner!</h2>
+        <h4>
+          That is if you go play BlackJack and win over there, otherwise..
+          Better luck next time!
+        </h4>
+      </div>
+      <div class="avancera" v-else-if="winner === 'Linux Pingu'">
+        <h2>Yeah, you just got the {{ winner }}</h2>
+        <h4>
+          And as we all know, nobody likes the {{ winner }} so you get nothing,
+          better luck next time!
+        </h4>
+      </div>
     </div>
   </div>
-
-  <div class="print-win">
-
-    <div class="no-winner" v-if="!winner"><h3>Let's see what Lady Fortune has in store for you..</h3></div>
-    <div class="avancera" v-else-if="winner === 'Avancera Owl'"><h2>Ohh my, look at that. It's the {{ winner }}</h2><h4>This is the grand price! Printscreen this {{ winner }} and save it, beacuse next time you're stuck on Avancera, send the screenshot to Johan Rutberg and he will give you the answer!</h4></div>
-    <div class="avancera" v-else-if="winner === 'Bag of Money'"><h2>Heey look, it's a {{ winner }}!</h2><h4>And this might look like a winner but unfortunately the bag is empty. Better luck next time!</h4></div>
-    <div class="avancera" v-else-if="winner === 'Black Cat'"><h2>The {{ winner }} emerges from the shadows!</h2><h4>The {{ winner }} is now giving you the chanse of a lifetime, you have won a dinner with team 8, you're buying!</h4></div>
-    <div class="avancera" v-else-if="winner === 'Confused Cow'"><h2>And the winner is...! Not you.</h2><h4>The {{ winner }} has nothing to offer you, better luck next time!</h4></div>
-    <div class="avancera" v-else-if="winner === 'Greedy Croc'"><h2>{{ winner }} pops out of the water to share his spoils with you! <h4>But since it's a {{ winner }}, it wont share, better luck next time!</h4></h2></div>
-    <div class="avancera" v-else-if="winner === 'Lambi'"><h2>A wild {{ winner }} appears and decides to give you a price!</h2><h4>Go to the restroom and take as much toilettpaper as you want. Congrats!</h4></div>
-
-    <div class="avancera" v-else-if="winner === 'Black Jack'"><h2>Wow {{ winner }}Winner winner!</h2><h4>That is if you go play BlackJack and win over there, otherwise.. Better luck next time!</h4></div>
-    <div class="avancera" v-else-if="winner === 'Linux Pingu'"><h2>Yeah, you just got the {{ winner }}</h2><h4>And as we all know, nobody likes the {{ winner }} so you get nothing, better luck next time!</h4></div>
-
-
-    </div>
-
-  </div>
-
 </template>
 
 <style scoped>
-*{
-    color: white;
+* {
+  color: white;
 }
-.main-container{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-
+.main-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .marker-container {
   display: flex;
@@ -120,24 +165,22 @@ function handle(actualDeg) {
   z-index: 99;
   position: relative;
 }
-.print-win{
-
-    max-width: 500px;
+.print-win {
+  max-width: 500px;
 }
-.btn{
-    transition: all 5s
+.btn {
+  transition: all 5s;
 }
-.btn:hover{
-    color: #fff;
-    transform: rotate(7200deg);
+.btn:hover {
+  color: #fff;
+  transform: rotate(7200deg);
 }
 .btn-pink {
-    background: #ec008c;
-    background: -webkit-linear-gradient(to right, #fc6767, #ec008c);
-    background: linear-gradient(to right, #fc6767, #ec008c);
-    color: #fff;
-    border: 3px solid #eee;
-    scale: 200%;
+  background: #ec008c;
+  background: -webkit-linear-gradient(to right, #fc6767, #ec008c);
+  background: linear-gradient(to right, #fc6767, #ec008c);
+  color: #fff;
+  border: 3px solid #eee;
+  scale: 200%;
 }
-
 </style>

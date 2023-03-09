@@ -3,7 +3,6 @@ import axios from "axios";
 import { ref, onMounted } from "vue";
 const qs = ref([]);
 
-
 const getItems = () => {
   return axios
     .get("faq.json")
@@ -38,19 +37,18 @@ onMounted(() => {
   width: 100%;
   flex-direction: column;
   padding: 40px;
-
 }
 .box {
   color: white;
   max-width: 1200px;
   padding: 40px;
 }
-.faq{
-    width: 100%;
-    border-bottom:2px solid white ;
-    text-align: center;
+.faq {
+  width: 100%;
+  border-bottom: 2px solid white;
+  text-align: center;
 }
-h1{
-    margin: 0;
+h1 {
+  margin: 0;
 }
 </style>

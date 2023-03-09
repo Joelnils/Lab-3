@@ -94,7 +94,13 @@ export default {
 
 /* 1 */
 .btn-1 {
-  background: linear-gradient(182deg, #fea 0%, #dc8 49%, rgb(195, 174, 91) 51%, #dc8 100%);
+  background: linear-gradient(
+    182deg,
+    #fea 0%,
+    #dc8 49%,
+    rgb(195, 174, 91) 51%,
+    #dc8 100%
+  );
 }
 /*2*/
 .btn-2 {
