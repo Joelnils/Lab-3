@@ -11,6 +11,9 @@ import { RouterLink, RouterView } from "vue-router";
       </RouterLink>
       <ul class="nav">
         <li class="nav-item">
+          <RouterLink class="nav-link" to="/">Home</RouterLink>
+        </li>
+        <li class="nav-item">
           <RouterLink class="nav-link" to="/games">Games</RouterLink>
         </li>
         <li class="nav-item">
