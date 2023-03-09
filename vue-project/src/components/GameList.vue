@@ -4,27 +4,27 @@
     <div class="container text-center">
         <div class="row g-2">
             <div class="col-6">
-                <img src="../assets/img/img-slots.png" class="img-fluid" alt="..." />
+                <img src="../assets/img/games/img-gold-slots.png" class="img-fluid" alt="..." />
                 <div class="p-3">Slots</div>
             </div>
             <div class="col-6">
-                <img src="../assets/img/img-blackjack.png" class="img-fluid" alt="..." />
+                <img src="../assets/img/games/img-blackjack.png" class="img-fluid" alt="..." />
                 <div class="p-3">Black Jack</div>
             </div>
             <div class="col-6">
-                <img src="../assets/img/img-roulette.png" class="img-fluid" alt="..." />
+                <img src="../assets/img/games/img-roulette2.png" class="img-fluid" alt="..." />
                 <div class="p-3">American Roulette</div>
             </div>
             <div class="col-6">
-                <img src="../assets/img/img-baccarat.png" class="img-fluid" alt="..." />
+                <img src="../assets/img/games/img-baccarat.png" class="img-fluid" alt="..." />
                 <div class="p-3">Punto Banco (Baccarat)</div>
             </div>
             <div class="col-6">
-                <img src="../assets/img/img-threecard.png" class="img-fluid" alt="..." />
+                <img src="../assets/img/games/img-cards.png" class="img-fluid" alt="..." />
                 <div class="p-3">Three Card Poker</div>
             </div>
             <div class="col-6">
-                <img src="../assets/img/img-wheel.png" class="img-fluid" alt="..." />
+                <img src="../assets/img/games/img-gold-wheel.png" class="img-fluid" alt="..." />
                 <div class="p-3">Lucky Wheel</div>
             </div>
         </div>

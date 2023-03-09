@@ -215,7 +215,7 @@ export default {
       rgba(0, 0, 0, 0.2) 0%,
       rgba(0, 0, 0, 0.6) 100%
     ),
-    url("../assets/img/AdobeStock_575376595.jpeg") no-repeat center fixed;
+    url("../assets/img/bg/AdobeStock_575376595.jpeg") no-repeat center fixed;
   background-size: cover;
 }
 
