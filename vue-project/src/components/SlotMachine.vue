@@ -91,7 +91,7 @@ export default {
           this.totalGold -= this.goldBet;
           this.gameResult = "Du förlorade hela din livsbesparning";
         }
-      }, 5000);
+      }, 1000);
     },
     checkWin() {
       for (let i = 0; i < this.rows.length; i++) {
@@ -157,12 +157,6 @@ function clearTimeouts(timeouts) {
   font-size: 40px;
   margin-left: 25px;
 }
-.spin {
-  animation-name: spin;
-  animation-duration: 1.5s;
-  animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
-  animation-fill-mode: forwards;
-}
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -195,24 +189,6 @@ function clearTimeouts(timeouts) {
 }
 .result {
   color: white;
-}
-.symbol.spin {
-  animation-name: spin;
-  animation-duration: 4s;
-  animation-timing-function: cubic-bezier(0.25, 0.1, 0.5);
-  animation-fill-mode: forwards;
-  animation: somersault 4s infinite;
-}
-@keyframes somersault {
-  0% {
-    transform: rotateX(0deg);
-  }
-  50% {
-    transform: rotateX(1320deg);
-  }
-  100% {
-    transform: rotateX(0deg);
-  }
 }
 p {
   color: white;
