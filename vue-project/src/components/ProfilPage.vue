@@ -1,26 +1,27 @@
 <template>
-    <div class="accountPage">
+  <div class="accountPage">
     <div class="guest-account-page">
-  <div class="profile-container">
-    <h1>Profile</h1>
-    <div v-if="isLoggedIn">
-      <h2>Welcome, {{ username }}!</h2>
-      <p>Email: {{ email }}</p>
-      <p>Profile picture: {{ profilePicture }}</p>
+      <div class="profile-container">
+        <h1>Profile</h1>
+        <div v-if="isLoggedIn">
+          <h2>Welcome, {{ username }}!</h2>
+          <p>Email: {{ email }}</p>
+          <p>Profile picture: {{ profilePicture }}</p>
+        </div>
+      </div>
 
-    </div>
-</div>
-
-<div class="blue-side">
-  <i class="bi bi-box-arrow-right"></i>
-  <i class="bi bi-person-circle"></i>
-  <router-link to="/login" class="logoutButtonP" @click="logout">Logout</router-link>
-  <h1 class="guestName">{{ guestName }}</h1>
-    <!--  <div v-else>
+      <div class="blue-side">
+        <i class="bi bi-box-arrow-right"></i>
+        <i class="bi bi-person-circle"></i>
+        <router-link to="/login" class="logoutButtonP" @click="logout"
+          >Logout</router-link
+        >
+        <h1 class="guestName">{{ guestName }}</h1>
+        <!--  <div v-else>
       <p>You need to be logged in to view your profile</p>
     </div>-->
-  </div>
-</div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -34,14 +35,14 @@ export default {
       isLoggedIn: false,
     };
   },
-    logout() {
-      // Tar bort cookie
-      document.cookie =
-        "username=; expires=Fri, 4 Mars 2000 00:00:00 UTC; path=/;";
-      this.isLoggedIn = false;
-      console.log("Logout successful!");
-    },
-}
+  logout() {
+    // Tar bort cookie
+    document.cookie =
+      "username=; expires=Fri, 4 Mars 2000 00:00:00 UTC; path=/;";
+    this.isLoggedIn = false;
+    console.log("Logout successful!");
+  },
+};
 
 /*export default {
   name: "ProfilePage",
@@ -115,7 +116,6 @@ p {
   font-size: 18px;
   margin-bottom: 20px;
 }
-
 
 .logoutButtonP {
   position: absolute;

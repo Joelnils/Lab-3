@@ -24,11 +24,7 @@
     "mysql": "^2.18.1",
     "nodemon": "^2.0.21",
     "vue": "^3.2.45",
-    "vue-router": "^4.1.6",
-
-
-    "env": {
-          "node": true
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.4",
@@ -41,4 +37,4 @@
   }
 
   }
-}
+

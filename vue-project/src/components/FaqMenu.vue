@@ -42,12 +42,4 @@ onMounted(() => {
   max-width: 1200px;
   padding: 40px;
 }
-.faq {
-  width: 100%;
-  border-bottom: 2px solid white;
-  text-align: center;
-}
-h1 {
-  margin: 0;
-}
 </style>

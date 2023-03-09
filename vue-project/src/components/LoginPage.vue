@@ -59,7 +59,6 @@ export default {
       loggedInUser: null,
       showLoggedInUser: false,
       guestName: null,
-      gold: 0,
     };
   },
   methods: {

@@ -29,10 +29,10 @@ const router = createRouter({
       component: () => import("../components/LoginPage3.vue"),
     },
     {
-        path: "/profile",
-        name: "profile",
-        component: () => import("../components/ProfilPage.vue"),
-      },
+      path: "/profile",
+      name: "profile",
+      component: () => import("../components/ProfilPage.vue"),
+    },
     {
       path: "/games",
       name: "games",

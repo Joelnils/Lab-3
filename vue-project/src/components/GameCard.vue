@@ -1,24 +1,4 @@
-<script setup>
-import { RouterLink, RouterView } from "vue-router";
-</script>
-
-<template>
-  <div class="card mb-3">
-    <div class="row g-0">
-      <div class="col-md-8">
-        <img src="../assets/img/img2.jpg" class="img-fluid" alt="..." />
-      </div>
-      <div class="col-md-4">
-        <div class="card-body">
-          <h4 class="card-title">{{ cardTitel }}</h4>
-          <RouterLink to="/rules" class="card-link">How to play</RouterLink>
-          <input type="button" value="Play" class="card_button" />
-        </div>
-      </div>
-    </div>
-  </div>
-  <RouterView />
-</template>
+<script setup></script>
 
 <script>
 export default {
