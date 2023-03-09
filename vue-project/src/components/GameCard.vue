@@ -6,7 +6,7 @@ import { RouterLink, RouterView } from "vue-router";
   <div class="card mb-3">
     <div class="row g-0">
       <div class="col-md-8">
-        <img src="../assets/img/img2.jpg" class="img-fluid" alt="..." />
+        <img src="../assets/img/games/img2.jpg" class="img-fluid" alt="..." />
       </div>
       <div class="col-md-4">
         <div class="card-body">
