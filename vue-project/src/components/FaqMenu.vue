@@ -23,14 +23,14 @@ onMounted(() => {
     </div>
     <div v-for="q in qs" :key="q.id" class="box">
       <h3>{{ q.title }}</h3>
-      
+
       <p>{{ q.info }}</p>
     </div>
   </div>
 </template>
 <style scoped>
 .main-thing {
-  background-color: #02070c;
+  background-color: #000000;
   color: white;
   display: flex;
   justify-content: center;
@@ -38,7 +38,7 @@ onMounted(() => {
   width: 100%;
   flex-direction: column;
   padding: 40px;
-  
+
 }
 .box {
   color: white;

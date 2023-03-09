@@ -2,7 +2,9 @@
   <div class="bg-blackjack">
     <div class="BlackuJacku">
       <div v-if="!isGameStarted">
-        <button @click="startGame" class="red_start">Start Game</button>
+        <button @click="startGame" class="custom-btn-start btn-1">
+          Start Game
+        </button>
       </div>
       <div v-if="isGameStarted">
         <div>
@@ -27,7 +29,7 @@
           v-if="!isGameOver"
           @click="hit"
           :disabled="isGameOver"
-          class="red_hit"
+          class="custom-btn btn-1"
         >
           Hit
         </button>
@@ -35,12 +37,12 @@
           v-if="!isGameOver"
           @click="stand"
           :disabled="isGameOver"
-          class="red_stand"
+          class="custom-btn btn-1"
         >
           Stand
         </button>
-        <button v-if="isGameOver" @click="startGame" class="red">
-          Play again
+        <button v-if="isGameOver" @click="startGame" class="custom-btn btn-1">
+          Play
         </button>
       </div>
     </div>
@@ -210,10 +212,10 @@ export default {
   justify-content: center;
   background: linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0.5) 0%,
-      rgba(0, 0, 0, 0.8) 100%
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.6) 100%
     ),
-    url("../assets/img/AdobeStock_289787097.jpeg") no-repeat center fixed;
+    url("../assets/img/AdobeStock_575376595.jpeg") no-repeat center fixed;
   background-size: cover;
 }
 
@@ -261,63 +263,86 @@ hr.solid {
   border-top: 7px solid #ffffff;
 }
 
-button,
-input {
-  font-size: 0.7rem;
+.custom-btn {
+  width: 110px;
+  height: 40px;
+  padding: 10px 25px;
+  margin-right: 10px;
+  cursor: pointer;
+  outline: none;
+  border: transparent;
+  color: #fff;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4);
+  font-size: 1.2rem;
   font-weight: 300;
-  margin-bottom: 0px;
   letter-spacing: 2px;
   text-transform: uppercase;
   outline: 0;
-  border: 2px solid #9c9c9c;
   border-radius: 10px;
-  padding: 10px;
-  background-color: rgba(242, 127, 21, 0.6);
+  padding: 1px;
 }
-
-.red {
-  display: inline-block;
-  width: 110px;
-  margin-right: 10px;
-  color: #ffffff;
-}
-
-.red_hit {
-  display: inline-block;
-  width: 110px;
-  margin-right: 10px;
-  color: #ffffff;
-  font-size: 0.7rem;
-  font-weight: 300;
-  margin-bottom: 0px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  outline: 0;
-  border: 2px solid #9c9c9c;
-  border-radius: 10px;
-  padding: 10px;
-  background-color: rgba(0, 20, 196, 0.6);
-}
-.red_stand {
-  display: inline-block;
-  width: 110px;
-  margin-right: 10px;
-  color: #ffffff;
-  font-size: 0.7rem;
-  font-weight: 300;
-  margin-bottom: 0px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  outline: 0;
-  border: 2px solid #9c9c9c;
-  border-radius: 10px;
-  padding: 10px;
-  background-color: rgba(255, 0, 0, 0.6);
-}
-.red_start {
-  display: inline-block;
+.custom-btn-start {
   width: 150px;
+  height: 40px;
+  padding: 10px 25px;
   margin-right: 10px;
-  color: #ffffff;
+  cursor: pointer;
+  outline: none;
+  border: transparent;
+  color: #fff;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4);
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  outline: 0;
+  border-radius: 10px;
+  padding: 1px;
+}
+.custom-btn:active,
+.custom-btn-start:active {
+  transform: translate(2px);
+  -webkit-transform: translate(2px);
+}
+
+/* 1 */
+.btn-1 {
+  background: linear-gradient(180deg, #fea 0%, #dc8 49%, rgb(195, 174, 91) 51%, #dc8 100%);
+}
+
+/*2*/
+.btn-2 {
+  background: linear-gradient(
+    top,
+    #a95,
+    #f2f2f2 25%,
+    #fff 38%,
+    #c5c5c5 63%,
+    #f7f7f7 87%,
+    #a95
+  );
+  background: -webkit-linear-gradient(
+    top,
+    #a95,
+    #fea 25%,
+    #fff 38%,
+    #dc8 63%,
+    #fea 87%,
+    #a95
+  );
+}
+/*3*/
+.btn-3 {
+  background: linear-gradient(#a95, #fea);
+}
+/*4*/
+.btn-4 {
+  background-image: -webkit-repeating-linear-gradient(
+      left,
+      rgba(255, 238, 170, 0) 0%,
+      rgba(255, 238, 170, 0) 3%,
+      rgba(255, 238, 170, 0) 5%
+    ),
+    linear-gradient(180deg, #a95 0%, #fea 47%, #dc8 53%, #fea 100%);
 }
 </style>

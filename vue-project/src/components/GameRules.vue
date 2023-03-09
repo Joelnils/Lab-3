@@ -17,18 +17,18 @@ export default {
       <h1>{{ headline }}</h1>
     </div>
   </div>
-  <div class="card">
-    <div style="white-space: pre-line" class="card__content">
+  <div class="container_bottom">
+    <div style="white-space: pre-line" class="container_bottom_content">
       <div>
         <h2>{{ headlineBJ }}</h2>
       </div>
       <hr class="solid" />
-      <p class="card__text" v-for="game in games" :key="game">
+      <p class="container_bottom_text" v-for="game in games" :key="game">
         <!-- Gets strings from rules.json in Swedish & English -->
         {{ game.blackjack_swe }}
       </p>
       <hr class="solid" />
-      <p class="card__text" v-for="game in games" :key="game">
+      <p class="container_bottom_text" v-for="game in games" :key="game">
         {{ game.blackjack_eng }}
       </p>
     </div>
@@ -37,17 +37,10 @@ export default {
 
 <style scoped>
 .container_top {
-    height: 100vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.5) 0%,
-      rgba(0, 0, 0, 0.8) 100%
-    ),
-    url("../assets/img/AdobeStock_300089803.jpeg") no-repeat center fixed;
-  background-size: cover;
 }
 .container_top h1 {
   color: #fff;
@@ -65,21 +58,19 @@ hr.solid {
 div p {
   color: #ffffff;
 }
-.card {
-  background-color: #02070c;
-  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.38);
+.container_bottom {
+  background-color: #000000;
   display: flex;
   overflow: hidden;
-  margin-top: 40vh;
 }
-.card__content {
+.container_bottom_content {
   display: flex;
   flex-direction: column;
   padding: 2rem;
-  margin-left: 14%;
-  margin-right: 14%;
+  margin-left: 15%;
+  margin-right: 15%;
 }
-.card__text {
+.container_bottom_text {
   color: #ffffff;
   font-size: 0.975rem;
   line-height: 1.5;
