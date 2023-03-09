@@ -21,7 +21,7 @@ function handleSubmit(){
 </script>
 
 <template>
-  
+
   <div class="body-container">
     <div class="hero">
       <div class="hero-text">
@@ -81,7 +81,7 @@ function handleSubmit(){
       </div>
       <Map />
     </div>
-    
+
   </div>
 </template>
 
@@ -99,14 +99,14 @@ function handleSubmit(){
 }
 .control {
   width: 100%;
-  background-color: #02070c;
+  background-color: #000000;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
   flex-direction: column;
   padding: 40px;
-  
+
 }
 .form-container {
   max-width: 1200px;
@@ -148,7 +148,7 @@ function handleSubmit(){
   text-align: center;
 }
 .hero-text {
-  
+
   border-radius: 7px;
   padding: 40px;
 }
