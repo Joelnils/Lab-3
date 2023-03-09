@@ -57,7 +57,7 @@ a.nav-link:hover {
 }
 
 /* responsive for mobile devices */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1000px) {
   .container {
     display: flex;
     flex-direction: column;
