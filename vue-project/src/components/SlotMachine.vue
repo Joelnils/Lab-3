@@ -186,6 +186,7 @@ function clearTimeouts(timeouts) {
 .spinAndResult {
   position: absolute;
   left: 500px;
+  width: 20rem;
 }
 .result {
   color: white;
