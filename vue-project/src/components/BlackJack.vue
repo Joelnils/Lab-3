@@ -1,49 +1,51 @@
 <template>
   <div class="bg-blackjack">
-    <div class="BlackuJacku">
-      <div v-if="!isGameStarted">
-        <button @click="startGame" class="custom-btn-start btn-1">
-          Start Game
-        </button>
-      </div>
-      <div v-if="isGameStarted">
-        <div>
-          <div>
-            <div v-for="card in dealerCards" :key="card.code" class="card">
-              <img :src="card.image" :alt="card.code" />
-            </div>
-          </div>
-          <p>Dealer Hand - Value: {{ this.getHandValue(dealerHand) }}</p>
-          <hr class="solid" />
-          <h5 v-if="isGameOver">{{ gameResult }}</h5>
-
-          <hr class="solid" />
-          <p>Player Hand - Value: {{ this.getHandValue(playerHand) }}</p>
-          <div>
-            <div v-for="card in playerCards" :key="card.code" class="card">
-              <img :src="card.image" :alt="card.code" />
-            </div>
-          </div>
+    <div class="game">
+      <div class="BlackuJacku">
+        <div v-if="!isGameStarted">
+          <button @click="startGame" class="custom-btn-start btn-1">
+            Start Game
+          </button>
         </div>
-        <button
-          v-if="!isGameOver"
-          @click="hit"
-          :disabled="isGameOver"
-          class="custom-btn btn-1"
-        >
-          Hit
-        </button>
-        <button
-          v-if="!isGameOver"
-          @click="stand"
-          :disabled="isGameOver"
-          class="custom-btn btn-1"
-        >
-          Stand
-        </button>
-        <button v-if="isGameOver" @click="startGame" class="custom-btn btn-1">
-          Play
-        </button>
+        <div v-if="isGameStarted">
+          <div>
+            <div>
+              <div v-for="card in dealerCards" :key="card.code" class="card">
+                <img :src="card.image" :alt="card.code" />
+              </div>
+            </div>
+            <p>Dealer Hand - Value: {{ this.getHandValue(dealerHand) }}</p>
+            <hr class="solid" />
+            <h5 v-if="isGameOver">{{ gameResult }}</h5>
+
+            <hr class="solid" />
+            <p>Player Hand - Value: {{ this.getHandValue(playerHand) }}</p>
+            <div>
+              <div v-for="card in playerCards" :key="card.code" class="card">
+                <img :src="card.image" :alt="card.code" />
+              </div>
+            </div>
+          </div>
+          <button
+            v-if="!isGameOver"
+            @click="hit"
+            :disabled="isGameOver"
+            class="custom-btn btn-1"
+          >
+            Hit
+          </button>
+          <button
+            v-if="!isGameOver"
+            @click="stand"
+            :disabled="isGameOver"
+            class="custom-btn btn-1"
+          >
+            Stand
+          </button>
+          <button v-if="isGameOver" @click="startGame" class="custom-btn btn-1">
+            Play
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -215,8 +217,27 @@ export default {
       rgba(0, 0, 0, 0.2) 0%,
       rgba(0, 0, 0, 0.6) 100%
     ),
-    url("../assets/img/bg/AdobeStock_575376595.jpeg") no-repeat center fixed;
+    url("../assets/img/bg/AdobeStock_289787097.jpeg") no-repeat center scroll;
   background-size: cover;
+}
+.game {
+  margin-top: 20vh;
+  margin-bottom: 10vh;
+  width: 60%;
+  border: 5px solid #a95;
+  border-radius: 50px 50px 50px 50px;
+  padding: 3rem 0;
+  height: 88vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.6) 100%
+    ),
+    url("../assets/img/games/BlackJack.jpeg") no-repeat center scroll;
+  background-size: contain;
 }
 
 .BlackuJacku {
@@ -238,7 +259,7 @@ export default {
   display: inline-block;
   margin-right: 10px;
   margin-bottom: 10px;
-  width: 110px;
+  width: 90px;
   background: none;
   border: none;
 }
@@ -264,7 +285,7 @@ hr.solid {
 }
 
 .custom-btn {
-  width: 110px;
+  width: 90px;
   height: 40px;
   padding: 10px 25px;
   margin-right: 10px;
