@@ -8,5 +8,4 @@ import MainPage from "../components/MainPage.vue";
 
 <script></script>
 
-<style>
-</style>
+<style></style>

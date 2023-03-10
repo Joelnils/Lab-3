@@ -28,7 +28,11 @@ export default {
               reels. If these symbols line up, you win prizes based on which
               symbols fall on that “payline”.
             </p>
-            <button @click="$router.push('/games/slot')" class="custom-btn btn-1" type="button">
+            <button
+              @click="$router.push('/games/slot')"
+              class="custom-btn btn-1"
+              type="button"
+            >
               <i class="icon ion-md-lock"></i>Go To Game
             </button>
           </div>
@@ -46,7 +50,11 @@ export default {
               you win. If your hand goes over 21, you "bust" and lose your bet.
               If the dealer busts, you win.
             </p>
-            <button @click="$router.push('/games/blackjack')" class="custom-btn btn-1" type="button">
+            <button
+              @click="$router.push('/games/blackjack')"
+              class="custom-btn btn-1"
+              type="button"
+            >
               <i class="icon ion-md-lock"></i>Go To Game
             </button>
           </div>
@@ -63,7 +71,11 @@ export default {
               as any other of coming up on each spin i.e. the winning number on
               any spin has no effect on the outcome of the next spin.
             </p>
-            <button @click="$router.push('#')" class="custom-btn btn-1" type="button">
+            <button
+              @click="$router.push('#')"
+              class="custom-btn btn-1"
+              type="button"
+            >
               <i class="icon ion-md-lock"></i>Go To Game
             </button>
           </div>
@@ -80,7 +92,11 @@ export default {
               nine points or get as close to nine as possible. What's most fun
               about this setup is the sense of collaboration between players.
             </p>
-            <button @click="$router.push('#')" class="custom-btn btn-1" type="button">
+            <button
+              @click="$router.push('#')"
+              class="custom-btn btn-1"
+              type="button"
+            >
               <i class="icon ion-md-lock"></i>Go To Game
             </button>
           </div>
@@ -98,7 +114,11 @@ export default {
               collect all winnings and pay all losing wagers to the extent that
               their wagers covers.
             </p>
-            <button @click="$router.push('#')" class="custom-btn btn-1" type="button">
+            <button
+              @click="$router.push('#')"
+              class="custom-btn btn-1"
+              type="button"
+            >
               <i class="icon ion-md-lock"></i>Go To Game
             </button>
           </div>
@@ -114,7 +134,11 @@ export default {
               place their bets on the symbols that they think will come out
               during the spin.
             </p>
-            <button @click="$router.push('/games/wheel')" class="custom-btn btn-1" type="button">
+            <button
+              @click="$router.push('/games/wheel')"
+              class="custom-btn btn-1"
+              type="button"
+            >
               <i class="icon ion-md-lock"></i>Go To Game
             </button>
           </div>
@@ -150,7 +174,8 @@ export default {
   font-size: 100px;
 }
 
-.container_bottom {}
+.container_bottom {
+}
 
 .cards {
   display: flex;
@@ -318,29 +343,35 @@ export default {
 
 /* 1 */
 .btn-1 {
-  background: linear-gradient(182deg,
-      #fea 0%,
-      #dc8 49%,
-      rgb(195, 174, 91) 51%,
-      #dc8 100%);
+  background: linear-gradient(
+    182deg,
+    #fea 0%,
+    #dc8 49%,
+    rgb(195, 174, 91) 51%,
+    #dc8 100%
+  );
 }
 
 /*2*/
 .btn-2 {
-  background: linear-gradient(top,
-      #a95,
-      #f2f2f2 25%,
-      #fff 38%,
-      #c5c5c5 63%,
-      #f7f7f7 87%,
-      #a95);
-  background: -webkit-linear-gradient(top,
-      #a95,
-      #fea 25%,
-      #fff 38%,
-      #dc8 63%,
-      #fea 87%,
-      #a95);
+  background: linear-gradient(
+    top,
+    #a95,
+    #f2f2f2 25%,
+    #fff 38%,
+    #c5c5c5 63%,
+    #f7f7f7 87%,
+    #a95
+  );
+  background: -webkit-linear-gradient(
+    top,
+    #a95,
+    #fea 25%,
+    #fff 38%,
+    #dc8 63%,
+    #fea 87%,
+    #a95
+  );
 }
 
 /*3*/
@@ -350,10 +381,12 @@ export default {
 
 /*4*/
 .btn-4 {
-  background-image: -webkit-repeating-linear-gradient(left,
+  background-image: -webkit-repeating-linear-gradient(
+      left,
       rgba(255, 238, 170, 0) 0%,
       rgba(255, 238, 170, 0) 3%,
-      rgba(255, 238, 170, 0) 5%),
+      rgba(255, 238, 170, 0) 5%
+    ),
     linear-gradient(180deg, #a95 0%, #fea 47%, #dc8 53%, #fea 100%);
 }
 </style>
