@@ -11,6 +11,9 @@ import { RouterLink, RouterView } from "vue-router";
       </RouterLink>
       <ul class="nav">
         <li class="nav-item">
+          <RouterLink class="nav-link" to="/">Home</RouterLink>
+        </li>
+        <li class="nav-item">
           <RouterLink class="nav-link" to="/games">Games</RouterLink>
         </li>
         <li class="nav-item">
@@ -54,7 +57,7 @@ a.nav-link:hover {
 }
 
 /* responsive for mobile devices */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1000px) {
   .container {
     display: flex;
     flex-direction: column;

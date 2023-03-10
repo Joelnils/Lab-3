@@ -9,19 +9,18 @@ const firstName = ref("");
 let lastName = ref("");
 let textArea = ref("");
 let email = ref("");
-let result= ""
+let result = "";
 
-function handleSubmit(){
-  result=firstName.value
-  firstName.value=''
-  lastName.value=''
-  email.value=''
-  textArea.value=''
+function handleSubmit() {
+  result = firstName.value;
+  firstName.value = "";
+  lastName.value = "";
+  email.value = "";
+  textArea.value = "";
 }
 </script>
 
 <template>
-  
   <div class="body-container">
     <div class="hero">
       <div class="hero-text">
@@ -75,13 +74,18 @@ function handleSubmit(){
             class="form-control"
             rows="3"
           />
-          <button @click="handleSubmit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">SUBMIT</button>
-          <Modal :firstName="result"/>
+          <button
+            @click="handleSubmit"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+          >
+            SUBMIT
+          </button>
+          <Modal :firstName="result" />
         </div>
       </div>
       <Map />
     </div>
-    
   </div>
 </template>
 
@@ -97,14 +101,13 @@ function handleSubmit(){
 
 .control {
   width: 100%;
-  background-color: #02070c;
+  background-color: #000000;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
   flex-direction: column;
   padding: 40px;
-  
 }
 .form-container {
   max-width: 1200px;
@@ -146,7 +149,6 @@ function handleSubmit(){
   text-align: center;
 }
 .hero-text {
-  
   border-radius: 7px;
   padding: 40px;
 }

@@ -14,7 +14,7 @@ export default {
       <h1>{{ headline }}</h1>
     </div>
   </div>
-  <div class="card_bg">
+  <div class="container_bottom">
     <ul class="cards">
       <li class="cards__item">
         <div class="card">
@@ -30,7 +30,7 @@ export default {
             </p>
             <button
               @click="$router.push('/games/slot')"
-              class="red"
+              class="custom-btn btn-1"
               type="button"
             >
               <i class="icon ion-md-lock"></i>Go To Game
@@ -52,7 +52,7 @@ export default {
             </p>
             <button
               @click="$router.push('/games/blackjack')"
-              class="red"
+              class="custom-btn btn-1"
               type="button"
             >
               <i class="icon ion-md-lock"></i>Go To Game
@@ -71,7 +71,11 @@ export default {
               as any other of coming up on each spin i.e. the winning number on
               any spin has no effect on the outcome of the next spin.
             </p>
-            <button @click="$router.push('#')" class="red" type="button">
+            <button
+              @click="$router.push('#')"
+              class="custom-btn btn-1"
+              type="button"
+            >
               <i class="icon ion-md-lock"></i>Go To Game
             </button>
           </div>
@@ -88,7 +92,11 @@ export default {
               nine points or get as close to nine as possible. What's most fun
               about this setup is the sense of collaboration between players.
             </p>
-            <button @click="$router.push('#')" class="red" type="button">
+            <button
+              @click="$router.push('#')"
+              class="custom-btn btn-1"
+              type="button"
+            >
               <i class="icon ion-md-lock"></i>Go To Game
             </button>
           </div>
@@ -106,7 +114,11 @@ export default {
               collect all winnings and pay all losing wagers to the extent that
               their wagers covers.
             </p>
-            <button @click="$router.push('#')" class="red" type="button">
+            <button
+              @click="$router.push('#')"
+              class="custom-btn btn-1"
+              type="button"
+            >
               <i class="icon ion-md-lock"></i>Go To Game
             </button>
           </div>
@@ -124,7 +136,7 @@ export default {
             </p>
             <button
               @click="$router.push('/games/wheel')"
-              class="red"
+              class="custom-btn btn-1"
               type="button"
             >
               <i class="icon ion-md-lock"></i>Go To Game
@@ -141,13 +153,6 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.5) 0%,
-      rgba(0, 0, 0, 0.8) 100%
-    ),
-    url("../assets/img/AdobeStock_448496796.jpeg") no-repeat center fixed;
-  background-size: cover;
 }
 
 .container_top h1 {
@@ -156,11 +161,22 @@ export default {
   font-size: 40px;
 }
 
-img {
-  height: auto;
-  max-width: 100%;
-  vertical-align: middle;
+.container_top_content {
+  margin-top: 1vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+.container_top_title {
+  color: #fff;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 100px;
+}
+
+.container_bottom {
+}
+
 .cards {
   display: flex;
   -ms-flex-wrap: wrap;
@@ -170,33 +186,29 @@ img {
   padding: 0;
   justify-content: center;
 }
+
 .cards__item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   padding: 1rem;
 }
+
 @media (min-width: 40rem) {
   .cards__item {
     width: 50%;
   }
 }
+
 @media (min-width: 56rem) {
   .cards__item {
     width: 35%;
   }
 }
 
-.card_bg {
-  background-color: #02070c;
-  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.38);
-  display: flex;
-  overflow: hidden;
-  margin-top: 8vh;
-}
 .card {
-  background-color: #02070c;
-  border: 0px solid #02070c;
+  background-color: #000000;
+  border: 2px solid #a95;
   border-radius: 1rem;
   box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.38);
   display: -webkit-box;
@@ -207,11 +219,14 @@ img {
   -ms-flex-direction: column;
   flex-direction: column;
   overflow: hidden;
+  margin-top: 5vh;
 }
+
 .card:hover .card__image {
   -webkit-filter: contrast(100%);
   filter: contrast(100%);
 }
+
 .card__content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -225,8 +240,9 @@ img {
   flex-direction: column;
   padding: 1rem;
 }
+
 .card__image {
-  background-position: center center;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   border-top-left-radius: 0.25rem;
@@ -241,34 +257,43 @@ img {
   transition: filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91),
     -webkit-filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
 }
+
 .card__image::before {
   content: "";
   display: block;
   padding-top: 56.25%;
 }
+
 @media (min-width: 40rem) {
   .card__image::before {
     padding-top: 66.6%;
   }
 }
+
 .card__image--1 {
-  background-image: url(https://cdn.pixabay.com/photo/2017/03/05/14/10/gamble-2118702_960_720.jpg);
+  background-image: url(../assets/img/games/img-slots2.png);
 }
+
 .card__image--2 {
-  background-image: url(https://cdn.pixabay.com/photo/2016/06/05/17/30/cards-1437776_960_720.jpg);
+  background-image: url(../assets/img/games/img-cards2.png);
 }
+
 .card__image--3 {
-  background-image: url(https://cdn.pixabay.com/photo/2015/07/10/11/11/luck-839037_960_720.jpg);
+  background-image: url(../assets/img/games/img-roulette.png);
 }
+
 .card__image--4 {
-  background-image: url(https://cdn.pixabay.com/photo/2013/07/23/23/23/cards-166440_960_720.jpg);
+  background-image: url(../assets/img/games/img-baccarat.png);
 }
+
 .card__image--5 {
-  background-image: url(https://cdn.pixabay.com/photo/2019/05/04/16/55/gambling-4178466_960_720.jpg);
+  background-image: url(../assets/img/games/img-threecard.png);
 }
+
 .card__image--6 {
-  background-image: url(https://cdn.pixabay.com/photo/2015/09/09/18/11/slots-932268_960_720.jpg);
+  background-image: url(../assets/img/games/img-wheel3.png);
 }
+
 .card__title {
   color: #ffffff;
   font-size: 1.25rem;
@@ -276,6 +301,7 @@ img {
   letter-spacing: 2px;
   text-transform: uppercase;
 }
+
 .card__text {
   color: #ffffff;
   -webkit-box-flex: 1;
@@ -291,23 +317,76 @@ img {
   text-align: center;
 }
 
-button,
-input {
-  color: #ffffff;
-  font-size: 0.9rem;
+.custom-btn {
+  width: 100%;
+  height: 40px;
+  padding: 10px 25px;
+  margin-right: 10px;
+  cursor: pointer;
+  outline: none;
+  border: transparent;
+  color: #fff;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4);
+  font-size: 1.2rem;
   font-weight: 300;
   letter-spacing: 2px;
   text-transform: uppercase;
-  border: 0;
   outline: 0;
-  border: 1px solid #9c9c9c;
   border-radius: 10px;
-  padding: 16px;
-  background-color: rgba(242, 127, 21, 0.6);
+  padding: 1px;
 }
-.red {
-  display: inline-block;
-  width: 100%;
-  color: #ffffff;
+
+.custom-btn:active {
+  transform: translate(2px);
+  -webkit-transform: translate(2px);
+}
+
+/* 1 */
+.btn-1 {
+  background: linear-gradient(
+    182deg,
+    #fea 0%,
+    #dc8 49%,
+    rgb(195, 174, 91) 51%,
+    #dc8 100%
+  );
+}
+
+/*2*/
+.btn-2 {
+  background: linear-gradient(
+    top,
+    #a95,
+    #f2f2f2 25%,
+    #fff 38%,
+    #c5c5c5 63%,
+    #f7f7f7 87%,
+    #a95
+  );
+  background: -webkit-linear-gradient(
+    top,
+    #a95,
+    #fea 25%,
+    #fff 38%,
+    #dc8 63%,
+    #fea 87%,
+    #a95
+  );
+}
+
+/*3*/
+.btn-3 {
+  background: linear-gradient(#a95, #fea);
+}
+
+/*4*/
+.btn-4 {
+  background-image: -webkit-repeating-linear-gradient(
+      left,
+      rgba(255, 238, 170, 0) 0%,
+      rgba(255, 238, 170, 0) 3%,
+      rgba(255, 238, 170, 0) 5%
+    ),
+    linear-gradient(180deg, #a95 0%, #fea 47%, #dc8 53%, #fea 100%);
 }
 </style>
