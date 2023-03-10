@@ -133,13 +133,18 @@ function clearTimeouts(timeouts) {
 
 <style scoped>
 .slot-machine {
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  margin-left: 30px;
-  margin-top: 20rem;
-  margin-bottom: 10rem;
+  justify-content: center;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.6) 100%
+    ),
+    url("../assets/img/bg/AdobeStock_567754560.jpeg") no-repeat center fixed;
+  background-size: cover;
 }
 .rows {
   display: flex;
