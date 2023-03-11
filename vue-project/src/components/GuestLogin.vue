@@ -9,7 +9,7 @@
     <div class="blue-side">
       <i class="bi bi-box-arrow-right"></i>
       <i class="bi bi-person-circle"></i>
-      <router-link to="/login" class="logout-button">Logout</router-link>
+      <router-link to="/login" class="custom-btn btn-1">Logout</router-link>
       <h1 class="guestName">{{ guestName }}</h1>
     </div>
   </div>
