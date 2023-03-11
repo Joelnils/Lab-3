@@ -5,6 +5,10 @@ export default {
     return {
       headline: "How To Play",
       headlineBJ: "Black Jack",
+      headlineSlot: "Slots",
+      headlineWheel: "Lucky Wheel",
+      headlineAR: "American Roulette",
+      headlineBaccarat: "Baccarat",
       games: gameData,
     };
   },
@@ -24,12 +28,40 @@ export default {
       </div>
       <hr class="solid" />
       <p class="container_bottom_text" v-for="game in games" :key="game">
-        <!-- Gets strings from rules.json in Swedish & English -->
-        {{ game.blackjack_swe }}
+        <!-- Gets strings from rules.json in English (and Swedish if impl.) -->
+        {{ game.blackjack_eng }}
       </p>
+
+      <div>
+        <h2>{{ headlineSlot }}</h2>
+      </div>
       <hr class="solid" />
       <p class="container_bottom_text" v-for="game in games" :key="game">
-        {{ game.blackjack_eng }}
+        {{ game.slots_eng }}
+      </p>
+
+      <div>
+        <h2>{{ headlineWheel }}</h2>
+      </div>
+      <hr class="solid" />
+      <p class="container_bottom_text" v-for="game in games" :key="game">
+        {{ game.wheel_eng }}
+      </p>
+
+      <div>
+        <h2>{{ headlineAR }}</h2>
+      </div>
+      <hr class="solid" />
+      <p class="container_bottom_text" v-for="game in games" :key="game">
+        {{ game.roulette_eng }}
+      </p>
+
+      <div>
+        <h2>{{ headlineBaccarat }}</h2>
+      </div>
+      <hr class="solid" />
+      <p class="container_bottom_text" v-for="game in games" :key="game">
+        {{ game.baccarat_eng }}
       </p>
     </div>
   </div>
