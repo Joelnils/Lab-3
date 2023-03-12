@@ -31,8 +31,10 @@
       <p>Result: {{ gameResult }}</p>
     </div>
     <!-- Tillagd kod -->
-    <div class="bet-cash">
+    <div class="bet-gold">
       <p style="color: white">Bet amount: ${{ goldBet }}</p>
+    </div>
+    <div class="bet-total">
       <p style="color: white">Total cash: ${{ totalGold }}</p>
     </div>
   </div>
@@ -91,9 +93,9 @@ export default {
         this.spinClass = "";
         if (this.checkWin()) {
           this.totalGold += this.goldBet;
-          this.gameResult = `You won $${
-            this.win
-          }! (The company takes 50% so you actually won $${this.win / 2})`;
+          this.gameResult = `You won $${this.win}! (But 50% tax, give you $${
+            this.win / 2
+          })`;
         } else {
           this.totalGold -= this.goldBet;
           this.gameResult = "You lost your entire life savings!";
@@ -174,9 +176,12 @@ function clearTimeouts(timeouts) {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 15vh;
-  margin-bottom: 2vh;
-  width: 480px;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  width: 500px;
   height: 500px;
   border: 2px solid #a95;
   border-radius: 50px 50px 50px 50px;
@@ -196,8 +201,11 @@ function clearTimeouts(timeouts) {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  margin-top: 106px;
-  margin-left: 6px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-48%, -52%);
+  -ms-transform: translate(-50%, -50%);
   padding: 0px;
   background-image: linear-gradient(
     to bottom,
@@ -216,7 +224,6 @@ function clearTimeouts(timeouts) {
   );
   border: 2px solid #a95;
   height: 118px;
-  position: relative;
   width: 165px;
 }
 
@@ -228,19 +235,27 @@ function clearTimeouts(timeouts) {
 }
 
 .spin-button {
-  margin-top: 65px;
-  margin-left: 20px;
-  margin-right: 1px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-44%, 287%);
+  -ms-transform: translate(-50%, -50%);
 }
 
 .incr-button {
-  margin-top: 70px;
-  margin-left: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(310%, 540%);
+  -ms-transform: translate(-50%, -50%);
 }
 
 .decr-button {
-  margin-top: 70px;
-  margin-right: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-390%, 540%);
+  -ms-transform: translate(-50%, -50%);
 }
 
 .result {
@@ -249,23 +264,43 @@ function clearTimeouts(timeouts) {
   width: 30rem;
 }
 
-.bet-result,
-p {
+.bet-result {
+  /* Result */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-28%, -450%);
+  -ms-transform: translate(-50%, -50%);
+  color: white;
+  font-size: 0.8rem;
+  width: 30rem;
+}
+.bet-gold {
+  /* Bet amount */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(10%, 800%);
+  -ms-transform: translate(-50%, -50%);
+  width: 30rem;
   color: white;
   font-size: 0.8rem;
 }
-.bet-cash,
-p {
-  display: flex;
-  flex-direction: column;
-  position: static;
+
+.bet-total {
+  /* Total cash */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-28%, 800%);
+  -ms-transform: translate(-50%, -50%);
   width: 30rem;
   color: white;
   font-size: 0.8rem;
 }
 .custom-btn {
-  width: 127px;
-  height: 43px;
+  width: 128px;
+  height: 45px;
   margin-right: 9px;
   cursor: pointer;
   outline: none;
@@ -290,8 +325,8 @@ p {
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4);
   text-transform: uppercase;
   font-size: 1rem;
-  font-weight: 300;
-  letter-spacing: 2px;
+  font-weight: 800;
+  letter-spacing: 0px;
 }
 
 .custom-btn:active,
