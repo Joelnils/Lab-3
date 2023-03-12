@@ -45,6 +45,17 @@ export default {
   data() {
     return {
       symbols: ["🍒", "🍇", "🍓", "🍉", "🍊", "🍋", "🍍", "🍎", "🍏"],
+      symbolValues: {
+        "🍒": 50,
+        "🍇": 75,
+        "🍓": 100,
+        "🍉": 125,
+        "🍊": 150,
+        "🍋": 175,
+        "🍍": 200,
+        "🍎": 225,
+        "🍏": 250,
+      },
       rows: [
         ["🍍", "🍓", "🍊"],
         ["🍉", "🍇", "🍒"],
@@ -103,24 +114,44 @@ export default {
       }, 1000);
     },
     checkWin() {
+      let winningSymbol = "";
+      let totalWin = 0;
+
+      // Kollar horizontal rader
       for (let i = 0; i < this.rows.length; i++) {
-        if (
-          this.rows[i][0] === this.rows[i][1] &&
-          this.rows[i][1] === this.rows[i][2]
-        ) {
-          return true;
+        let row = this.rows[i];
+        if (row[0] === row[1] && row[1] === row[2]) {
+          winningSymbol = row[0];
         }
       }
-      for (let j = 0; j < this.rows[0].length; j++) {
-        /* Denna kollar column också */
-        if (
-          this.rows[0][j] === this.rows[1][j] &&
-          this.rows[1][j] === this.rows[2][j]
-        ) {
-          return true;
+
+      // Kollar columerna vertikalt
+      for (let i = 0; i < this.rows[0].length; i++) {
+        let column = [this.rows[0][i], this.rows[1][i], this.rows[2][i]];
+        if (column[0] === column[1] && column[1] === column[2]) {
+          winningSymbol = column[0];
         }
       }
-      return false;
+
+      // Kollar Diagonalt
+      let diagonal1 = [this.rows[0][0], this.rows[1][1], this.rows[2][2]];
+      if (diagonal1[0] === diagonal1[1] && diagonal1[1] === diagonal1[2]) {
+        winningSymbol = diagonal1[0];
+      }
+
+      let diagonal2 = [this.rows[0][2], this.rows[1][1], this.rows[2][0]];
+      if (diagonal2[0] === diagonal2[1] && diagonal2[1] === diagonal2[2]) {
+        winningSymbol = diagonal2[0];
+      }
+
+      // Räkna ut vinsten beroende på symbolen du får tre av
+      if (winningSymbol === "") {
+        return false; // om ingen vinst
+      } else {
+        totalWin = this.symbolValues[winningSymbol] * this.goldBet;
+        this.win = totalWin;
+        return true;
+      }
     },
     changeBet(amount) {
       /* Denna kod är ny men fungerar, gör att total cash ändringen
