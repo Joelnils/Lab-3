@@ -1,6 +1,5 @@
 <script>
 import gameData from "../../rules.json";
-import LinkMenu from "@/components/LinkMenu.vue";
 export default {
   data() {
     return {
@@ -13,36 +12,19 @@ export default {
       games: gameData,
     };
   },
-  components: {
-    LinkMenu,
-  },
 };
 </script>
 
 <template>
-  <div>
-    <div class="linkmenu-wrapper">
-      <LinkMenu />
+  <div class="container_top">
+    <div>
+      <h1>{{ headline }}</h1>
     </div>
-    <div class="container_top">
+  </div>
+  <div class="container_bottom">
+    <div style="white-space: pre-line" class="container_bottom_content">
       <div>
-        <h1>{{ headline }}</h1>
-      </div>
-    </div>
-    <div class="container_bottom">
-      <div style="white-space: pre-line" class="container_bottom_content">
-        <div>
-          <h2>{{ headlineBJ }}</h2>
-        </div>
-        <hr class="solid" />
-        <p class="container_bottom_text" v-for="game in games" :key="game">
-          <!-- Gets strings from rules.json in Swedish & English -->
-          {{ game.blackjack_swe }}
-        </p>
-        <hr class="solid" />
-        <p class="container_bottom_text" v-for="game in games" :key="game">
-          {{ game.blackjack_eng }}
-        </p>
+        <h2>{{ headlineBJ }}</h2>
       </div>
       <hr class="solid" />
       <p class="container_bottom_text" v-for="game in games" :key="game">
@@ -125,10 +107,5 @@ div p {
   font-size: 0.975rem;
   line-height: 1.5;
   margin-bottom: 0.15rem;
-}
-.linkmenu-wrapper {
-  position: absolute;
-  margin-top: 52%;
-  right: 30%;
 }
 </style>
