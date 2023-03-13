@@ -47,6 +47,7 @@ function handle(actualDeg) {
 
 <template>
   <div class="main-container">
+    <div class="spacer"></div>
     <div id="game">
       <div class="marker-container">
         <img class="marker" :marker="marker" src="../assets/img/marker.png" />
@@ -70,6 +71,7 @@ function handle(actualDeg) {
     </div>
 
     <div class="print-win">
+      
       <div class="no-winner" v-if="!winner">
         <h3>Let's see what Lady Fortune has in store for you..</h3>
       </div>
@@ -77,8 +79,8 @@ function handle(actualDeg) {
         <h2>Ohh my, look at that. It's the {{ winner }}</h2>
         <h4>
           This is the grand price! Printscreen this {{ winner }} and save it.
-          Beacuse next time you're stuck on Avancera, send the screenshot of this owl to
-          Johan Rutberg and he will give you the answer!
+          Beacuse next time you're stuck on Avancera, send the screenshot of
+          this owl to Johan Rutberg and he will give you the answer!
         </h4>
       </div>
       <div class="avancera" v-else-if="winner === 'Bag of Money'">
@@ -132,6 +134,7 @@ function handle(actualDeg) {
         </h4>
       </div>
     </div>
+    <div class="spacer"></div>
   </div>
 </template>
 
@@ -156,6 +159,7 @@ function handle(actualDeg) {
     url("../assets/img/bg/AdobeStock_289787097.jpeg") no-repeat center scroll;
   background-size: cover;
 }
+
 .marker-container {
   display: flex;
   justify-content: center;
@@ -189,7 +193,6 @@ h4 {
 }
 .print-win {
   max-width: 500px;
- 
 }
 .btn {
   transition: all 5s;
@@ -204,24 +207,36 @@ h4 {
   background: linear-gradient(to right, #fc6767, #ec008c);
   color: #fff;
   border: 3px solid #eee;
-  scale: 150%;
+  /* scale: 150%; */
 }
 
-@media screen and (max-width: 1200px) {   
-    .main-container{
-      margin-top: 100px;
-      gap: 100px;
-    }
-    .wheel{
-      scale: 0.7;
-    }
+@media screen and (max-width: 1200px) {
+  .main-container {
+    gap: 100px;
+    flex-direction: column;
+    flex-wrap: nowrap;
   }
-  @media screen and (max-width: 1000px) {   
-    .main-container{
-      margin-top: 200px;
-      gap: 100px;
-    }
-  
+  .wheel {
+    scale: 0.7;
   }
-  
-  </style>
+}
+@media screen and (max-width: 1000px) {
+  *{
+    text-align: center;
+    margin: 0;
+  }
+  h2, h3, h4{
+    margin: 0;
+  }
+  .main-container {
+    gap: 100px;
+    height: 100%;
+  }
+
+  }
+  .spacer{
+    height: 100px;
+  }
+
+
+</style>
