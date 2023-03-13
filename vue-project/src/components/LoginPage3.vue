@@ -24,7 +24,7 @@
             <button class="registerButton">Register</button>
           </router-link>
         </div>
-        <button class="guestButton">Guest</button>
+        <!--<button class="guestButton">Guest</button>  -->
         <button v-if="isLoggedIn" class="logoutButton" @click="logout">
           Logout
         </button>
