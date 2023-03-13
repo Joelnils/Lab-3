@@ -9,6 +9,7 @@ export default {
       headlineWheel: "Lucky Wheel",
       headlineAR: "American Roulette",
       headlineBaccarat: "Baccarat",
+      headlineTCP: "Three Card Poker",
       games: gameData,
     };
   },
@@ -62,6 +63,14 @@ export default {
       <hr class="solid" />
       <p class="container_bottom_text" v-for="game in games" :key="game">
         {{ game.baccarat_eng }}
+      </p>
+
+      <div>
+        <h2>{{ headlineTCP }}</h2>
+      </div>
+      <hr class="solid" />
+      <p class="container_bottom_text" v-for="game in games" :key="game">
+        {{ game.threecardpoker_eng }}
       </p>
     </div>
   </div>

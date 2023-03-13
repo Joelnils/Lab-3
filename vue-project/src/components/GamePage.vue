@@ -71,12 +71,8 @@ export default {
               as any other of coming up on each spin i.e. the winning number on
               any spin has no effect on the outcome of the next spin.
             </p>
-            <button
-              @click="$router.push('#')"
-              class="custom-btn btn-1"
-              type="button"
-            >
-              <i class="icon ion-md-lock"></i>Go To Game
+            <button class="custom-btn btn-5" type="button">
+              <i class="icon ion-md-lock"></i>Coming soon!
             </button>
           </div>
         </div>
@@ -92,12 +88,8 @@ export default {
               nine points or get as close to nine as possible. What's most fun
               about this setup is the sense of collaboration between players.
             </p>
-            <button
-              @click="$router.push('#')"
-              class="custom-btn btn-1"
-              type="button"
-            >
-              <i class="icon ion-md-lock"></i>Go To Game
+            <button class="custom-btn btn-5" type="button">
+              <i class="icon ion-md-lock"></i>Coming soon!
             </button>
           </div>
         </div>
@@ -114,12 +106,8 @@ export default {
               collect all winnings and pay all losing wagers to the extent that
               their wagers covers.
             </p>
-            <button
-              @click="$router.push('#')"
-              class="custom-btn btn-1"
-              type="button"
-            >
-              <i class="icon ion-md-lock"></i>Go To Game
+            <button class="custom-btn btn-5" type="button">
+              <i class="icon ion-md-lock"></i>Coming soon!
             </button>
           </div>
         </div>
@@ -388,5 +376,14 @@ export default {
       rgba(255, 238, 170, 0) 5%
     ),
     linear-gradient(180deg, #a95 0%, #fea 47%, #dc8 53%, #fea 100%);
+}
+.btn-5 {
+  background: linear-gradient(
+    182deg,
+    rgb(217, 212, 187) 0%,
+    rgb(188, 182, 161) 49%,
+    rgb(142, 136, 113) 51%,
+    rgb(167, 159, 131) 100%
+  );
 }
 </style>
