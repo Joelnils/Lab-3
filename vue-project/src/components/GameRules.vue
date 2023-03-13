@@ -1,5 +1,6 @@
 <script>
 import gameData from "../../rules.json";
+import LinkMenu from "@/components/LinkMenu.vue";
 export default {
   data() {
     return {
@@ -12,10 +13,16 @@ export default {
       games: gameData,
     };
   },
+  components: {
+    LinkMenu,
+  },
 };
 </script>
 
 <template>
+
+
+
   <div class="container_top">
     <div>
       <h1>{{ headline }}</h1>
@@ -24,8 +31,11 @@ export default {
   <div class="container_bottom">
     <div style="white-space: pre-line" class="container_bottom_content">
       <div>
-        <h2>{{ headlineBJ }}</h2>
+
+        <h2 class="blackjack" id="blackjack">{{ headlineBJ }}</h2>
+
       </div>
+      <LinkMenu />
       <hr class="solid" />
       <p class="container_bottom_text" v-for="game in games" :key="game">
         <!-- Gets strings from rules.json in English (and Swedish if impl.) -->
@@ -33,7 +43,7 @@ export default {
       </p>
 
       <div>
-        <h2>{{ headlineSlot }}</h2>
+        <h2 id="Slot">{{ headlineSlot }}</h2>
       </div>
       <hr class="solid" />
       <p class="container_bottom_text" v-for="game in games" :key="game">
@@ -41,7 +51,7 @@ export default {
       </p>
 
       <div>
-        <h2>{{ headlineWheel }}</h2>
+        <h2 id="Wheel">{{ headlineWheel }}</h2>
       </div>
       <hr class="solid" />
       <p class="container_bottom_text" v-for="game in games" :key="game">
@@ -49,7 +59,7 @@ export default {
       </p>
 
       <div>
-        <h2>{{ headlineAR }}</h2>
+        <h2 id="Roulette">{{ headlineAR }}</h2>
       </div>
       <hr class="solid" />
       <p class="container_bottom_text" v-for="game in games" :key="game">
@@ -57,7 +67,7 @@ export default {
       </p>
 
       <div>
-        <h2>{{ headlineBaccarat }}</h2>
+        <h2 id="Baccarat">{{ headlineBaccarat }}</h2>
       </div>
       <hr class="solid" />
       <p class="container_bottom_text" v-for="game in games" :key="game">
