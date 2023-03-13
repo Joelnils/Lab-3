@@ -19,13 +19,15 @@
 
       <span>
         <div>
-          <button class="loginButton">Login</button>
+          <button class="custom-btn btn-1">Login</button>
           <router-link to="/register">
-            <button class="registerButton">Register</button>
+            <button class="custom-btn btn-1">Register</button>
           </router-link>
         </div>
+ profile1.0
         <!--<button class="guestButton">Guest</button>  -->
         <button v-if="isLoggedIn" class="logoutButton" @click="logout">
+
           Logout
         </button>
       </span>
@@ -141,6 +143,75 @@ label {
 input {
   padding: 15px;
   border-radius: 5px;
+}
+
+.custom-btn {
+  width: 100%;
+  height: 40px;
+  margin-top: 10px;
+  cursor: pointer;
+  border: transparent;
+  color: #fff;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4);
+  font-size: 1.2rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 10px;
+}
+
+.custom-btn:active {
+  transform: translate(2px);
+  -webkit-transform: translate(2px);
+}
+
+/* 1 */
+.btn-1 {
+  background: linear-gradient(
+    182deg,
+    #fea 0%,
+    #dc8 49%,
+    rgb(195, 174, 91) 51%,
+    #dc8 100%
+  );
+}
+
+/*2*/
+.btn-2 {
+  background: linear-gradient(
+    top,
+    #a95,
+    #f2f2f2 25%,
+    #fff 38%,
+    #c5c5c5 63%,
+    #f7f7f7 87%,
+    #a95
+  );
+  background: -webkit-linear-gradient(
+    top,
+    #a95,
+    #fea 25%,
+    #fff 38%,
+    #dc8 63%,
+    #fea 87%,
+    #a95
+  );
+}
+
+/*3*/
+.btn-3 {
+  background: linear-gradient(#a95, #fea);
+}
+
+/*4*/
+.btn-4 {
+  background-image: -webkit-repeating-linear-gradient(
+      left,
+      rgba(255, 238, 170, 0) 0%,
+      rgba(255, 238, 170, 0) 3%,
+      rgba(255, 238, 170, 0) 5%
+    ),
+    linear-gradient(180deg, #a95 0%, #fea 47%, #dc8 53%, #fea 100%);
 }
 
 .loginButton {
