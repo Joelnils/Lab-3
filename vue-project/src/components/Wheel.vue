@@ -169,6 +169,7 @@ function handle(actualDeg) {
 }
 .print-win {
   max-width: 500px;
+ 
 }
 .btn {
   transition: all 5s;
@@ -185,4 +186,22 @@ function handle(actualDeg) {
   border: 3px solid #eee;
   scale: 200%;
 }
-</style>
+
+@media screen and (max-width: 1200px) {   
+    .main-container{
+      margin-top: 100px;
+      gap: 100px;
+    }
+    .wheel{
+      scale: 0.7;
+    }
+  }
+  @media screen and (max-width: 1000px) {   
+    .main-container{
+      margin-top: 200px;
+      gap: 100px;
+    }
+  
+  }
+  
+  </style>
