@@ -144,6 +144,17 @@ function handle(actualDeg) {
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.6) 100%
+    ),
+    url("../assets/img/bg/AdobeStock_289787097.jpeg") no-repeat center scroll;
+  background-size: cover;
 }
 .marker-container {
   display: flex;
@@ -157,8 +168,12 @@ function handle(actualDeg) {
   display: flex;
   justify-content: center;
 }
+
+.marker {
+  width: 50px;
+}
 .wheel {
-  max-width: 700px;
+  max-width: 400px;
   width: 100%;
   height: auto;
   object-fit: cover;
@@ -166,6 +181,11 @@ function handle(actualDeg) {
 .button {
   z-index: 99;
   position: relative;
+}
+h2,
+h3,
+h4 {
+  margin-left: 30px;
 }
 .print-win {
   max-width: 500px;
@@ -184,7 +204,7 @@ function handle(actualDeg) {
   background: linear-gradient(to right, #fc6767, #ec008c);
   color: #fff;
   border: 3px solid #eee;
-  scale: 200%;
+  scale: 150%;
 }
 
 @media screen and (max-width: 1200px) {   

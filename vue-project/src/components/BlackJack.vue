@@ -1,49 +1,60 @@
 <template>
   <div class="bg-blackjack">
-    <div class="BlackuJacku">
-      <div v-if="!isGameStarted">
-        <button @click="startGame" class="custom-btn-start btn-1">
-          Start Game
-        </button>
-      </div>
-      <div v-if="isGameStarted">
-        <div>
-          <div>
-            <div v-for="card in dealerCards" :key="card.code" class="card">
-              <img :src="card.image" :alt="card.code" />
-            </div>
-          </div>
-          <p>Dealer Hand - Value: {{ this.getHandValue(dealerHand) }}</p>
-          <hr class="solid" />
-          <h5 v-if="isGameOver">{{ gameResult }}</h5>
-
-          <hr class="solid" />
-          <p>Player Hand - Value: {{ this.getHandValue(playerHand) }}</p>
-          <div>
-            <div v-for="card in playerCards" :key="card.code" class="card">
-              <img :src="card.image" :alt="card.code" />
-            </div>
-          </div>
+    <div class="game">
+      <div class="BlackuJacku">
+        <div v-if="!isGameStarted">
+          <button @click="startGame" class="custom-btn-start btn-1">
+            Start Game
+          </button>
         </div>
-        <button
-          v-if="!isGameOver"
-          @click="hit"
-          :disabled="isGameOver"
-          class="custom-btn btn-1"
-        >
-          Hit
-        </button>
-        <button
-          v-if="!isGameOver"
-          @click="stand"
-          :disabled="isGameOver"
-          class="custom-btn btn-1"
-        >
-          Stand
-        </button>
-        <button v-if="isGameOver" @click="startGame" class="custom-btn btn-1">
-          Play
-        </button>
+        <div v-if="isGameStarted">
+          <div>
+            <div class="card-container">
+              <div v-for="card in dealerCards" :key="card.code" class="card">
+                <img :src="card.image" :alt="card.code" />
+              </div>
+            </div>
+
+            <div class="scoreboard">
+              <div>
+                <p>Dealer Hand - Value: {{ this.getHandValue(dealerHand) }}</p>
+                <hr class="solid" />
+              </div>
+              <div class="result">
+                <h6>Result:</h6>
+                <h6 v-if="isGameOver">{{ gameResult }}</h6>
+              </div>
+              <hr class="solid" />
+              <div>
+                <p>Player Hand - Value: {{ this.getHandValue(playerHand) }}</p>
+              </div>
+            </div>
+            <div class="card-container">
+              <div v-for="card in playerCards" :key="card.code" class="card">
+                <img :src="card.image" :alt="card.code" />
+              </div>
+            </div>
+          </div>
+          <button
+            v-if="!isGameOver"
+            @click="hit"
+            :disabled="isGameOver"
+            class="custom-btn btn-1"
+          >
+            Hit
+          </button>
+          <button
+            v-if="!isGameOver"
+            @click="stand"
+            :disabled="isGameOver"
+            class="custom-btn btn-1"
+          >
+            Stand
+          </button>
+          <button v-if="isGameOver" @click="startGame" class="custom-btn btn-1">
+            Play
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -215,7 +226,25 @@ export default {
       rgba(0, 0, 0, 0.2) 0%,
       rgba(0, 0, 0, 0.6) 100%
     ),
-    url("../assets/img/bg/AdobeStock_575376595.jpeg") no-repeat center fixed;
+    url("../assets/img/bg/AdobeStock_289787097.jpeg") no-repeat center scroll;
+  background-size: cover;
+}
+.game {
+  margin-top: 20vh;
+  margin-bottom: 10vh;
+  width: 60%;
+  border: 2px solid #a95;
+  border-radius: 50px 50px 50px 50px;
+  height: 82vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.6) 100%
+    ),
+    url("../assets/img/games/BlackJack.jpeg") no-repeat center local;
   background-size: cover;
 }
 
@@ -225,21 +254,22 @@ export default {
   align-items: center;
   height: 100vh;
   margin-bottom: 0vh;
-  margin-top: 60px;
+  margin-top: 55px;
   color: #fff;
   font-family: "Times New Roman", Times, serif;
 }
 
-.blackjack {
-  text-align: center;
+.scoreboard {
+}
+.card-container {
 }
 
 .card {
   display: inline-block;
   margin-right: 10px;
   margin-bottom: 10px;
-  width: 110px;
-  background: none;
+  width: 80px;
+  background: none; /* Tar bort hörnen på korten */
   border: none;
 }
 
@@ -249,6 +279,11 @@ export default {
   object-fit: contain;
 }
 
+.result,
+h6 {
+  display: flex;
+  margin-right: 5px;
+}
 .hidden img {
   visibility: hidden;
 }
@@ -260,44 +295,38 @@ p {
 }
 
 hr.solid {
-  border-top: 7px solid #ffffff;
+  border-top: 4px solid #ffffff;
 }
 
 .custom-btn {
-  width: 110px;
+  width: 80px;
   height: 40px;
-  padding: 10px 25px;
   margin-right: 10px;
   cursor: pointer;
   outline: none;
   border: transparent;
+  border-radius: 10px;
   color: #fff;
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4);
+  text-transform: uppercase;
   font-size: 1.2rem;
   font-weight: 300;
   letter-spacing: 2px;
-  text-transform: uppercase;
-  outline: 0;
-  border-radius: 10px;
-  padding: 1px;
 }
 .custom-btn-start {
   width: 150px;
   height: 40px;
-  padding: 10px 25px;
-  margin-right: 10px;
+  margin-top: 290%;
   cursor: pointer;
   outline: none;
   border: transparent;
+  border-radius: 10px;
   color: #fff;
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4);
+  text-transform: uppercase;
   font-size: 1rem;
   font-weight: 300;
   letter-spacing: 2px;
-  text-transform: uppercase;
-  outline: 0;
-  border-radius: 10px;
-  padding: 1px;
 }
 .custom-btn:active,
 .custom-btn-start:active {
