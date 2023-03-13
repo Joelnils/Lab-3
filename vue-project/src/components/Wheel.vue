@@ -76,8 +76,8 @@ function handle(actualDeg) {
       <div class="avancera" v-else-if="winner === 'Avancera Owl'">
         <h2>Ohh my, look at that. It's the {{ winner }}</h2>
         <h4>
-          This is the grand price! Printscreen this {{ winner }} and save it,
-          beacuse next time you're stuck on Avancera, send the screenshot to
+          This is the grand price! Printscreen this {{ winner }} and save it.
+          Beacuse next time you're stuck on Avancera, send the screenshot of this owl to
           Johan Rutberg and he will give you the answer!
         </h4>
       </div>
