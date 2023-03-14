@@ -28,7 +28,7 @@
       </div>
       <span class="errorM" v-if="errorMessage">{{ errorMessage }}</span>
       <div>
-        <button class="registerButton" type="submit">Register</button>
+        <button class="custom-btn btn-1" type="submit">Register</button>
         <!-- <button class="loginButton" @click.prevent="login">Login</button> -->
       </div>
     </form>
@@ -111,7 +111,7 @@ h1 {
 .errorM {
   position: relative;
   color: white;
-  font-size: 40px;
+  font-size: 20px;
 }
 
 .registerForm {
@@ -224,5 +224,87 @@ body {
   position: relative;
   top: 50%;
   color: pink;
+}
+.custom-btn {
+  width: 180px;
+  height: 40px;
+  margin-right: 10px;
+  cursor: pointer;
+  outline: none;
+  border: transparent;
+  border-radius: 10px;
+  color: #fff;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4);
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+.custom-btn-start {
+  width: 150px;
+  height: 40px;
+  margin-top: 290%;
+  cursor: pointer;
+  outline: none;
+  border: transparent;
+  border-radius: 10px;
+  color: #fff;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4);
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+.custom-btn:active,
+.custom-btn-start:active {
+  transform: translate(2px);
+  -webkit-transform: translate(2px);
+}
+
+/* 1 */
+.btn-1 {
+  background: linear-gradient(
+    180deg,
+    #fea 0%,
+    #dc8 49%,
+    rgb(195, 174, 91) 51%,
+    #dc8 100%
+  );
+}
+
+/*2*/
+.btn-2 {
+  background: linear-gradient(
+    top,
+    #a95,
+    #f2f2f2 25%,
+    #fff 38%,
+    #c5c5c5 63%,
+    #f7f7f7 87%,
+    #a95
+  );
+  background: -webkit-linear-gradient(
+    top,
+    #a95,
+    #fea 25%,
+    #fff 38%,
+    #dc8 63%,
+    #fea 87%,
+    #a95
+  );
+}
+/*3*/
+.btn-3 {
+  background: linear-gradient(#a95, #fea);
+}
+/*4*/
+.btn-4 {
+  background-image: -webkit-repeating-linear-gradient(
+      left,
+      rgba(255, 238, 170, 0) 0%,
+      rgba(255, 238, 170, 0) 3%,
+      rgba(255, 238, 170, 0) 5%
+    ),
+    linear-gradient(180deg, #a95 0%, #fea 47%, #dc8 53%, #fea 100%);
 }
 </style>

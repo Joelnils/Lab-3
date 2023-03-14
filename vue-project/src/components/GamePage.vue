@@ -1,8 +1,10 @@
 <script>
+import gameData from "../../rules.json";
 export default {
   data() {
     return {
       headline: "Our Games",
+      games: gameData,
     };
   },
 };
@@ -21,12 +23,8 @@ export default {
           <div class="card__image card__image--1"></div>
           <div class="card__content">
             <div class="card__title">Slots</div>
-            <p class="card__text">
-              What Are Slot Machines and How Do They Work? A slot machine is a
-              gambling game with spinning reels. Those reels have symbols on
-              them, which land randomly after you place a bet and spin the
-              reels. If these symbols line up, you win prizes based on which
-              symbols fall on that “payline”.
+            <p class="card__text" v-for="game in games" :key="game">
+              {{ game.slots_card }}
             </p>
             <button
               @click="$router.push('/games/slot')"
@@ -43,12 +41,8 @@ export default {
           <div class="card__image card__image--2"></div>
           <div class="card__content">
             <div class="card__title">Black Jack</div>
-            <p class="card__text">
-              The objective is always to beat the dealer, which means getting
-              to—or as close as possible to—a total point score of 21. If your
-              cards total higher than the dealer's cards without going over 21,
-              you win. If your hand goes over 21, you "bust" and lose your bet.
-              If the dealer busts, you win.
+            <p class="card__text" v-for="game in games" :key="game">
+              {{ game.blackjack_card }}
             </p>
             <button
               @click="$router.push('/games/blackjack')"
@@ -65,11 +59,8 @@ export default {
           <div class="card__image card__image--3"></div>
           <div class="card__content">
             <div class="card__title">American Roulette</div>
-            <p class="card__text">
-              The object of American Roulette is to guess on which number on the
-              wheel the ball will come to rest. Every number has the same chance
-              as any other of coming up on each spin i.e. the winning number on
-              any spin has no effect on the outcome of the next spin.
+            <p class="card__text" v-for="game in games" :key="game">
+              {{ game.roulette_card }}
             </p>
             <button class="custom-btn btn-5" type="button">
               <i class="icon ion-md-lock"></i>Coming soon!
@@ -82,11 +73,8 @@ export default {
           <div class="card__image card__image--4"></div>
           <div class="card__content">
             <div class="card__title">Punto Banco (Baccarat)</div>
-            <p class="card__text">
-              Baccarat is a game where, instead of playing each other, players
-              play against the bank (similar to blackjack). The aim is to obtain
-              nine points or get as close to nine as possible. What's most fun
-              about this setup is the sense of collaboration between players.
+            <p class="card__text" v-for="game in games" :key="game">
+              {{ game.baccarat_card }}
             </p>
             <button class="custom-btn btn-5" type="button">
               <i class="icon ion-md-lock"></i>Coming soon!
@@ -99,12 +87,8 @@ export default {
           <div class="card__image card__image--5"></div>
           <div class="card__content">
             <div class="card__title">Three Card Poker</div>
-            <p class="card__text">
-              Three Card Poker (TCP) is a three card poker game that utilizes a
-              player-dealer position. As in other games featuring a
-              player-dealer, the players play against another player who will
-              collect all winnings and pay all losing wagers to the extent that
-              their wagers covers.
+            <p class="card__text" v-for="game in games" :key="game">
+              {{ game.threecardpoker_card }}
             </p>
             <button class="custom-btn btn-5" type="button">
               <i class="icon ion-md-lock"></i>Coming soon!
@@ -117,10 +101,8 @@ export default {
           <div class="card__image card__image--6"></div>
           <div class="card__content">
             <div class="card__title">Lucky Wheel</div>
-            <p class="card__text">
-              In money wheel the viewer first spins the wheel. Players then
-              place their bets on the symbols that they think will come out
-              during the spin.
+            <p class="card__text" v-for="game in games" :key="game">
+              {{ game.wheel_card }}
             </p>
             <button
               @click="$router.push('/games/wheel')"
