@@ -19,24 +19,26 @@ const symbolSegments = {
 };
 
 function spinWheel() {
-  disabled.value = true;
-  let degree = 0;
-  degree = Math.floor(5000 + Math.random() * 5000);
-  easeOutSpin.value = "all 5s ease-out";
+  //denna funktion startar igång rotationen på hjulet
+  disabled.value = true; // här disablar vi knappen efter att hjulet börjat snurra
+  let degree = 0; // vi sätter gradantalet till 0
+  degree = Math.floor(5000 + Math.random() * 5000); //ger oss ett nytt random gradantal som används för att säga hur många grader den ska snurra(tal mellan 5k-10k)
+  easeOutSpin.value = "all 5s ease-out"; //snurra dessa grader under 5sekunder och en ease-out
 
-  spin.value = `rotate(${degree}deg)`;
-  const actualDeg = degree % 360;
+  spin.value = `rotate(${degree}deg)`; //här tar vi emot det nya gradvärdet och roterar bilden(hjulet)
+  const actualDeg = degree % 360; //ny variabel som tar emot gradvärdet och delar det på 360(en cirkel) vilket ger oss vårat faktiska värde i bilden/cirkeln
   setTimeout(function () {
-    disabled.value = false;
+    // en liten timeout funktion 5000ms(under tiden den snurrar)
+    disabled.value = false; //vi gör knappen klickbar igen
 
-    easeOutSpin.value = "all 0s";
-    spin.value = `rotate(${actualDeg}deg)`;
-    handle(actualDeg);
+    easeOutSpin.value = "all 0s"; //sätter transition till 0 så att användaren inte ser vad som händer nedan
+    spin.value = `rotate(${actualDeg}deg)`; //här tar vi det faktiska värdet som vi landat på(av en cirkel) och roterar den utan någon animation, så vi har ett värde mellan 0-360 istället för 5k-10k
+    handle(actualDeg); //här ropar vi på nedanstående funktion som tar hand om vinsten
   }, 5000);
 }
 function handle(actualDeg) {
-  const winSymNr = Math.ceil(actualDeg / zoneSize);
-  winner.value = symbolSegments[winSymNr];
+  const winSymNr = Math.ceil(actualDeg / zoneSize); //vi delar actualDegree värdet på zonesice och avrundar för att få fram det gradantal(och vilket segment) vi landat på
+  winner = symbolSegments[winSymNr]; // här kollar vi på viket av segmenten som vunnit och spara det i variabeln winner, det vinnande segmentets namn.
   // console.log(symbolSegments[winSymNr])
   console.log(actualDeg);
   console.log(winner);
@@ -45,6 +47,7 @@ function handle(actualDeg) {
 
 <template>
   <div class="main-container">
+    <div class="spacer"></div>
     <div id="game">
       <div class="marker-container">
         <img class="marker" :marker="marker" src="../assets/img/marker.png" />
@@ -68,15 +71,16 @@ function handle(actualDeg) {
     </div>
 
     <div class="print-win">
+      
       <div class="no-winner" v-if="!winner">
         <h3>Let's see what Lady Fortune has in store for you..</h3>
       </div>
       <div class="avancera" v-else-if="winner === 'Avancera Owl'">
         <h2>Ohh my, look at that. It's the {{ winner }}</h2>
         <h4>
-          This is the grand price! Printscreen this {{ winner }} and save it,
-          beacuse next time you're stuck on Avancera, send the screenshot to
-          Johan Rutberg and he will give you the answer!
+          This is the grand price! Printscreen this {{ winner }} and save it.
+          Beacuse next time you're stuck on Avancera, send the screenshot of
+          this owl to Johan Rutberg and he will give you the answer!
         </h4>
       </div>
       <div class="avancera" v-else-if="winner === 'Bag of Money'">
@@ -130,6 +134,7 @@ function handle(actualDeg) {
         </h4>
       </div>
     </div>
+    <div class="spacer"></div>
   </div>
 </template>
 
@@ -154,6 +159,7 @@ function handle(actualDeg) {
     url("../assets/img/bg/AdobeStock_289787097.jpeg") no-repeat center scroll;
   background-size: cover;
 }
+
 .marker-container {
   display: flex;
   justify-content: center;
@@ -201,6 +207,36 @@ h4 {
   background: linear-gradient(to right, #fc6767, #ec008c);
   color: #fff;
   border: 3px solid #eee;
-  scale: 150%;
+  /* scale: 150%; */
 }
+
+@media screen and (max-width: 1200px) {
+  .main-container {
+    gap: 100px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  .wheel {
+    scale: 0.7;
+  }
+}
+@media screen and (max-width: 1000px) {
+  *{
+    text-align: center;
+    margin: 0;
+  }
+  h2, h3, h4{
+    margin: 0;
+  }
+  .main-container {
+    gap: 100px;
+    height: 100%;
+  }
+
+  }
+  .spacer{
+    height: 100px;
+  }
+
+
 </style>

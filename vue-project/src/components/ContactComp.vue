@@ -84,7 +84,7 @@ function handleSubmit() {
           <Modal :firstName="result" />
         </div>
       </div>
-      <Map />
+      <!-- <Map /> -->
     </div>
   </div>
 </template>
