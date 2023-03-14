@@ -1,7 +1,7 @@
 <template>
   <label v-if="lable" class="lable-c">{{ lable }}</label>
   <textarea
-    class="form-control"
+    class="form-control" 
     input
     type="text"
     :value="modelValue"
