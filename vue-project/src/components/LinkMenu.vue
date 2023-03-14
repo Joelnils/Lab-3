@@ -16,6 +16,9 @@
         <li class="links">
           <a class="nav-link" href="#Baccarat">Baccarat</a>
         </li>
+        <li class="links">
+          <a class="nav-link" href="#tcp">Three Card Poker</a>
+        </li>
       </ul>
     </div>
   </template>
