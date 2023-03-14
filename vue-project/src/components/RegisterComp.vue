@@ -1,3 +1,5 @@
+<script setup></script>
+
 <template>
   <div class="login-container">
     <form class="registerForm" @submit.prevent="registerUser">
@@ -27,7 +29,7 @@
       <span class="errorM" v-if="errorMessage">{{ errorMessage }}</span>
       <div>
         <button class="registerButton" type="submit">Register</button>
-        <button class="loginButton" @click.prevent="login">Login</button>
+        <!-- <button class="loginButton" @click.prevent="login">Login</button> -->
       </div>
     </form>
   </div>
@@ -217,5 +219,10 @@ body {
         ),*/ url("https://images.unsplash.com/photo-1596838132731-3301c3fd4317?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80c")
     no-repeat center fixed;
   background-size: cover;
+}
+.f-container {
+  position: relative;
+  top: 50%;
+  color: pink;
 }
 </style>
