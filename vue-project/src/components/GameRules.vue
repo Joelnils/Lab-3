@@ -21,9 +21,6 @@ export default {
 </script>
 
 <template>
-
-
-
   <div class="container_top">
     <div>
       <h1>{{ headline }}</h1>
@@ -32,14 +29,12 @@ export default {
   <div class="container_bottom">
     <div style="white-space: pre-line" class="container_bottom_content">
       <div>
-
-        <h2 class="blackjack" id="blackjack">{{ headlineBJ }}</h2>
-
+        <h2 id="blackjack">{{ headlineBJ }}</h2>
       </div>
       <LinkMenu />
       <hr class="solid" />
       <p class="container_bottom_text" v-for="game in games" :key="game">
-        <!-- Gets strings from rules.json in English (and Swedish if impl.) -->
+        <!-- Gets strings from rules.json in English -->
         {{ game.blackjack_eng }}
       </p>
 
@@ -76,7 +71,7 @@ export default {
       </p>
 
       <div>
-        <h2>{{ headlineTCP }}</h2>
+        <h2 id="tcp">{{ headlineTCP }}</h2>
       </div>
       <hr class="solid" />
       <p class="container_bottom_text" v-for="game in games" :key="game">
