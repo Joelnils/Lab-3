@@ -74,10 +74,11 @@ function handleSubmit() {
             class="form-control"
             rows="3"
           />
-          <button
+          <button class="btn-style"
             @click="handleSubmit"
             data-bs-toggle="modal"
             data-bs-target="#staticBackdrop"
+            
           >
             SUBMIT
           </button>
@@ -121,9 +122,7 @@ function handleSubmit() {
 .col {
   padding: 0px;
 }
-.btn {
-  margin-top: 10px;
-}
+
 .hero {
   display: flex;
   flex-direction: column;
@@ -157,5 +156,15 @@ function handleSubmit() {
   width: 100%;
   border-bottom: 2px solid white;
   text-align: center;
+}
+
+.btn-style {
+  background: linear-gradient(
+    182deg,
+    #fea 0%,
+    #dc8 49%,
+    rgb(195, 174, 91) 51%,
+    #dc8 100%
+  );
 }
 </style>
