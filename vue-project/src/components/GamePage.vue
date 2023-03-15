@@ -15,6 +15,9 @@ export default {
     <div>
       <h1>{{ headline }}</h1>
     </div>
+    <div class="scroll">
+      <bounce class="scroll-text">Scroll</bounce>
+    </div>
   </div>
   <div class="container_bottom">
     <ul class="cards">
@@ -26,11 +29,7 @@ export default {
             <p class="card__text" v-for="game in games" :key="game">
               {{ game.slots_card }}
             </p>
-            <button
-              @click="$router.push('/games/slot')"
-              class="custom-btn btn-1"
-              type="button"
-            >
+            <button @click="$router.push('/games/slot')" class="custom-btn btn-1" type="button">
               <i class="icon ion-md-lock"></i>Go To Game
             </button>
           </div>
@@ -44,11 +43,7 @@ export default {
             <p class="card__text" v-for="game in games" :key="game">
               {{ game.blackjack_card }}
             </p>
-            <button
-              @click="$router.push('/games/blackjack')"
-              class="custom-btn btn-1"
-              type="button"
-            >
+            <button @click="$router.push('/games/blackjack')" class="custom-btn btn-1" type="button">
               <i class="icon ion-md-lock"></i>Go To Game
             </button>
           </div>
@@ -104,11 +99,7 @@ export default {
             <p class="card__text" v-for="game in games" :key="game">
               {{ game.wheel_card }}
             </p>
-            <button
-              @click="$router.push('/games/wheel')"
-              class="custom-btn btn-1"
-              type="button"
-            >
+            <button @click="$router.push('/games/wheel')" class="custom-btn btn-1" type="button">
               <i class="icon ion-md-lock"></i>Go To Game
             </button>
           </div>
@@ -144,8 +135,7 @@ export default {
   font-size: 100px;
 }
 
-.container_bottom {
-}
+.container_bottom {}
 
 .cards {
   display: flex;
@@ -313,35 +303,29 @@ export default {
 
 /* 1 */
 .btn-1 {
-  background: linear-gradient(
-    182deg,
-    #fea 0%,
-    #dc8 49%,
-    rgb(195, 174, 91) 51%,
-    #dc8 100%
-  );
+  background: linear-gradient(182deg,
+      #fea 0%,
+      #dc8 49%,
+      rgb(195, 174, 91) 51%,
+      #dc8 100%);
 }
 
 /*2*/
 .btn-2 {
-  background: linear-gradient(
-    top,
-    #a95,
-    #f2f2f2 25%,
-    #fff 38%,
-    #c5c5c5 63%,
-    #f7f7f7 87%,
-    #a95
-  );
-  background: -webkit-linear-gradient(
-    top,
-    #a95,
-    #fea 25%,
-    #fff 38%,
-    #dc8 63%,
-    #fea 87%,
-    #a95
-  );
+  background: linear-gradient(top,
+      #a95,
+      #f2f2f2 25%,
+      #fff 38%,
+      #c5c5c5 63%,
+      #f7f7f7 87%,
+      #a95);
+  background: -webkit-linear-gradient(top,
+      #a95,
+      #fea 25%,
+      #fff 38%,
+      #dc8 63%,
+      #fea 87%,
+      #a95);
 }
 
 /*3*/
@@ -351,21 +335,76 @@ export default {
 
 /*4*/
 .btn-4 {
-  background-image: -webkit-repeating-linear-gradient(
-      left,
+  background-image: -webkit-repeating-linear-gradient(left,
       rgba(255, 238, 170, 0) 0%,
       rgba(255, 238, 170, 0) 3%,
-      rgba(255, 238, 170, 0) 5%
-    ),
+      rgba(255, 238, 170, 0) 5%),
     linear-gradient(180deg, #a95 0%, #fea 47%, #dc8 53%, #fea 100%);
 }
+
 .btn-5 {
-  background: linear-gradient(
-    182deg,
-    rgb(217, 212, 187) 0%,
-    rgb(188, 182, 161) 49%,
-    rgb(142, 136, 113) 51%,
-    rgb(167, 159, 131) 100%
-  );
+  background: linear-gradient(182deg,
+      rgb(217, 212, 187) 0%,
+      rgb(188, 182, 161) 49%,
+      rgb(142, 136, 113) 51%,
+      rgb(167, 159, 131) 100%);
+}
+
+/* Scroll Animation */
+
+.scroll {
+    background: 0 0;
+    border-width: 0;
+    padding: 0;
+    width: 0;
+    position: absolute;
+    right: 1.5rem;
+    bottom: 0;
+    z-index: 10;
+    animation: scrollAnimation 2s ease-in-out infinite alternate;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.scroll::before {
+    content: '';
+    display: block;
+    height: 80px;
+    width: 24px;
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 12px);
+    z-index: 10;
+}
+
+.scroll-text {
+    letter-spacing: .2rem;
+    text-transform: uppercase;
+    color: #f7f7f7;
+    text-decoration: none;
+    display: block;
+    text-shadow: 0 0 1px rgb(0 0 0 / 30%), 0 1px 2px rgb(0 0 0 / 20%), 0 2px 4px rgb(0 0 0 / 10%);
+    transform: translateX(50%)rotate(-90deg);
+}
+
+.scroll::after {
+    background-color: #fff;
+    content: '';
+    display: block;
+    height: 1.5rem;
+    margin-left: -1px;
+    transform-origin: 50% 100%;
+    width: 2px;
+}
+
+@keyframes scrollAnimation {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(20px);
+    }
 }
 </style>
