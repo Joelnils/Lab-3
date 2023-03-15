@@ -235,7 +235,7 @@ h4 {
 
   }
   .spacer{
-    height: 100px;
+    height: 200px;
   }
 
 
