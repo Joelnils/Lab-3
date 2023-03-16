@@ -29,6 +29,11 @@
   justify-content: flex-end;
   align-items: center;
 }
+@media only screen and (max-width: 1053px){
+  .container{
+    justify-content: space-evenly;
+  }
+}
   .nav {
     display: flex;
     justify-content: center;

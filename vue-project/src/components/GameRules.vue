@@ -31,9 +31,9 @@ export default {
   </div>
   <div class="container_bottom">
     <div style="white-space: pre-line" class="container_bottom_content">
-      <div class="test">
+      <div class="test flex-item">
         <div class="bj">
-        <h2 id="blackjack">{{ headlineBJ }}</h2>
+        <h2 id="blackjack flex-item">{{ headlineBJ }}</h2>
       </div>
         <LinkMenu />
       </div>
@@ -92,6 +92,14 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+@media only screen and (max-width: 1053px){
+  .test{
+    flex-direction: column-reverse;
+  }
+  .bj{
+    margin-top: 30px;
+  }
 }
 .container_top {
   height: 100vh;
