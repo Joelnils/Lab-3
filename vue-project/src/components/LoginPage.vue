@@ -1,16 +1,16 @@
 <template>
-  <div class="login-container">
-    <form class="login-form" @submit.prevent>
+  <div class="loginContainer">
+    <form class="loginForm" @submit.prevent>
       <!-- Skippar refresh av sidan med
     submit.prevent -->
 
       <h1>Login</h1>
 
-      <div class="form-group">
+      <div class="formGroup">
         <label for="username">Username:</label>
         <input type="text" id="username" v-model="username" />
       </div>
-      <div v-if="showPassword" class="form-group">
+      <div v-if="showPassword" class="formGroup">
         <label for="password">Password:</label>
         <input type="password" id="password" v-model="password" />
       </div>
@@ -124,14 +124,14 @@ h1 {
   line-height: 20px;
   color: #d9d9d9;
 }
-.login-container {
+.loginContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-.login-form {
+.loginForm {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -139,7 +139,7 @@ h1 {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.login-form {
+.loginForm {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -151,7 +151,7 @@ h1 {
   transition: 0.5s;
 }
 
-.form-group {
+.formGroup {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;

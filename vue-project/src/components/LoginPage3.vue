@@ -1,16 +1,16 @@
 <template>
-  <div class="login-container">
+  <div class="loginContainer">
     <form class="loginForm" @submit.prevent="login">
       <!-- Skippar refresh av sidan med
           submit.prevent -->
 
       <h1>Login</h1>
 
-      <div class="form-group">
+      <div class="formGroup">
         <label for="username">Username:</label>
         <input type="text" id="username" v-model="username" />
       </div>
-      <div class="form-group">
+      <div class="formGroup">
         <label for="password">Password:</label>
         <input type="password" id="password" v-model="password" />
       </div>
@@ -26,7 +26,6 @@
         </div>
         <!--<button class="guestButton">Guest</button>  -->
         <button v-if="isLoggedIn" class="custom-btn btn-1" @click="logout">
-
           Logout
         </button>
       </span>
@@ -37,7 +36,7 @@
 </template>
 
 <script>
-// import router from '../router/index'
+// import router from '../router/index' - Användning av router som inte blivit av
 
 export default {
   name: "LoginPage3",
@@ -52,18 +51,19 @@ export default {
   created() {
     // Använder created -- Denna kollar om en cookie finns
     if (document.cookie.includes("username")) {
-      this.isLoggedIn = true;
+      this.isLoggedIn = true; // sätter isLoggedIn till true om det finns en cookie med namn username
     }
   },
   methods: {
     login() {
-      fetch("http://localhost:3000/login.php")
+      fetch("http://localhost:3000/login.php") /* Istället för att köpa domain */
         .then((response) => response.json())
         .then((data) => {
           const user = data.find(
             (user) =>
-              user.username === this.username && user.password === this.password
+              user.username === this.username && user.password === this.password // söker efter användaren i databasen som har samma användarnamn och lösenord
           );
+
           if (user) {
             console.log("Login successful!");
             this.$router.push("/profile");
@@ -75,13 +75,13 @@ export default {
           }
         })
         .catch((error) => {
-          console.error(error);
+          console.error(error); // loggar ut eventuella felmeddelanden till konsolen om det uppstår fel vid inloggning
         });
     },
     logout() {
       // Tar bort cookie
       document.cookie =
-        "username=; expires=Fri, 4 Mars 2000 00:00:00 UTC; path=/;";
+        "username=; expires=Fri, 4 Mars 2000 00:00:00 UTC; path=/;"; // tar bort cookien vid det här datumet (alltså direkt)
       this.isLoggedIn = false;
       console.log("Logout successful!");
     },
@@ -97,7 +97,7 @@ h1 {
   line-height: 20px;
   color: #d9d9d9;
 }
-.login-container {
+.loginContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -123,7 +123,7 @@ h1 {
   margin-bottom: 20px;
 }
 
-.form-group {
+.formGroup {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
