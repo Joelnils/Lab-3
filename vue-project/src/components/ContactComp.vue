@@ -27,6 +27,9 @@ function handleSubmit() {
         <h1>Take a look at our FAQ</h1>
         <h2>...or keep scrolling down to contact us!</h2>
       </div>
+      <div class="scroll">
+        <bounce class="scroll-text">Scroll</bounce>
+      </div>
     </div>
     <Faq />
 
@@ -74,11 +77,11 @@ function handleSubmit() {
             class="form-control"
             rows="3"
           />
-          <button class="btn-style"
+          <button
+            class="btn-style"
             @click="handleSubmit"
             data-bs-toggle="modal"
             data-bs-target="#staticBackdrop"
-            
           >
             SUBMIT
           </button>
@@ -166,5 +169,60 @@ function handleSubmit() {
     rgb(195, 174, 91) 51%,
     #dc8 100%
   );
+/* Scroll Animation */
+.scroll {
+  background: 0 0;
+  border-width: 0;
+  padding: 0;
+  width: 0;
+  position: absolute;
+  right: 1.5rem;
+  bottom: 0;
+  z-index: 10;
+  animation: scrollAnimation 2s ease-in-out infinite alternate;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.scroll::before {
+  content: '';
+  display: block;
+  height: 80px;
+  width: 24px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 12px);
+  z-index: 10;
+}
+
+.scroll-text {
+  letter-spacing: .2rem;
+  text-transform: uppercase;
+  color: #f7f7f7;
+  text-decoration: none;
+  display: block;
+  text-shadow: 0 0 1px rgb(0 0 0 / 30%), 0 1px 2px rgb(0 0 0 / 20%), 0 2px 4px rgb(0 0 0 / 10%);
+  transform: translateX(50%)rotate(-90deg);
+}
+
+.scroll::after {
+  background-color: #fff;
+  content: '';
+  display: block;
+  height: 1.5rem;
+  margin-left: -1px;
+  transform-origin: 50% 100%;
+  width: 2px;
+}
+
+@keyframes scrollAnimation {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(20px);
+  }
 }
 </style>
