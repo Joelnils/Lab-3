@@ -24,9 +24,12 @@ function handleSubmit() {
   <div class="body-container">
     <div class="hero">
       <div class="hero-text">
-        <h1>Take a look at our FAQ</h1>
-        <h2>...or keep scrolling down to contact us!</h2>
+        <h1>Contact</h1>
+        
       </div>
+      <div class="scroll">
+      <bounce class="scroll-text">Scroll</bounce>
+    </div>
     </div>
     <Faq />
 
@@ -34,6 +37,7 @@ function handleSubmit() {
       <div class="contact-header">
         <h1 class="big-h1">Contact us</h1>
       </div>
+      <div class="border-bot"></div>
       <div class="form-header">
         <h2>
           Please fill out the form below and we'll get back to you as soon as
@@ -78,13 +82,14 @@ function handleSubmit() {
             @click="handleSubmit"
             data-bs-toggle="modal"
             data-bs-target="#staticBackdrop"
+            class="btn-1"
           >
             SUBMIT
           </button>
           <Modal :firstName="result" />
         </div>
       </div>
-      <Map />
+      <!-- <Map /> -->
     </div>
   </div>
 </template>
@@ -92,11 +97,20 @@ function handleSubmit() {
 <style scoped>
 * {
   margin: 0;
+   
+}
+h1{
+  color: #f7f7f7;
+  font-size: 40px;
+  
 }
 
 .body-container {
   display: flex;
   flex-direction: column;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: 20px;
 }
 
 .control {
@@ -107,7 +121,7 @@ function handleSubmit() {
   align-items: center;
   height: 100%;
   flex-direction: column;
-  padding: 40px;
+  
 }
 .form-container {
   max-width: 1200px;
@@ -116,7 +130,10 @@ function handleSubmit() {
   align-items: center;
   width: 100%;
   flex-direction: column;
-  padding: 40px;
+  
+}
+.big-h1{
+  margin-top: 20px;
 }
 .col {
   padding: 0px;
@@ -155,7 +172,84 @@ function handleSubmit() {
 .contact-header {
   color: white;
   width: 100%;
-  border-bottom: 2px solid white;
+  
   text-align: center;
+}
+.border-bot{
+  width: 100%;
+  border-bottom: 3px solid white;
+  text-align: center;
+  opacity: .25;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+.btn-1 {
+  background: linear-gradient(
+    182deg,
+    #fea 0%,
+    #dc8 49%,
+    rgb(195, 174, 91) 51%,
+    #dc8 100%
+  );
+  padding: 20px;
+  margin-top: 10px;
+  font-size: larger;
+  font-weight: 800;
+}
+/* Scroll Animation */
+.scroll {
+  background: 0 0;
+  border-width: 0;
+  padding: 0;
+  width: 0;
+  position: absolute;
+  right: 1.5rem;
+  bottom: 0;
+  z-index: 10;
+  animation: scrollAnimation 2s ease-in-out infinite alternate;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.scroll::before {
+  content: '';
+  display: block;
+  height: 80px;
+  width: 24px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 12px);
+  z-index: 10;
+}
+
+.scroll-text {
+  letter-spacing: .2rem;
+  text-transform: uppercase;
+  color: #f7f7f7;
+  text-decoration: none;
+  display: block;
+  text-shadow: 0 0 1px rgb(0 0 0 / 30%), 0 1px 2px rgb(0 0 0 / 20%), 0 2px 4px rgb(0 0 0 / 10%);
+  transform: translateX(50%)rotate(-90deg);
+}
+
+.scroll::after {
+  background-color: #fff;
+  content: '';
+  display: block;
+  height: 1.5rem;
+  margin-left: -1px;
+  transform-origin: 50% 100%;
+  width: 2px;
+}
+
+@keyframes scrollAnimation {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(20px);
+  }
 }
 </style>
