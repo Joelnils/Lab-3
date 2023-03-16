@@ -4,6 +4,7 @@
   <div class="accountPage">
     <div class="guestAccountPage">
       <div class="card" style="width: 18rem">
+      <!-- Visar en bild som representerar användaren -->
         <img
           src="https://media.istockphoto.com/id/1356420393/photo/3d-futuristic-woman-with-metaverse-vr-glasses.jpg?b=1&s=170667a&w=0&k=20&c=UTCXG8WzdGTrm4JOVan7Q8WbizJ-oSWW1GMvtvhNEpY="
           class="card-img-top"
@@ -13,15 +14,17 @@
           <!-- Bootstrap -->
 
           <h5 class="card-title">Welcome, {{ username }}!</h5>
-          <p class="card-text">
+          <p class="card-text"> <!-- Random text för att fylla kortet -->
             Random text written by me - Random text written by me part 2!
           </p>
+          <!-- Visar användarens e-postadress i en knapp -->
           <a href="#" class="btn btn-primary">{{ email }}</a>
         </div>
         <!-- Bootstrap -->
       </div>
-      <div class="profile-container">
+      <div class="profileContainer">
         <h1>Profile</h1>
+        <!-- Visar användarens information om de är inloggade -->
         <!-- <div v-if="isLoggedIn">
           <h2>Welcome, {{ username }}!</h2>
           <p>Email: {{ email }}</p>
@@ -29,13 +32,16 @@
         </div> -->
       </div>
 
-      <div class="blue-side">
+      <!-- Blå vänstra delen som innehåller länk för utloggning och bootstrap -->
+      <div class="blueSide">
         <i class="bi bi-box-arrow-right"></i>
         <i class="bi bi-person-circle"></i>
         <h1 class="guestName">{{ guestName }}</h1>
         <router-link to="/login" class="logoutButtonP" @click="logout"
           >Logout</router-link
         >
+            <!-- Länk för utloggning -->
+
       </div>
     </div>
     <div class="col-8">
@@ -43,12 +49,10 @@
       <div class="card text-center">
         <div class="card-header">Profile Page</div>
         <div class="card-body">
-          <h5 class="card-title">
-            Hey {{ username }},<br />
-            Welcome back!
-          </h5>
-          <p class="card-text">Total money: {{ money }}</p>
-          <a href="/games" class="btn btn-primary">Play</a>
+          <h5 class="card-title">Hey {{ username }},<br> Welcome back!</h5> <!-- Välkomstmeddelande med namn -->
+          <p class="card-text">Total money: {{ money }}</p> <!-- Total money -->
+          <a href="/games" class="btn btn-primary">Play</a> <!-- Skickar till games -->
+
         </div>
         <div class="card-footer text-muted">Casino</div>
       </div>
@@ -70,7 +74,7 @@ export default {
     };
   },
   created() {
-    // Check if the user is logged in
+    // Kollar om användaren är inloggad
     const cookie = document.cookie
       .split("; ")
       .find((row) => row.startsWith("username="));
@@ -82,6 +86,7 @@ export default {
     }
   },
   methods: {
+    // Hämtar användarinformation från servern
     async loadUserInfo(username) {
       try {
         const response = await fetch(
@@ -89,15 +94,14 @@ export default {
         );
         const data = await response.json();
         this.email = data.email;
-        //this.profilePicture = data.profilePicture;
-        //this.money = data.money;
+        //this.money = data.money; - Tanken var att varje användare skulle ha "egna pengar"
       } catch (error) {
         console.error(error);
       }
     },
 
     logout() {
-      // Remove cookie
+      // Tar bort cookie och loggar ut
       document.cookie =
         "username=; expires=Fri, 4 Mar 2000 00:00:00 UTC; path=/;";
       this.isLoggedIn = false;
@@ -165,12 +169,12 @@ p {
 .logout-button:hover {
   color: rgba(152, 80, 13, 0.6);
 }
-.blue-side {
+.blueSide {
   display: flex;
   position: relative;
   /*position: sticky; */
   margin-left: -272px;
-  margin-top: -451px;
+  margin-top: -437px;
   width: 300px;
   height: 800px;
   bottom: 7.2%;

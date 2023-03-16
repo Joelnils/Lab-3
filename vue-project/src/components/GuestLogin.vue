@@ -1,15 +1,15 @@
 <script scoped></script>
 <template>
-  <div class="account-page">
-    <div class="guest-account-page">
+  <div class="accountPage">
+    <div class="guestAccountPage">
       <!-- Hämtar
       värdet från LoginPage.vue -->
     </div>
 
     <div class="blue-side">
-      <i class="bi bi-box-arrow-right"></i>
-      <i class="bi bi-person-circle"></i>
-      <router-link to="/login" class="custom-btn btn-1">Logout</router-link>
+      <i class="bi bi-box-arrow-right"></i> <!-- Bootstrap-icon för box-arrow-right används här -->
+      <i class="bi bi-person-circle"></i> <!-- Bootstrap-icon för person-circl" används här -->
+      <router-link to="/login" class="custom-btn btn-1">Logout</router-link> <!-- Länk som skickar användaren vidare -->
       <h1 class="guestName">{{ guestName }}</h1>
     </div>
   </div>
@@ -19,21 +19,24 @@ import SlotMachine from "./SlotMachine.vue";
 
 export default {
   components: {
+    // Registrera SlotMachine som en komponent som kan användas i den här filen
     SlotMachine,
   },
   computed: {
+    // guestName är en "computed property" som returnerar guestName från URL:en
     guestName() {
       return this.$route.query.guestName;
     },
   },
   components: {
+    // Registrera SlotMachine som en komponent som kan användas i den här filen
     SlotMachine,
   },
 };
 </script>
 
 <style>
-.account-page {
+.accountPage {
   position: absolute;
   width: 1200px;
   height: 600px;
@@ -52,7 +55,7 @@ export default {
   border-radius: 40px;
 }
 
-.guest-account-page {
+.guestAccountPage {
   margin: 0 auto;
   max-width: 60px; /* Tillagd kod */
 }
