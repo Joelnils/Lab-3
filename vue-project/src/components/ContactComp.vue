@@ -104,6 +104,9 @@ h1{
   font-size: 40px;
   
 }
+h2{
+  text-align: left;
+}
 
 .body-container {
   display: flex;
@@ -121,6 +124,8 @@ h1{
   align-items: center;
   height: 100%;
   flex-direction: column;
+  padding-bottom: 250px;
+  padding-top: 20px;
   
 }
 .form-container {
@@ -161,10 +166,12 @@ h1{
 .form-header {
   color: white;
 
-  padding: 40px;
+ 
   display: flex;
   justify-content: center;
-  text-align: center;
+  text-align: left;
+  padding-bottom: 40px;
+  padding-top: 30px;
 }
 .hero-text {
   border-radius: 7px;
