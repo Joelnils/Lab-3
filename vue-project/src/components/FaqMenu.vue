@@ -20,6 +20,7 @@ onMounted(() => {
     <div class="faq">
       <h1>FAQ</h1>
     </div>
+    <div class="border-bot"></div>
     <div v-for="q in qs" :key="q.id" class="box">
       <h3>{{ q.title }}</h3>
 
@@ -34,21 +35,26 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
   flex-direction: column;
-  padding: 40px;
+  margin-top: 20px;
 }
 .box {
   color: white;
-  max-width: 1200px;
-  padding: 40px;
+ 
+  
 }
 .faq {
   width: 100%;
-  border-bottom: 2px solid white;
   text-align: center;
+  
 }
-h1 {
-  margin: 0;
+.border-bot{
+  width: 100%;
+  border-bottom: 3px solid white;
+  text-align: center;
+  opacity: .25;
+  margin-bottom: 15px;
+  margin-top: 15px;
 }
+
 </style>
