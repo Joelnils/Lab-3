@@ -5,7 +5,7 @@ export default {
   data() {
     return {
       headline: "How To Play",
-      headlineBJ: "Black Jack",
+      headlineBJ: "BlackJack",
       headlineSlot: "Slots",
       headlineWheel: "Lucky Wheel",
       headlineAR: "American Roulette",
@@ -31,10 +31,13 @@ export default {
   </div>
   <div class="container_bottom">
     <div style="white-space: pre-line" class="container_bottom_content">
-      <div>
+      <div class="test">
+        <div class="bj">
         <h2 id="blackjack">{{ headlineBJ }}</h2>
       </div>
-      <LinkMenu />
+        <LinkMenu />
+      </div>
+      
       <hr class="solid" />
       <p class="container_bottom_text" v-for="game in games" :key="game">
         <!-- Gets strings from rules.json in English -->
@@ -85,11 +88,17 @@ export default {
 </template>
 
 <style scoped>
+.test{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .container_top {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 
 .container_top h1 {

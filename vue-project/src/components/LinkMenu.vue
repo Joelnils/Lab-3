@@ -24,13 +24,11 @@
   </template>
 
   <style scoped>
-  .container {
-    position: absolute;
-    top: 105%;
-    left: 60%;
-    transform: translate(-50%, -50%);
-  }
-
+.container{
+  display: flex ;
+  justify-content: flex-end;
+  align-items: center;
+}
   .nav {
     display: flex;
     justify-content: center;
