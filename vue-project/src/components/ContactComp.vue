@@ -24,8 +24,8 @@ function handleSubmit() {
   <div class="body-container">
     <div class="hero">
       <div class="hero-text">
-        <h1>Take a look at our FAQ</h1>
-        <h2>...or keep scrolling down to contact us!</h2>
+        <h1>Contact</h1>
+        
       </div>
       <div class="scroll">
       <bounce class="scroll-text">Scroll</bounce>
@@ -97,6 +97,11 @@ function handleSubmit() {
 <style scoped>
 * {
   margin: 0;
+   
+}
+h1{
+  color: #f7f7f7;
+  
 }
 
 .body-container {
