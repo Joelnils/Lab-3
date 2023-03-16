@@ -126,6 +126,9 @@ function handleSubmit() {
   flex-direction: column;
   
 }
+.big-h1{
+  margin-top: 20px;
+}
 .col {
   padding: 0px;
 }
