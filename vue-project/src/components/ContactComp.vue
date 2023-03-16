@@ -101,6 +101,7 @@ function handleSubmit() {
 }
 h1{
   color: #f7f7f7;
+  font-size: 40px;
   
 }
 
