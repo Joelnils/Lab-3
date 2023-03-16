@@ -134,6 +134,7 @@ h1{
 }
 .big-h1{
   margin-top: 20px;
+  text-align: left;
 }
 .col {
   padding: 0px;

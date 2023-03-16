@@ -45,7 +45,8 @@ onMounted(() => {
 }
 .faq {
   width: 100%;
-  text-align: center;
+  text-align:left;
+  font-size: 40px;
   
 }
 .border-bot{
