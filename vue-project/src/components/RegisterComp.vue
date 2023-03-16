@@ -1,24 +1,24 @@
 <script setup></script>
 
 <template>
-  <div class="login-container">
+  <div class="loginContainer">
     <form class="registerForm" @submit.prevent="registerUser">
       <!-- Gör att
       man inte refreshar sidan -->
       <h1>Register</h1>
-      <div class="form-group">
+      <div class="formGroup">
         <label for="username">Username:</label>
         <input type="text" id="username" v-model="username" />
       </div>
-      <div class="form-group">
+      <div class="formGroup">
         <label for="email">Email:</label>
         <input type="email" id="email" v-model="email" />
       </div>
-      <div class="form-group">
+      <div class="formGroup">
         <label for="password">Password:</label>
         <input type="password" id="password" v-model="password" />
       </div>
-      <div class="form-group">
+      <div class="formGroup">
         <label for="confirm-password">Confirm Password:</label>
         <input
           type="password"
@@ -26,9 +26,9 @@
           v-model="confirmPassword"
         />
       </div>
-      <span class="errorM" v-if="errorMessage">{{ errorMessage }}</span>
+      <span class="errorM" v-if="errorMessage">{{ errorMessage }}</span> <!-- Blir det fel kommer detta upp -->
       <div>
-        <button class="registerButton" type="submit">Register</button>
+        <button class="custom-btn btn-1" type="submit">Register</button>
         <!-- <button class="loginButton" @click.prevent="login">Login</button> -->
       </div>
     </form>
@@ -49,6 +49,7 @@ export default {
   methods: {
     async registerUser() {
       if (
+        // Kontrollerar om allt är ifyllt
         !this.username.trim() ||
         !this.password.trim() ||
         !this.email.trim()
@@ -56,16 +57,16 @@ export default {
         this.errorMessage = "Please fill in all fields";
         return;
       }
-      if (this.password !== this.confirmPassword) {
+      if (this.password !== this.confirmPassword) { // Kontrollerar om lösenorden matchar med varandra
         this.errorMessage = "Passwords do not match";
         return;
       }
-      const formData = new FormData();
+      const formData = new FormData(); // Denna lägger till username, lösen och email i form-datan
       formData.append("username", this.username);
       formData.append("password", this.password);
       formData.append("email", this.email);
 
-      try {
+      try { // Skickar Post till servern med formulärdatan
         const response = await fetch("http://localhost:3000/register.php", {
           method: "POST",
           body: formData,
@@ -73,14 +74,14 @@ export default {
 
         const data = await response.json();
 
-        if (response.ok) {
-          // User created successfully
+        if (response.ok) { // Om det fungerar utan problem
+          // Användaren skapas "success"
           this.errorMessage = "Sucess!";
           setTimeout(() => {
             this.$router.push("/login");
           }, 2000); //Delay innan nästa sida
         } else {
-          // User creation failed
+          // Om det blir något fel
           this.errorMessage = data.message;
         }
       } catch (error) {
@@ -101,7 +102,7 @@ h1 {
   color: #d9d9d9;
   margin-bottom: 20px;
 }
-.login-container {
+.loginContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -139,7 +140,7 @@ h1 {
   transition: 0.5s;
 }
 
-.form-group {
+.formGroup {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
