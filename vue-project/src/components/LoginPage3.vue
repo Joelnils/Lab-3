@@ -23,6 +23,9 @@
           <router-link to="/register">
             <button class="custom-btn btn-1">Register</button>
           </router-link>
+          <router-link to="/home">
+            <button class="custom-btn btn-1">Guest</button>
+          </router-link>
         </div>
         <!--<button class="guestButton">Guest</button>  -->
         <button v-if="isLoggedIn" class="custom-btn btn-1" @click="logout">
