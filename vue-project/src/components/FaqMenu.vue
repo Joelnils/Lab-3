@@ -34,28 +34,24 @@ onMounted(() => {
   color: white;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
   margin-top: 20px;
 }
 .box {
   color: white;
- 
-  
 }
 .faq {
   width: 100%;
-  text-align:left;
+  text-align: left;
   font-size: 40px;
-  
 }
-.border-bot{
+.border-bot {
   width: 100%;
   border-bottom: 3px solid white;
   text-align: center;
-  opacity: .25;
+  opacity: 0.25;
   margin-bottom: 15px;
   margin-top: 15px;
 }
-
 </style>
