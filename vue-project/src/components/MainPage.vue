@@ -5,8 +5,8 @@ import GameCard from "../components/GameCard.vue";
 
 <template>
   <div class="container_top">
-  <div class="container_top_content">
-    <h1 class="container_top_title">{{ hero }}</h1>
+    <div class="container_top_content">
+      <h1 class="container_top_title">{{ hero }}</h1>
       <!--<input
                 @click="$router.push('/games')"
                 type="button"
@@ -46,6 +46,10 @@ export default {
 </script>
 
 <style scoped>
+h1 {
+  line-height: 1;
+}
+
 .container_top {
   height: 100vh;
   display: flex;
@@ -72,7 +76,8 @@ export default {
   font-size: 100px;
 }
 
-.container_bottom {}
+.container_bottom {
+}
 
 .container_bottom {
   padding-top: 5rem;
@@ -137,29 +142,35 @@ export default {
 
 /* 1 */
 .btn-1 {
-  background: linear-gradient(182deg,
-      #fea 0%,
-      #dc8 49%,
-      rgb(195, 174, 91) 51%,
-      #dc8 100%);
+  background: linear-gradient(
+    182deg,
+    #fea 0%,
+    #dc8 49%,
+    rgb(195, 174, 91) 51%,
+    #dc8 100%
+  );
 }
 
 /*2*/
 .btn-2 {
-  background: linear-gradient(top,
-      #a95,
-      #f2f2f2 25%,
-      #fff 38%,
-      #c5c5c5 63%,
-      #f7f7f7 87%,
-      #a95);
-  background: -webkit-linear-gradient(top,
-      #a95,
-      #fea 25%,
-      #fff 38%,
-      #dc8 63%,
-      #fea 87%,
-      #a95);
+  background: linear-gradient(
+    top,
+    #a95,
+    #f2f2f2 25%,
+    #fff 38%,
+    #c5c5c5 63%,
+    #f7f7f7 87%,
+    #a95
+  );
+  background: -webkit-linear-gradient(
+    top,
+    #a95,
+    #fea 25%,
+    #fff 38%,
+    #dc8 63%,
+    #fea 87%,
+    #a95
+  );
 }
 
 /*3*/
@@ -169,10 +180,12 @@ export default {
 
 /*4*/
 .btn-4 {
-  background-image: -webkit-repeating-linear-gradient(left,
+  background-image: -webkit-repeating-linear-gradient(
+      left,
       rgba(255, 238, 170, 0) 0%,
       rgba(255, 238, 170, 0) 3%,
-      rgba(255, 238, 170, 0) 5%),
+      rgba(255, 238, 170, 0) 5%
+    ),
     linear-gradient(180deg, #a95 0%, #fea 47%, #dc8 53%, #fea 100%);
 }
 
@@ -187,11 +200,11 @@ export default {
   bottom: 0;
   z-index: 10;
   animation: scrollAnimation 2s ease-in-out infinite alternate;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 .scroll::before {
-  content: '';
+  content: "";
   display: block;
   height: 80px;
   width: 24px;
@@ -202,18 +215,19 @@ export default {
 }
 
 .scroll-text {
-  letter-spacing: .2rem;
+  letter-spacing: 0.2rem;
   text-transform: uppercase;
   color: #f7f7f7;
   text-decoration: none;
   display: block;
-  text-shadow: 0 0 1px rgb(0 0 0 / 30%), 0 1px 2px rgb(0 0 0 / 20%), 0 2px 4px rgb(0 0 0 / 10%);
-  transform: translateX(50%)rotate(-90deg);
+  text-shadow: 0 0 1px rgb(0 0 0 / 30%), 0 1px 2px rgb(0 0 0 / 20%),
+    0 2px 4px rgb(0 0 0 / 10%);
+  transform: translateX(50%) rotate(-90deg);
 }
 
 .scroll::after {
   background-color: #fff;
-  content: '';
+  content: "";
   display: block;
   height: 1.5rem;
   margin-left: -1px;
@@ -222,7 +236,6 @@ export default {
 }
 
 @keyframes scrollAnimation {
-
   0%,
   100% {
     transform: translateY(0px);
